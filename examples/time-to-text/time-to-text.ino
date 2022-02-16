@@ -1,4 +1,13 @@
-
+/**
+ * @file time-to-text.ino
+ * @author Phil Schatzmann
+ * @brief Demo sketch which translates a number into words. This is the input for generating speech.
+ * @version 0.1
+ * @date 2022-02-16
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "SimpleTTS.h"
 
 TimeToText ttt;

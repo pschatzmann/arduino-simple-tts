@@ -1,4 +1,13 @@
-
+/**
+ * @file talking-time.ino
+ * @author Phil Schatzmann
+ * @brief A talking clock: You can define how ofter the time is announced with setEveryMinutes
+ * @version 0.1
+ * @date 2022-02-16
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
 #include "AudioLibs/AudioKit.h"

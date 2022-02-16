@@ -1,4 +1,14 @@
 
+/**
+ * @file time-to-speech.ino
+ * @author Phil Schatzmann
+ * @brief Test sketch which announces the indicated time
+ * @version 0.1
+ * @date 2022-02-16
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
 
