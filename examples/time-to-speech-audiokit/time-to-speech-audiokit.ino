@@ -8,7 +8,7 @@ AudioKitStream i2s;
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
 TextToSpeech tts(ttt, i2s, mp3, dictionary);
-Time v_time;
+SimpleTime v_time;
 
 void setup(){
     Serial.begin(115200);

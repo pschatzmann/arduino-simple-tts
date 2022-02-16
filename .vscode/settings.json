@@ -13,6 +13,9 @@
         "state": "cpp",
         "valueobject": "cpp",
         "observer_ptr": "cpp",
-        "ref_ptr": "cpp"
+        "ref_ptr": "cpp",
+        "condition_variable": "cpp",
+        "callback": "cpp",
+        "image": "cpp"
     }
 }

@@ -13,12 +13,12 @@ class TimeToText : public SimpleTTSBase {
  public:
   /// converts a number to it's text representation
   audio_tools::Vector<const char *> &say(int hour, int minutes) {
-    Time time(hour,minutes);
+    SimpleTime time(hour,minutes);
     say(time);
   }
 
   /// converts a number to it's text representation
-  audio_tools::Vector<const char *> &say(Time time) {
+  audio_tools::Vector<const char *> &say(SimpleTime time) {
     result.clear();
     LOGI("say: %d:%d",time.hour, time.minute);
     if (time.minute < 0 || time.minute >= 60) {
@@ -83,7 +83,7 @@ class TimeToText : public SimpleTTSBase {
     }
   }
 
-  void process(Time time) {
+  void process(SimpleTime time) {
     add(ITS);
     // process exceptional times
     if (time.hour == 12 && time.minute == 00) {
@@ -107,7 +107,7 @@ class TimeToText : public SimpleTTSBase {
     return;
   }
 
-  void processMinutes(Time &time) {
+  void processMinutes(SimpleTime &time) {
     // process minutes
     if (time.minute == 0) {
       // do nothing
@@ -132,7 +132,7 @@ class TimeToText : public SimpleTTSBase {
     }
   }
 
-  void processHourPM(Time time) {
+  void processHourPM(SimpleTime time) {
     int hour = time.hour;
     hour -= 12;
     // we do not say 0pm -> 12pm
@@ -148,7 +148,7 @@ class TimeToText : public SimpleTTSBase {
     add(PM);
   }
 
-  void processHourAM(Time time) {
+  void processHourAM(SimpleTime time) {
     int hour = time.hour;
     // we do not say 0am -> 12am
     if (hour == 0) {

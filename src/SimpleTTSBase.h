@@ -13,14 +13,16 @@ namespace simple_tts {
  */
 class SimpleTTSBase {
  public:
-  virtual audio_tools::Vector<const char*> & allTexts() = 0;
-  virtual void registerCallback(void (*ptr)(audio_tools::Vector <const char*> words, void* refx), void*ref) {
+  virtual audio_tools::Vector<const char*>& allTexts() = 0;
+  virtual void registerCallback(
+      void (*ptr)(audio_tools::Vector<const char*> words, void* refx),
+      void* ref) {
     callback = ptr;
     reference = ref;
   }
 
  protected:
-  void (*callback)(audio_tools::Vector < const char*> word, void* ref) = nullptr;
+  void (*callback)(audio_tools::Vector<const char*> word, void* ref) = nullptr;
   void* reference = nullptr;
 };
 
@@ -46,27 +48,37 @@ struct AudioDictionaryEntry {
 };
 
 /**
- * @brief An Entry for the in Memory Audio Dictionary which contains the full text
+ * @brief An Entry for the in Memory Audio Dictionary which contains the full
+ * text
  * @author Phil Schatzmann
  * @copyright GPLv3
- * 
+ *
  */
 struct AudioDictionaryEntryExt : AudioDictionaryEntry {
-  const char* text = nullptr; // optional - when different from name
+  const char* text = nullptr;  // optional - when different from name
 };
 
 /**
  * @brief Just a simple structure with the hour and minutes
  *
  */
-struct Time {
-  int hour=0; 
-  int minute=0;
-  Time() = default;
-  Time(int hour, int minutes){
+struct SimpleTime {
+  int hour = 0;
+  int minute = 0;
+  SimpleTime() = default;
+  SimpleTime(int hour, int minutes) {
     this->hour = hour;
     this->minute = minutes;
   }
+  bool operator==(const SimpleTime& alt){
+    return alt.hour == hour && alt.minute==minute;
+  }
+  bool operator!=(const SimpleTime& alt){
+    return alt.hour != hour || alt.minute!=minute;
+  }
+
 };
+
+
 
 }  // namespace simple_tts
