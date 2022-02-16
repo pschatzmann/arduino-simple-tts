@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "utility": "cpp",
+        "tuple": "cpp",
+        "atomic": "cpp",
+        "matrixd": "cpp",
+        "matrixf": "cpp",
+        "state": "cpp",
+        "valueobject": "cpp",
+        "observer_ptr": "cpp",
+        "ref_ptr": "cpp"
+    }
+}
