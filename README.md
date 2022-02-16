@@ -87,3 +87,15 @@ Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes fo
 ```
 
 I think this leave plenty of headroom...
+
+## Converting MP3 Files into Header Files
+
+I used xxd to generate a .h file from an mp3 recording:
+```
+xxd -i mp3file.mp3 header-file.h
+```
+The header files are then made available with the logic that can be found in [AudioDictionary.h](https://github.com/pschatzmann/arduino-simple-tts/blob/main/src/AudioDictionary.h)
+
+## Documentation
+
+Here is the [link to the generated class documentation](https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html)

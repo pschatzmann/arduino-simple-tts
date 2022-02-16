@@ -29,8 +29,6 @@ class AudioDictionary : public AudioDictionaryBase  {
   AudioDictionaryEntry *dictionary;
 };
 
-
-
 /**
  * @brief In Memory collection of words with the related mp3 files
  * @author Phil Schatzmann
