@@ -1,0 +1,115 @@
+\hypertarget{classsimple__tts_1_1_number_to_text}{}\doxysection{simple\+\_\+tts\+::Number\+To\+Text Class Reference}
+\label{classsimple__tts_1_1_number_to_text}\index{simple\_tts::NumberToText@{simple\_tts::NumberToText}}
+
+
+Translates a number into englich words.  
+
+
+
+
+{\ttfamily \#include $<$Number\+To\+Text.\+h$>$}
+
+Inheritance diagram for simple\+\_\+tts\+::Number\+To\+Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsimple__tts_1_1_number_to_text}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}\label{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}{say}} (double value)
+\begin{DoxyCompactList}\small\item\em converts a number to it\textquotesingle{}s text representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}\label{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}{all\+Texts}} ()
+\begin{DoxyCompactList}\small\item\em provides all texts \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aef9174b91839a6c53f480463943e02db}\label{classsimple__tts_1_1_number_to_text_aef9174b91839a6c53f480463943e02db}} 
+void {\bfseries add} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a115582a65365ca8c2cc1cbf53e8a3fd5}\label{classsimple__tts_1_1_number_to_text_a115582a65365ca8c2cc1cbf53e8a3fd5}} 
+void {\bfseries decimals} (double decimals)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ab9f3f86383893a3b91b0e83e4271e412}\label{classsimple__tts_1_1_number_to_text_ab9f3f86383893a3b91b0e83e4271e412}} 
+void {\bfseries convert} (int value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a48d1c6b50c6fc64489565e8139fba9ed}\label{classsimple__tts_1_1_number_to_text_a48d1c6b50c6fc64489565e8139fba9ed}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ {\bfseries result}
+\item 
+const char $\ast$ {\bfseries first} \mbox{[}20\mbox{]}
+\item 
+const char $\ast$ {\bfseries second} \mbox{[}10\mbox{]}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a36588d34624e6675b7f69916d8e92b74}\label{classsimple__tts_1_1_number_to_text_a36588d34624e6675b7f69916d8e92b74}} 
+const char $\ast$ {\bfseries third} \mbox{[}6\mbox{]} = \{\char`\"{}HUNDRED\char`\"{}, \char`\"{}THOUSAND\char`\"{}, \char`\"{}MILLION\char`\"{},\char`\"{}AND\char`\"{},\char`\"{}DOT\char`\"{},\char`\"{}MINUS\char`\"{}\}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}\label{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}} 
+const int {\bfseries HUNDRED} = 0
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}\label{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}} 
+const int {\bfseries THOUSAND} = 1
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}\label{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}} 
+const int {\bfseries MILLION} = 2
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a903ee66f81b80e4f9cde4c7d7344e392}\label{classsimple__tts_1_1_number_to_text_a903ee66f81b80e4f9cde4c7d7344e392}} 
+const int {\bfseries AND} = 3
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a008b5758593a8899e602f15f5aa00943}\label{classsimple__tts_1_1_number_to_text_a008b5758593a8899e602f15f5aa00943}} 
+const int {\bfseries DOT} = 4
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a435ea4ccaf5191a91162c9361f81e899}\label{classsimple__tts_1_1_number_to_text_a435ea4ccaf5191a91162c9361f81e899}} 
+const int {\bfseries MINUS} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Translates a number into englich words. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a18f66f2a010b90e872d2112b7235acef}\label{classsimple__tts_1_1_number_to_text_a18f66f2a010b90e872d2112b7235acef}} 
+\index{simple\_tts::NumberToText@{simple\_tts::NumberToText}!first@{first}}
+\index{first@{first}!simple\_tts::NumberToText@{simple\_tts::NumberToText}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily const char$\ast$ simple\+\_\+tts\+::\+Number\+To\+Text\+::first\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}ZERO"{}},    \textcolor{stringliteral}{"{}ONE"{}},       \textcolor{stringliteral}{"{}TWO"{}},       \textcolor{stringliteral}{"{}THREE"{}},}
+\DoxyCodeLine{                           \textcolor{stringliteral}{"{}FOUR"{}},    \textcolor{stringliteral}{"{}FIVE"{}},      \textcolor{stringliteral}{"{}SIX"{}},       \textcolor{stringliteral}{"{}SEVEN"{}},}
+\DoxyCodeLine{                           \textcolor{stringliteral}{"{}EIGHT"{}},   \textcolor{stringliteral}{"{}NINE"{}},      \textcolor{stringliteral}{"{}TEN"{}},       \textcolor{stringliteral}{"{}ELEVEN"{}},}
+\DoxyCodeLine{                           \textcolor{stringliteral}{"{}TWELVE"{}},  \textcolor{stringliteral}{"{}THIRTEEN"{}},  \textcolor{stringliteral}{"{}FOURTEEN"{}},  \textcolor{stringliteral}{"{}FIFTEEN"{}},}
+\DoxyCodeLine{                           \textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{stringliteral}{"{}EIGHTTEEN"{}}, \textcolor{stringliteral}{"{}NINETEEN"{}}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}\label{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}} 
+\index{simple\_tts::NumberToText@{simple\_tts::NumberToText}!second@{second}}
+\index{second@{second}!simple\_tts::NumberToText@{simple\_tts::NumberToText}}
+\doxysubsubsection{\texorpdfstring{second}{second}}
+{\footnotesize\ttfamily const char$\ast$ simple\+\_\+tts\+::\+Number\+To\+Text\+::second\mbox{[}10\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}"{}},      \textcolor{stringliteral}{"{}TEN"{}},   \textcolor{stringliteral}{"{}TWENTY"{}},  \textcolor{stringliteral}{"{}THIRTY"{}}, \textcolor{stringliteral}{"{}FORTY"{}},}
+\DoxyCodeLine{                            \textcolor{stringliteral}{"{}FIFTY"{}}, \textcolor{stringliteral}{"{}SIXTY"{}}, \textcolor{stringliteral}{"{}SEVENTY"{}}, \textcolor{stringliteral}{"{}EIGHTY"{}}, \textcolor{stringliteral}{"{}NINETY"{}}\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Number\+To\+Text.\+h\end{DoxyCompactItemize}

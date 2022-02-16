@@ -1,0 +1,51 @@
+\hypertarget{classsimple__tts_1_1_simple_t_t_s_base}{}\doxysection{simple\+\_\+tts\+::Simple\+TTSBase Class Reference}
+\label{classsimple__tts_1_1_simple_t_t_s_base}\index{simple\_tts::SimpleTTSBase@{simple\_tts::SimpleTTSBase}}
+
+
+Common Functionality for TTS classes.  
+
+
+
+
+{\ttfamily \#include $<$Simple\+TTSBase.\+h$>$}
+
+Inheritance diagram for simple\+\_\+tts\+::Simple\+TTSBase\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsimple__tts_1_1_simple_t_t_s_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_aeaf804640d6bfe21df0eb7a9a2985ee3}\label{classsimple__tts_1_1_simple_t_t_s_base_aeaf804640d6bfe21df0eb7a9a2985ee3}} 
+virtual audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries all\+Texts} ()=0
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_a399e345694a184a7c48ce16a345def6a}\label{classsimple__tts_1_1_simple_t_t_s_base_a399e345694a184a7c48ce16a345def6a}} 
+virtual void {\bfseries register\+Callback} (void($\ast$ptr)(audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$refx), void $\ast$ref)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_a056744a12b983215d731998d23244d14}\label{classsimple__tts_1_1_simple_t_t_s_base_a056744a12b983215d731998d23244d14}} 
+void($\ast$ {\bfseries callback} )(audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ word, void $\ast$ref) = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_ab664b7bf4dbde2b10a2bf4da3f44fa52}\label{classsimple__tts_1_1_simple_t_t_s_base_ab664b7bf4dbde2b10a2bf4da3f44fa52}} 
+void $\ast$ {\bfseries reference} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Common Functionality for TTS classes. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Simple\+TTSBase.\+h\end{DoxyCompactItemize}

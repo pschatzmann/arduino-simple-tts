@@ -1,0 +1,82 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. However often it might be good enough just to provide a solution which is based on some pre-\/recorded audio.
+
+I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library which is based on the \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} for the audio output.
+
+To keep things simple I decided to start with an simple implementation which can process numbers and on top of that another one which reads out the time. So the starting point are some classes wich tranlate numbers to test.
+
+This functionality can be used e.\+g. to build some
+
+
+\begin{DoxyItemize}
+\item talking clocks
+\item talking scales
+\end{DoxyItemize}\hypertarget{index_autotoc_md1}{}\doxysection{Conversion to Text Representation}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Numbers to Text}\label{index_autotoc_md2}
+Number\+To\+Text translates the number input into a audio\+\_\+tools\+::\+Vector of words. In the following examples we just print them out\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{NumberToText ntt;}
+\DoxyCodeLine{}
+\DoxyCodeLine{auto result = ntt.say(700123.431);}
+\DoxyCodeLine{}
+\DoxyCodeLine{for (auto str : result)\{}
+\DoxyCodeLine{    Serial.print(str);}
+\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Time to Text}\label{index_autotoc_md3}
+To process the time you need to provide the hours and minuts as input.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TimeToText ttt;}
+\DoxyCodeLine{}
+\DoxyCodeLine{auto result = ttt.say(12, 00);}
+\DoxyCodeLine{}
+\DoxyCodeLine{for (auto str : result)\{}
+\DoxyCodeLine{    Serial.print(str);}
+\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md4}{}\doxysection{Text to Speech}\label{index_autotoc_md4}
+If we record the words in mp3 we might even get away with the need of a separate SD drive because we can store the audio in program memory. The following sketch demonstrates how you can use the classes described above to convert them into audio output.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include "{}SimpleTTS.h"{}}
+\DoxyCodeLine{\#include "{}AudioCodecs/CodecMP3Helix.h"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{TimeToText ttt; // Text source}
+\DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
+\DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
+\DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
+\DoxyCodeLine{TextToSpeech tts(tts, i2s, mp3, dictionary);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()\{}
+\DoxyCodeLine{    Serial.begin(115200);}
+\DoxyCodeLine{    // setup i2s}
+\DoxyCodeLine{    auto cfg = i2s.defaultConfig(); }
+\DoxyCodeLine{    i2s.begin(cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    tts.say(14,40);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ The Example\+Audio\+Dictionary\+Values contains the prerecorded mp3 files which are stored in the progmem.\hypertarget{index_autotoc_md5}{}\doxysection{Memory Usage}\label{index_autotoc_md5}
+Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Sketch uses 740438 bytes (23\%) of program storage space. Maximum is 3145728 bytes.}
+\DoxyCodeLine{Global variables use 23632 bytes (7\%) of dynamic memory, leaving 304048 bytes for }
+
+\end{DoxyCode}
+
+
+I think this leave plenty of headroom... 

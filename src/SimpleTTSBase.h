@@ -55,6 +55,10 @@ struct AudioDictionaryEntryExt : AudioDictionaryEntry {
   const char* text = nullptr; // optional - when different from name
 };
 
+/**
+ * @brief Just a simple structure with the hour and minutes
+ *
+ */
 struct Time {
   int hour=0; 
   int minute=0;

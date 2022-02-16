@@ -78,4 +78,12 @@ void loop() {
 ```
 The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
 
+## Memory Usage
 
+Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32:
+```
+Sketch uses 740438 bytes (23%) of program storage space. Maximum is 3145728 bytes.
+Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes for 
+```
+
+I think this leave plenty of headroom...

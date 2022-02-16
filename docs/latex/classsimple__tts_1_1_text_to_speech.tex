@@ -1,0 +1,66 @@
+\hypertarget{classsimple__tts_1_1_text_to_speech}{}\doxysection{simple\+\_\+tts\+::Text\+To\+Speech Class Reference}
+\label{classsimple__tts_1_1_text_to_speech}\index{simple\_tts::TextToSpeech@{simple\_tts::TextToSpeech}}
+
+
+Audio output from text via the indicated audio sink. The text components need to be prerecorded and available as audio files.  
+
+
+
+
+{\ttfamily \#include $<$Text\+To\+Speech.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}\label{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}} 
+{\bfseries Text\+To\+Speech} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}\label{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}{say}} (const char $\ast$word)
+\begin{DoxyCompactList}\small\item\em a simple API to say one of the supported words \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}\label{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}{say}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words)
+\begin{DoxyCompactList}\small\item\em a simple API to say multiple of the supported words \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}\label{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}} 
+static void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}{callback}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$ref)
+\begin{DoxyCompactList}\small\item\em callback which says the words \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_aeb9e24c2c8d723278199198f7fdc0b51}\label{classsimple__tts_1_1_text_to_speech_aeb9e24c2c8d723278199198f7fdc0b51}} 
+\mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{Number\+To\+Text}} {\bfseries ntt}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_ac3d89b812aee0d092f9d7025d807de27}\label{classsimple__tts_1_1_text_to_speech_ac3d89b812aee0d092f9d7025d807de27}} 
+audio\+\_\+tools\+::\+Audio\+Decoder $\ast$ {\bfseries p\+\_\+decoder} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a89d076665325b378d903feb179de2541}\label{classsimple__tts_1_1_text_to_speech_a89d076665325b378d903feb179de2541}} 
+audio\+\_\+tools\+::\+Encoded\+Audio\+Stream $\ast$ {\bfseries decoded\+Stream} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a73a1943c038d0af43a4f51b5c33a39c9}\label{classsimple__tts_1_1_text_to_speech_a73a1943c038d0af43a4f51b5c33a39c9}} 
+\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} $\ast$ {\bfseries p\+\_\+tts} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a0d8dfa29413310f5c9d180dcef60e63c}\label{classsimple__tts_1_1_text_to_speech_a0d8dfa29413310f5c9d180dcef60e63c}} 
+\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} $\ast$ {\bfseries p\+\_\+dictionary} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a94fc25cd374d93be07f2cf09bd57a89b}\label{classsimple__tts_1_1_text_to_speech_a94fc25cd374d93be07f2cf09bd57a89b}} 
+audio\+\_\+tools\+::\+Stream\+Copy {\bfseries copier}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Audio output from text via the indicated audio sink. The text components need to be prerecorded and available as audio files. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Text\+To\+Speech.\+h\end{DoxyCompactItemize}
