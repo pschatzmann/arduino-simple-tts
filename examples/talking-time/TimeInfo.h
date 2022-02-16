@@ -12,7 +12,7 @@
  */
 class TimeInfo {
  public:
-  void start(const char* ssid, const char* password) {
+  void begin(const char* ssid, const char* password) {
     // connect to WiFi
     Serial.printf("Connecting to %s ", ssid);
     WiFi.begin(ssid, password);

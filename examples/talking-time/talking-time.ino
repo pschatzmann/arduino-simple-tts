@@ -38,7 +38,7 @@ void setup() {
   // We announce the time only every 5 minutes
   timeInfo.setEveryMinutes(5);
   // start WIFI and time
-  timeInfo.start(ssid, password);
+  timeInfo.begin(ssid, password);
   ttt.say(timeInfo.time());
 }
 
