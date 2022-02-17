@@ -54,7 +54,8 @@ struct AudioDictionaryEntry {
  * @copyright GPLv3
  *
  */
-struct AudioDictionaryEntryExt : AudioDictionaryEntry {
+struct AudioSDEntry {
+  const char* name;
   const char* text = nullptr;  // optional - when different from name
 };
 

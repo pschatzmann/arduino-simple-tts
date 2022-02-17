@@ -99,7 +99,7 @@ class TimeToText : public SimpleTTSBase {
     processMinutes(time);
 
     // add hour
-    if (time.hour < 12) {
+    if (time.hour <= 12) {
       processHourAM(time);
     } else {
       processHourPM(time);

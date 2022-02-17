@@ -6,8 +6,8 @@ However often it might be good enough just to provide a solution which is based 
 I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library
 which is based on the [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) for the audio output.
 
-To keep things simple I decided to start with an simple implementation which can process numbers and on top of that another one which 
-reads out the time. So the starting point are some classes wich tranlate numbers to test.
+To keep things simple I decided to start with a simple implementation that can process numbers and on top of that another one which 
+reads out the time. So the starting point are some classes that tranlate numbers to test.
 
 This functionality can be used e.g. to build some
 
@@ -32,6 +32,7 @@ for (auto str : result){
 }
 
 ```
+The result is: SEVEN HUNDRED THOUSAND ONE HUNDRED AND TWENTY THREE DOT FOUR THREE ONE ZERO ZERO ZERO 
 
 ### Time to Text
 
@@ -46,7 +47,9 @@ for (auto str : result){
     Serial.print(str);
     Serial.print(" ");
 }
+
 ```
+The result is: NOON
 
 ## Text to Speech
 
@@ -95,6 +98,15 @@ I used xxd to generate a .h file from an mp3 recording:
 xxd -i mp3file.mp3 header-file.h
 ```
 The header files are then made available with the logic that can be found in [AudioDictionary.h](https://github.com/pschatzmann/arduino-simple-tts/blob/main/src/AudioDictionary.h)
+
+## Using an Webservice to Generate the Audio Files
+
+It was quite tedious to prepare the mp3 audio files and I was looking for a better way to generate the necessary audio files. For the following examples I was relying on MozillaTTS that was running on a Raspberry Pi and files residing an a SD drive:
+
+- sd-initial-load demonstrates how to generate the audio files for the numbers and time support
+- sd-initial-load-long demonstrates hwo you could generate any type of input
+
+To use this new data just replace ```AudioDictionary dictionary(ExampleAudioDictionaryValues);``` with  ```AudioDictionarySD sd("/tts","wav"); ``` in the sketches that do output speech.
 
 ## Documentation
 

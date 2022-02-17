@@ -20,6 +20,8 @@ TextToSpeech tts(ttt, i2s, mp3, dictionary);
 
 void setup(){
     Serial.begin(115200);
+    AudioLogger::instance().begin(Serial, AudioLogger::Info);
+ 
     // setup i2s
     auto cfg = i2s.defaultConfig(); 
     cfg.sample_rate = 24000;
