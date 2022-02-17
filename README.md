@@ -89,26 +89,10 @@ Sketch uses 740438 bytes (23%) of program storage space. Maximum is 3145728 byte
 Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes for 
 ```
 
-I think this leave plenty of headroom...
+I think this leave plenty of headroom and you still have the option to store the audio on an SD drive...
 
-## Converting MP3 Files into Header Files
-
-I used xxd to generate a .h file from an mp3 recording:
-```
-xxd -i mp3file.mp3 header-file.h
-```
-The header files are then made available with the logic that can be found in [AudioDictionary.h](https://github.com/pschatzmann/arduino-simple-tts/blob/main/src/AudioDictionary.h)
-
-## Using a Webservice to Generate the Audio Files
-
-It was quite tedious to prepare the mp3 audio files and I was looking for a better way to generate them. For the following examples I was relying on MozillaTTS that was running on a Raspberry Pi. The files are generated on a SD drive:
-
-- sd-initial-load demonstrates how to generate the audio files for the numbers and time support
-- sd-initial-load-long demonstrates hwo you could generate any type of input
-
-To use this new data just replace ```AudioDictionary dictionary(ExampleAudioDictionaryValues);``` with  ```AudioDictionarySD sd("/tts","wav"); ``` 
-and replace ```MP3DecoderHelix mp3;``` with ```WAVDecoder wav``` in the sketches that do output speech.
 
 ## Documentation
 
 Here is the [link to the generated class documentation](https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html)
+Further information can be found in the [Wiki](https://github.com/pschatzmann/arduino-simple-tts/wiki) and in my [Blogs](https://www.pschatzmann.ch/home/tag/tts/)
