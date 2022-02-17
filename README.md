@@ -99,14 +99,15 @@ xxd -i mp3file.mp3 header-file.h
 ```
 The header files are then made available with the logic that can be found in [AudioDictionary.h](https://github.com/pschatzmann/arduino-simple-tts/blob/main/src/AudioDictionary.h)
 
-## Using an Webservice to Generate the Audio Files
+## Using a Webservice to Generate the Audio Files
 
-It was quite tedious to prepare the mp3 audio files and I was looking for a better way to generate the necessary audio files. For the following examples I was relying on MozillaTTS that was running on a Raspberry Pi and files residing an a SD drive:
+It was quite tedious to prepare the mp3 audio files and I was looking for a better way to generate them. For the following examples I was relying on MozillaTTS that was running on a Raspberry Pi. The files are generated on a SD drive:
 
 - sd-initial-load demonstrates how to generate the audio files for the numbers and time support
 - sd-initial-load-long demonstrates hwo you could generate any type of input
 
-To use this new data just replace ```AudioDictionary dictionary(ExampleAudioDictionaryValues);``` with  ```AudioDictionarySD sd("/tts","wav"); ``` in the sketches that do output speech.
+To use this new data just replace ```AudioDictionary dictionary(ExampleAudioDictionaryValues);``` with  ```AudioDictionarySD sd("/tts","wav"); ``` 
+and replace ```MP3DecoderHelix mp3;``` with ```WAVDecoder wav``` in the sketches that do output speech.
 
 ## Documentation
 
