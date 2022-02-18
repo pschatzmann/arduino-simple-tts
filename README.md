@@ -62,7 +62,7 @@ If we record the words in mp3 we might even get away with the need of a separate
 I2SStream i2s;  // audio output via I2S
 MP3DecoderHelix mp3;  // mp3 decoder
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
-TextToSpeech tts(tts, i2s, mp3, dictionary);
+TextToSpeech tts(i2s, mp3, dictionary);
 
 void setup(){
     Serial.begin(115200);
