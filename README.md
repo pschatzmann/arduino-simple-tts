@@ -53,8 +53,35 @@ The result is: NOON
 
 ## Text to Speech
 
-If we record the words in mp3 we might even get away with the need of a separate SD drive because we can store the audio in program memory.
-The following sketch demonstrates how you can use the classes described above to convert them into audio output.
+If we record the words in mp3 we might even get away with the need of a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
+
+```
+#include "SimpleTTS.h"
+#include "AudioCodecs/CodecMP3Helix.h"
+
+I2SStream i2s;  // audio output via I2S
+MP3DecoderHelix mp3;  // mp3 decoder
+AudioDictionary dictionary(ExampleAudioDictionaryValues);
+TextToSpeech tts(tts, i2s, mp3, dictionary);
+
+void setup(){
+    Serial.begin(115200);
+    // setup i2s
+    auto cfg = i2s.defaultConfig(); 
+    cfg.sample_rate = 24000;
+    cfg.channels = 1;
+    i2s.begin(cfg);
+
+    tts.say("BILLION");
+}
+
+void loop() {
+}
+
+```
+The word "Billion" is spoken out via I2S.
+
+You can also use the text generation classes described above to convert them into audio output:
 
 ```
 #include "SimpleTTS.h"
@@ -70,6 +97,8 @@ void setup(){
     Serial.begin(115200);
     // setup i2s
     auto cfg = i2s.defaultConfig(); 
+    cfg.sample_rate = 24000;
+    cfg.channels = 1;
     i2s.begin(cfg);
 
     tts.say(14,40);
@@ -79,7 +108,6 @@ void loop() {
 }
 
 ```
-The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
 
 ## Memory Usage
 
