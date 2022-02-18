@@ -91,7 +91,7 @@ TimeToText ttt; // Text source
 I2SStream i2s;  // audio output via I2S
 MP3DecoderHelix mp3;  // mp3 decoder
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
-TextToSpeech tts(tts, i2s, mp3, dictionary);
+TextToSpeech tts(i2s, mp3, dictionary);
 
 void setup(){
     Serial.begin(115200);

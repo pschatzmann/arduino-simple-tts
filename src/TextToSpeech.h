@@ -22,6 +22,7 @@ class TextToSpeech;
  */
 class TextToSpeech {
  public:
+  /// TextToSpeech which support a SimpleTTSBase 
   TextToSpeech(SimpleTTSBase &tts, AudioStream &sink, AudioDecoder &decoder,
                AudioDictionaryBase &dict) {
     tts.registerCallback(callback, this);
@@ -30,6 +31,15 @@ class TextToSpeech {
     p_decoder = &decoder;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
   }
+
+  /// Default Constructor
+  TextToSpeech(AudioStream &sink, AudioDecoder &decoder,
+               AudioDictionaryBase &dict) {
+    p_dictionary = &dict;
+    p_decoder = &decoder;
+    decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+  }
+
 
   ~TextToSpeech() { delete decodedStream; }
 
