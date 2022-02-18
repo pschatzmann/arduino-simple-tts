@@ -1,4 +1,5 @@
 #pragma once
+#ifndef NO_SPEECH
 #include "AudioCodecs/CodecMP3Helix.h"
 #include "AudioTools/AudioOutput.h"
 #include "AudioTools/AudioStreams.h"
@@ -71,3 +72,5 @@ class TextToSpeech {
 };
 
 }  // namespace simple_tts
+
+#endif

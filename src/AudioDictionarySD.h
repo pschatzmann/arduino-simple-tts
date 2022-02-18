@@ -1,8 +1,9 @@
 
 #pragma once
 
+#include <WiFi.h>
 #include <SD.h>
-#include <SPI.h>
+//#include <SPI.h>
 
 #include "SimpleTTSBase.h"
 
@@ -18,19 +19,23 @@ namespace simple_tts {
 class AudioStreamFileWrapper : public AudioStreamX {
  public:
   AudioStreamFileWrapper() = default;
-  virtual void begin(File &file) {
+  virtual bool begin(File &file) {
     if (p_file != nullptr) p_file->close();
     p_file = &file;
+    return true;
   }
-  virtual bool begin() { p_file->seek(0); }
+  virtual bool begin() {
+    p_file->seek(0);
+    return true;
+  }
   virtual void end() { p_file->close(); }
 
   virtual size_t readBytes(char *buffer, size_t length) {
-    return p_file->readBytes((char *)buffer, length);
+    return p_file->readBytes((uint8_t *)buffer, length);
   }
 
   virtual size_t readBytes(uint8_t *buffer, size_t length) {
-    return p_file->readBytes((char *)buffer, length);
+    return p_file->readBytes((uint8_t *)buffer, length);
   }
 
   virtual size_t write(const uint8_t *buffer, size_t length) {
@@ -40,6 +45,7 @@ class AudioStreamFileWrapper : public AudioStreamX {
   virtual int available() { return p_file->size() - p_file->position(); }
 
   operator bool() { return *p_file; }
+
 
  protected:
   File *p_file = nullptr;
@@ -92,18 +98,17 @@ class AudioDictionarySD : public AudioDictionaryBase {
                    const char *mime) {
     setup();
     url_with_text = url;
-    url_with_text.replace("@",text);
+    url_with_text.replace("@", text);
     LOGI("url: %s", url_with_text.c_str());
 
     const char *file = getFileWithPath(name);
     LOGI("file: %s", file);
     if (SD.exists(file)) {
-       SD.remove(file);
+      SD.remove(file);
     }
     File newFile = SD.open(file, FILE_WRITE);
     copy(newFile, url_with_text.c_str(), mime);
     newFile.close();
-     
   }
 
  protected:
@@ -127,7 +132,7 @@ class AudioDictionarySD : public AudioDictionaryBase {
         SD.begin();
       }
       if (!SD.exists(path)) {
-        LOGI("Creating directory: %d", path)
+        LOGI("Creating directory: %s", path)
         SD.mkdir(path);
       }
       is_setup = true;
@@ -151,7 +156,7 @@ class AudioDictionarySD : public AudioDictionaryBase {
     cp.begin(file, url_stream);
     cp.copyAll(0);
     url_stream.end();
-    LOGI("file size: %d Kbyte", file.size()/1024);
+    LOGI("file size: %d Kbyte", (int) file.size() / 1024);
     file.close();
   }
 };

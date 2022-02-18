@@ -14,7 +14,7 @@ class TimeToText : public SimpleTTSBase {
   /// converts a number to it's text representation
   audio_tools::Vector<const char *> &say(int hour, int minutes) {
     SimpleTime time(hour,minutes);
-    say(time);
+    return say(time);
   }
 
   /// converts a number to it's text representation

@@ -23,7 +23,8 @@ const char* password = "sabrina01";
 
 void connectWifi() {
     // connect to WiFi
-    Serial.printf("Connecting to %s ", ssid);
+    Serial.print("Connecting to ");
+    Serial.println(ssid);
     WiFi.begin(ssid, password);
     while (WiFi.status() != WL_CONNECTED) {
       delay(500);
@@ -37,7 +38,8 @@ void connectWifi() {
 void setup(){
     Serial.begin(115200);
     AudioLogger::instance().begin(Serial, AudioLogger::Debug);
-    SPI.begin(PIN_AUDIO_KIT_SD_CARD_CLK, PIN_AUDIO_KIT_SD_CARD_MISO, PIN_AUDIO_KIT_SD_CARD_MOSI, PIN_AUDIO_KIT_SD_CARD_CS);
+    // only for audiokit
+    //SPI.begin(PIN_AUDIO_KIT_SD_CARD_CLK, PIN_AUDIO_KIT_SD_CARD_MISO, PIN_AUDIO_KIT_SD_CARD_MOSI, PIN_AUDIO_KIT_SD_CARD_CS);
 
     connectWifi();
     // load numbers audio
