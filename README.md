@@ -101,7 +101,7 @@ void setup(){
     cfg.channels = 1;
     i2s.begin(cfg);
 
-    tts.say(14,40);
+    ttt.say(14,40);
 }
 
 void loop() {
