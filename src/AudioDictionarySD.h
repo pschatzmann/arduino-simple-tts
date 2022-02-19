@@ -97,19 +97,6 @@ class AudioDictionarySD : public AudioDictionaryBase {
     return nullptr;
   }
 
-  // Creates all missing audio recording files for the indicated source
-  void printCSV(SimpleTTSBase &source, const char *url, const char *mime) {
-    auto texts = source.allTexts();
-    Serial.println();
-    Serial.println("Audio Data:");
-    for (auto txt : texts) {
-      Serial.print(txt);
-      Serial.print(", ");
-      Serial.println(getFileWithPath(txt));
-    }
-    Serial.println();
-  }
-
  protected:
   audio_tools::StrExt url_with_text;
   AudioFile file;

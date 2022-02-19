@@ -1,5 +1,46 @@
-Name,Text
-one,one
-two,two
-@menu1,This is menu 1
-@menu2,This is menu 2
+Name, Text
+ZERO, zero
+ONE, one
+TWO, two
+THREE, three
+FOUR, four
+FIVE, five
+SIX, six
+SEVEN, seven
+EIGHT, eight
+NINE, nine
+TEN, ten
+ELEVEN, eleven
+TWELVE, twelve
+THIRTEEN, thirteen
+FOURTEEN, fourteen
+FIFTEEN, fifteen
+SIXTEEN, sixteen
+SEVENTEEN, seventeen
+EIGHTTEEN, eightteen
+NINETEEN, nineteen
+TEN, ten
+TWENTY, twenty
+THIRTY, thirty
+FORTY, forty
+FIFTY, fifty
+SIXTY, sixty
+SEVENTY, seventy
+EIGHTY, eighty
+NINETY, ninety
+HUNDRED, hundred
+THOUSAND, thousand
+MILLION, million
+AND, and
+DOT, dot
+MINUS, minus
+ITS, its
+NOON, noon
+MIDNIGHT, midnight
+OCLOCK, oclock
+TO, to
+PAST, past
+AM, am
+PM, pm
+HALF, half
+QUARTER, quarter

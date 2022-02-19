@@ -46,13 +46,6 @@ class TimeToText : public SimpleTTSBase {
     for (int j = 0; j < 10; j++) {
       add(j);
     }
-    // add all numbers
-    addAll(ntt.allTexts());
-
-    // provide result to callback
-    if (callback) {
-      callback(result, reference);
-    }
     return result;
   }
 

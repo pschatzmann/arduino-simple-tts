@@ -21,6 +21,19 @@ class SimpleTTSBase {
     reference = ref;
   }
 
+  // Creates all missing audio recording files for the indicated source
+  void printCSV(Print &out) {
+    for (auto txt : allTexts()) {
+      if (txt!=nullptr && strlen(txt)>0){
+        out.print(txt);
+        out.print(", ");
+        StrExt str = txt; 
+        str.toLowerCase(); // convert txt to lowercase
+        out.println(str.c_str());
+      }
+    }
+  }
+
  protected:
   void (*callback)(audio_tools::Vector<const char*> word, void* ref) = nullptr;
   void* reference = nullptr;
