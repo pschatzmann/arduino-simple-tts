@@ -71,15 +71,12 @@ struct SimpleTime {
     this->hour = hour;
     this->minute = minutes;
   }
-  bool operator==(const SimpleTime& alt){
-    return alt.hour == hour && alt.minute==minute;
+  bool operator==(const SimpleTime& alt) {
+    return alt.hour == hour && alt.minute == minute;
   }
-  bool operator!=(const SimpleTime& alt){
-    return alt.hour != hour || alt.minute!=minute;
+  bool operator!=(const SimpleTime& alt) {
+    return alt.hour != hour || alt.minute != minute;
   }
-
 };
-
-
 
 }  // namespace simple_tts

@@ -2,63 +2,79 @@
 #pragma once
 
 #include <WiFi.h>
-#include <SD.h>
-//#include <SPI.h>
 
 #include "SimpleTTSBase.h"
+
+// by default we use the SdFat Library
+#ifdef USE_SD
+#include <SD.h>
+typedef File AudioFile;
+#else
+#include <SdFat.h>
+typedef File32 AudioFile;
+typedef SdFat32 AudioFat;
+#ifndef SDFAT_SPEED
+#define SDFAT_SPEED 2
+#endif
+#endif
 
 namespace simple_tts {
 
 #include "en/all.h"
 
 /**
- * @brief A simple Wrapper that let's a file pretent to be a AudioStream to
- * support begin and end methods
+ * @brief A simple Wrapper that let's a file pretend to be a AudioStream to
+ * support the begin and end methods
  *
  */
+template <class T>
 class AudioStreamFileWrapper : public AudioStreamX {
  public:
   AudioStreamFileWrapper() = default;
-  virtual bool begin(File &file) {
-    if (p_file != nullptr) p_file->close();
+  virtual bool begin(T &file) {
     p_file = &file;
     return true;
   }
-  virtual bool begin() {
+  virtual bool begin() override {
+    LOGI(LOG_METHOD);
     p_file->seek(0);
     return true;
   }
-  virtual void end() { p_file->close(); }
-
-  virtual size_t readBytes(char *buffer, size_t length) {
-    return p_file->readBytes((uint8_t *)buffer, length);
+  virtual void end() override {
+    LOGI(LOG_METHOD);
+    p_file->close();
   }
 
-  virtual size_t readBytes(uint8_t *buffer, size_t length) {
-    return p_file->readBytes((uint8_t *)buffer, length);
+  virtual size_t readBytes(uint8_t *buffer, size_t length) override {
+    return p_file->readBytes((char *)buffer, length);
   }
 
-  virtual size_t write(const uint8_t *buffer, size_t length) {
+  virtual size_t write(const uint8_t *buffer, size_t length) override {
     return p_file->write(buffer, length);
   }
 
-  virtual int available() { return p_file->size() - p_file->position(); }
+  virtual int available() override { return p_file->available(); }
+
+  virtual int availableForWrite() override {
+    return p_file->availableForWrite();
+  }
 
   operator bool() { return *p_file; }
 
-
  protected:
-  File *p_file = nullptr;
+  T *p_file = nullptr;
 };
 
 /**
- * @brief A dictionary which is based on files stored on an SD card
+ * @brief A dictionary which is based on files stored on an SD card. By default
+ * we use the SdFat library. You can use the SD library with #define USE_SD
+ * before including this file
  * @author Phil Schatzmann
  * @copyright GPLv3
  */
 class AudioDictionarySD : public AudioDictionaryBase {
  public:
-  AudioDictionarySD(const char *path, const char *ext, int cs_pin = -1) {
+  AudioDictionarySD(const char *path, const char *ext, int cs_pin = PIN_CS) {
     this->path = path;
     this->ext = ext;
     this->cs_pin = cs_pin;
@@ -66,77 +82,68 @@ class AudioDictionarySD : public AudioDictionaryBase {
 
   ~AudioDictionarySD() { file.close(); }
 
-  /// retrieves recorded test for the word
+  /// retrieves recorded audio file for the word
   AudioStream *get(const char *word) {
     setup();
     // provide new file
-    file = SD.open(getFileWithPath(word), FILE_READ);
-    fileWrapper.begin(file);
-    return &fileWrapper;
+    const char *file_name = getFileWithPath(word);
+    if (SD.exists(file_name)) {
+      file = SD.open(file_name, FILE_READ);
+      fileWrapper.begin(file);
+      return &fileWrapper;
+    }
+    LOGE("File does not exist: %s", file_name);
+
+    return nullptr;
   }
 
   // Creates all missing audio recording files for the indicated source
-  void initialLoad(SimpleTTSBase &source, const char *url, const char *mime) {
+  void printCSV(SimpleTTSBase &source, const char *url, const char *mime) {
     auto texts = source.allTexts();
+    Serial.println();
+    Serial.println("Audio Data:");
     for (auto txt : texts) {
-      initialLoad(txt, txt, url, mime);
+      Serial.print(txt);
+      Serial.print(", ");
+      Serial.println(getFileWithPath(txt));
     }
-  }
-
-  // Loads the audio for the indicated entries. The last entry must be
-  // terminated with nullptr
-  void initialLoad(AudioSDEntry *entries, const char *url, const char *mime) {
-    AudioSDEntry *e = entries;
-    while (e != nullptr && e->name != nullptr) {
-      initialLoad(e->name, e->text, url, mime);
-      e++;
-    }
-  }
-
-  // Creates a single audio files for the indicated text
-  void initialLoad(const char *name, const char *text, const char *url,
-                   const char *mime) {
-    setup();
-    url_with_text = url;
-    url_with_text.replace("@", text);
-    LOGI("url: %s", url_with_text.c_str());
-
-    const char *file = getFileWithPath(name);
-    LOGI("file: %s", file);
-    if (SD.exists(file)) {
-      SD.remove(file);
-    }
-    File newFile = SD.open(file, FILE_WRITE);
-    bool ok = copy(newFile, url_with_text.c_str(), mime);
-    if (!ok){
-      LOGE("No data available: file '%s' will be deleted", file);
-      SD.remove(file);
-    }
+    Serial.println();
   }
 
  protected:
   audio_tools::StrExt url_with_text;
-  File file;
-  AudioStreamFileWrapper fileWrapper;
+  AudioFile file;
+  AudioStreamFileWrapper<AudioFile> fileWrapper;
+#ifndef USE_SD
+  AudioFat SD;
+#endif
   const char *path;
   const char *ext;
-  char file_path[200];
+  StrExt file_path{40};  // allocate 40 bytes as a typical good initial size
   bool is_setup = false;
   int cs_pin = -1;
-  URLStream url_stream;
-  StreamCopy cp;
 
   void setup() {
     if (!is_setup) {
-      LOGI("setup SD..");
-      if (cs_pin != -1) {
-        SD.begin(cs_pin);
-      } else {
-        SD.begin();
+#ifdef USE_SD
+      LOGI("Setup SD library");
+      if (!SD.begin(cs_pin)) {
+        LOGE("SD.begin failed for cs_pin: %d", cs_pin);
+        return;
       }
+#else
+      LOGI("Setup SdFat library");
+      if (!SD.begin(
+              SdSpiConfig(cs_pin, DEDICATED_SPI, SD_SCK_MHZ(SDFAT_SPEED)))) {
+        LOGE("SD.begin failed for cs_pin: %d", cs_pin);
+        return;
+      }
+#endif
       if (!SD.exists(path)) {
         LOGI("Creating directory: %s", path)
-        SD.mkdir(path);
+        if (!SD.mkdir(path)) {
+          LOGE("Could not create directory: %s", path);
+        }
       }
       is_setup = true;
     }
@@ -144,24 +151,15 @@ class AudioDictionarySD : public AudioDictionaryBase {
 
   // determines the filename for the word
   const char *getFileWithPath(const char *name) {
-    file_path[0] = 0;
-    strcat(file_path, path);
-    strcat(file_path, "/");
-    strcat(file_path, name);
-    strcat(file_path, ".");
-    strcat(file_path, ext);
-    LOGI("%s -> %s", name, file_path);
-    return (const char *)file_path;
-  }
-
-  bool copy(File &file, const char *url, const char *mime) {
-    url_stream.begin(url, mime);
-    cp.begin(file, url_stream);
-    bool result = cp.copyAll(0);
-    url_stream.end();
-    LOGI("file size: %d Kbyte", (int) file.size() / 1024);
-    file.close();
-    return result;
+    file_path = path;
+    file_path.add("/");
+    file_path.add(name);
+    file_path.add(".");
+    file_path.add(ext);
+    file_path.toLowerCase();
+    const char *str = file_path.c_str();
+    LOGI("%s -> %s", name, str);
+    return str;
   }
 };
 

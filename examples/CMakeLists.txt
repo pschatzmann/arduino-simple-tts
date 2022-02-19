@@ -5,7 +5,6 @@ project(simple-tts-examples)
 
 include(FetchContent)
 
-
 # Build with helix 
 FetchContent_Declare(helix GIT_REPOSITORY "https://github.com/pschatzmann/arduino-libhelix.git" GIT_TAG main )
 FetchContent_GetProperties(helix)
@@ -29,7 +28,6 @@ add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/number-to-text")
 add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/time-to-text")
 add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/time-to-speech")
 add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/number-to-speech")
-add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/sd-initial-load")
-add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/sd-initial-load-long")
-# not supported yet
+# not supported (yet?)
+#add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/time-to-speech-sd")
 #add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/talking-clock")
