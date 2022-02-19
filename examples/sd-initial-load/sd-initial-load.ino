@@ -16,7 +16,7 @@
 NumberToText ntt; // source for number texts
 TimeToText ttt;   // source for time based texts
 AudioDictionarySD sd("/tts","wav"); // store the files in the /tts directory with the wav extension.
-const char* url="http://pi.local:5002/api/tts?text=@"; // Mozilla TTS on a Raspberry PI
+const char* url="http://192.168.1.34:5002/api/tts?text=@"; // Mozilla TTS on a Raspberry PI
 const char* mime="audio/wav";
 const char* ssid = "Phil Schatzmann";
 const char* password = "sabrina01";
@@ -37,7 +37,7 @@ void connectWifi() {
 
 void setup(){
     Serial.begin(115200);
-    AudioLogger::instance().begin(Serial, AudioLogger::Debug);
+    AudioLogger::instance().begin(Serial, AudioLogger::Info);
     // only for audiokit
     //SPI.begin(PIN_AUDIO_KIT_SD_CARD_CLK, PIN_AUDIO_KIT_SD_CARD_MISO, PIN_AUDIO_KIT_SD_CARD_MOSI, PIN_AUDIO_KIT_SD_CARD_CS);
 

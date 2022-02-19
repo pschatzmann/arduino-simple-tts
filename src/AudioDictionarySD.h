@@ -107,8 +107,11 @@ class AudioDictionarySD : public AudioDictionaryBase {
       SD.remove(file);
     }
     File newFile = SD.open(file, FILE_WRITE);
-    copy(newFile, url_with_text.c_str(), mime);
-    newFile.close();
+    bool ok = copy(newFile, url_with_text.c_str(), mime);
+    if (!ok){
+      LOGE("No data available: file '%s' will be deleted", file);
+      SD.remove(file);
+    }
   }
 
  protected:
@@ -151,13 +154,14 @@ class AudioDictionarySD : public AudioDictionaryBase {
     return (const char *)file_path;
   }
 
-  void copy(File &file, const char *url, const char *mime) {
+  bool copy(File &file, const char *url, const char *mime) {
     url_stream.begin(url, mime);
     cp.begin(file, url_stream);
-    cp.copyAll(0);
+    bool result = cp.copyAll(0);
     url_stream.end();
     LOGI("file size: %d Kbyte", (int) file.size() / 1024);
     file.close();
+    return result;
   }
 };
 

@@ -53,7 +53,7 @@ The result is: NOON
 
 ## Text to Speech
 
-If we record the words in mp3 we might even get away with the need of a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
+If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
 
 ```
 #include "SimpleTTS.h"

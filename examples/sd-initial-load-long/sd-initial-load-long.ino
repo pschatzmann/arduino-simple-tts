@@ -25,7 +25,7 @@ AudioSDEntry entries[]= {
 
 
 AudioDictionarySD sd("/tts","wav"); // store the files in the /tts directory with the wav extension.
-const char* url="http://pi.local:5002/api/tts?text=@"; // Mozilla TTS on a Raspberry PI
+const char* url="http://192.168.1.34:5002/api/tts?text=@"; // Mozilla TTS on a Raspberry PI
 const char* mime="audio/wav";
 const char* ssid = "SSID";
 const char* password = "password";
