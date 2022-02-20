@@ -1,12 +1,12 @@
 # Arduino Simple TTS
 
 Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. 
-However often it might be good enough just to provide a solution which is based on some pre-recorded audio.
+However, often it might be good enough to provide a solution which is based on some pre-recorded audio.
 
 I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library
-which is based on the [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) for the audio output.
+that is based on the [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) for the audio output.
 
-To keep things simple I decided to start with a simple implementation that can process numbers and on top of that another one which 
+To keep things simple I started with a simple implementation that can process numbers and on top of that another one which 
 reads out the time. So the starting point are some classes that tranlate numbers to test.
 
 This functionality can be used e.g. to build some
@@ -122,5 +122,5 @@ I think this leave plenty of headroom and you still have the option to store the
 
 ## Documentation
 
-Here is the [link to the generated class documentation](https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html)
+Here is the [link to the generated class documentation](https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html). 
 Further information can be found in the [Wiki](https://github.com/pschatzmann/arduino-simple-tts/wiki) and in my [Blogs](https://www.pschatzmann.ch/home/tag/tts/)
