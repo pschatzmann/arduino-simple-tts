@@ -126,3 +126,11 @@ I think this leave plenty of headroom and you still have the option to store the
 
 Here is the [link to the generated class documentation](https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html). 
 Further information can be found in the [Wiki](https://github.com/pschatzmann/arduino-simple-tts/wiki) and in my [Blogs](https://www.pschatzmann.ch/home/tag/tts/)
+
+
+## Dependencies
+
+- [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) - mandatory
+- [SdFat Library](https://github.com/greiman/SdFat) - optional for SD examples (or you can use the SD library instead: see Wiki)
+- [Arduino AudioKit](https://github.com/pschatzmann/arduino-audiokit) - optional if you use the AudioKit (alternatively you can just replace the AudioKitStream in the examples with e.g. an I2SStream)
+  
