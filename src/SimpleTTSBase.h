@@ -21,14 +21,15 @@ class SimpleTTSBase {
     reference = ref;
   }
 
-  // Creates all missing audio recording files for the indicated source
+  // Creates all missing audio recording files for the indicated source. We make sure
+  // that the output is lowercase
   void printCSV(Print &out) {
     for (auto txt : allTexts()) {
       if (txt!=nullptr && strlen(txt)>0){
-        out.print(txt);
-        out.print(", ");
         StrExt str = txt; 
         str.toLowerCase(); // convert txt to lowercase
+        out.print(str.c_str());
+        out.print(", ");
         out.println(str.c_str());
       }
     }

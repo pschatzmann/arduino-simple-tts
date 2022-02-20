@@ -15,9 +15,11 @@ class AudioDictionary : public AudioDictionaryBase  {
  public:
   AudioDictionary(AudioDictionaryEntry *dict) { dictionary = dict; }
   AudioStream *get(const char *word) {
+    if (word==nullptr) return nullptr;
+    Str str(word);
     AudioDictionaryEntry *e = dictionary;
     while (e->name != nullptr) {
-      if (strcmp(word, e->name) == 0) {
+      if (str.equalsIgnoreCase(e->name)) {
         return e->audio;
       }
       e++;
