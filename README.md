@@ -53,7 +53,7 @@ The result is: NOON
 
 ## Text to Speech
 
-If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.
+If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the PROGMEM.
 
 ```
 #include "SimpleTTS.h"
@@ -81,7 +81,7 @@ void loop() {
 ```
 The word "Billion" is spoken out via I2S.
 
-You can also use the text generation classes described above to convert them into audio output:
+You can also use the text generation classes described above:
 
 ```
 #include "SimpleTTS.h"
@@ -108,16 +108,18 @@ void loop() {
 }
 
 ```
+This will output the audio result via I2S.
+
 
 ## Memory Usage
 
-Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32:
+Here is the info for a sketch that provides talking time and number support and stores all audio files as mp3 in PROGMEM on as ESP32:
 ```
 Sketch uses 740438 bytes (23%) of program storage space. Maximum is 3145728 bytes.
 Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes for 
 ```
 
-I think this leave plenty of headroom and you still have the option to store the audio on an SD drive...
+I think this leave plenty of headroom and you still have the option to store the __audio on an SD drive__...
 
 
 ## Documentation

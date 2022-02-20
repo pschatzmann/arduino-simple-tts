@@ -7,4 +7,5 @@
 #ifdef IS_DESKTOP
 #include "AudioLibs/PortAudioStream.h"
 #define I2SStream PortAudioStream 
+#define AudioKitStream PortAudioStream
 #endif

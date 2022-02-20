@@ -108,7 +108,7 @@ class TimeToText : public SimpleTTSBase {
       add(QUARTER);
       add(PAST);
     } else if (time.minute < 30) {
-      addAll(ntt.say(time.minute));
+      addAll(ntt.say(time.minute,0u));
       add(PAST);
     } else if (time.minute == 30) {
       add(HALF);
@@ -120,7 +120,7 @@ class TimeToText : public SimpleTTSBase {
     } else if (time.minute > 30) {
       time.hour += 1;
       time.minute = 60 - time.minute;
-      addAll(ntt.say(time.minute));
+      addAll(ntt.say(time.minute,0u));
       add(TO);
     }
   }
@@ -132,7 +132,7 @@ class TimeToText : public SimpleTTSBase {
     if (hour == 0) {
       hour = 12;
     }
-    addAll(ntt.say(hour));
+    addAll(ntt.say(hour,0u));
 
     if (time.minute==0){
       add(OCLOCK);
@@ -147,7 +147,7 @@ class TimeToText : public SimpleTTSBase {
     if (hour == 0) {
       hour = 12;
     }
-    addAll(ntt.say(hour));
+    addAll(ntt.say(hour,0u));
 
     if (time.minute==0){
       add(OCLOCK);

@@ -13,29 +13,45 @@
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
 #include "Desktop.h" // some special logic for desktop builds
-// #include "AudioLibs/AudioKit.h"
+#ifndef IS_DESKTOP
+#include "AudioLibs/AudioKit.h"
+#endif
 
 
 TimeToText ttt;
-I2SStream i2s; // Replace with desired class e.g. AudioKitStream
+AudioKitStream out; // Replace with desired class e.g. I2SStream
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
-TextToSpeech tts(ttt, i2s, mp3, dictionary);
+TextToSpeech tts(ttt, out, mp3, dictionary);
+int hour=0, minute=0;
 
 void setup(){
     Serial.begin(115200);
     AudioLogger::instance().begin(Serial, AudioLogger::Info);
  
-    // setup i2s
-    auto cfg = i2s.defaultConfig(); 
+    // setup out
+    auto cfg = out.defaultConfig(); 
     cfg.sample_rate = 24000;
     cfg.channels = 1;
-    i2s.begin(cfg);
+    out.begin(cfg);
+}
 
-    // speach output
-    ttt.say(12,00);
+void addMinutes(int minutes) {
+    minute+=minutes;
+    if (minute>=60){
+        minute=0;
+        hour++;;
+    }
+    if (hour>=24){
+        hour = 0;
+    }
 }
 
 void loop() {
+    // speach output
+    ttt.say(hour,minute);
 
+    // generate next time
+    delay(2000);
+    addMinutes(10);
 }
