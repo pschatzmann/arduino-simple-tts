@@ -22,7 +22,7 @@ MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
 TextToSpeech tts(ntt, out, mp3, dictionary);
 
-int64_t number = 1111111111;
+int64_t number = 1;
 
 void setup(){
     Serial.begin(115200);
@@ -33,14 +33,21 @@ void setup(){
     out.begin(cfg);
 }
 
+void increment() {
+   // increment number by some value
+  if(number<1000000000){
+    // grow numbers fast  
+    number *=10;
+  } else {
+    // grow numbers slow
+    number +=1;
+  }
+}
+
 void loop() {
     // speach output
     ntt.say((int32_t)number);
 
-    // increment number by some value
-    number *=10;
-    if(number>2000000000){
-        number = 1;
-    }
+    increment();
     delay(1000);
 }
