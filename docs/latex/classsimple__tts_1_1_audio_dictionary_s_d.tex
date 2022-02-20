@@ -1,0 +1,81 @@
+\hypertarget{classsimple__tts_1_1_audio_dictionary_s_d}{}\doxysection{simple\+\_\+tts\+::Audio\+Dictionary\+SD Class Reference}
+\label{classsimple__tts_1_1_audio_dictionary_s_d}\index{simple\_tts::AudioDictionarySD@{simple\_tts::AudioDictionarySD}}
+
+
+A dictionary which is based on files stored on an SD card. By default we use the Sd\+Fat library. You can use the SD library with \#define USE\+\_\+\+SD before including this file.  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Dictionary\+SD.\+h$>$}
+
+Inheritance diagram for simple\+\_\+tts\+::Audio\+Dictionary\+SD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsimple__tts_1_1_audio_dictionary_s_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a882058ae0709068e19dc96b2c32d8258}\label{classsimple__tts_1_1_audio_dictionary_s_d_a882058ae0709068e19dc96b2c32d8258}} 
+{\bfseries Audio\+Dictionary\+SD} (const char $\ast$path, const char $\ast$ext, int cs\+\_\+pin=PIN\+\_\+\+CS)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a54008ebfe1b3d9b5a9f2685ee98a6056}\label{classsimple__tts_1_1_audio_dictionary_s_d_a54008ebfe1b3d9b5a9f2685ee98a6056}} 
+Audio\+Stream $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_s_d_a54008ebfe1b3d9b5a9f2685ee98a6056}{get}} (const char $\ast$word)
+\begin{DoxyCompactList}\small\item\em retrieves recorded audio file for the word \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_aae1eefbea7fc23b0cb96151faae2c0f8}\label{classsimple__tts_1_1_audio_dictionary_s_d_aae1eefbea7fc23b0cb96151faae2c0f8}} 
+void {\bfseries setup} ()
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_af4fd5be4e5564f158e7520bac5bacef4}\label{classsimple__tts_1_1_audio_dictionary_s_d_af4fd5be4e5564f158e7520bac5bacef4}} 
+const char $\ast$ {\bfseries get\+File\+With\+Path} (const char $\ast$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a6558150352d7ded17670dbe9c5a10f16}\label{classsimple__tts_1_1_audio_dictionary_s_d_a6558150352d7ded17670dbe9c5a10f16}} 
+audio\+\_\+tools\+::\+Str\+Ext {\bfseries url\+\_\+with\+\_\+text}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a9288b0e6af94f176667f21c2e5c8b055}\label{classsimple__tts_1_1_audio_dictionary_s_d_a9288b0e6af94f176667f21c2e5c8b055}} 
+Audio\+File {\bfseries file}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a5f512e13224a8cd57574afeecd4c5249}\label{classsimple__tts_1_1_audio_dictionary_s_d_a5f512e13224a8cd57574afeecd4c5249}} 
+\mbox{\hyperlink{classsimple__tts_1_1_audio_stream_file_wrapper}{Audio\+Stream\+File\+Wrapper}}$<$ Audio\+File $>$ {\bfseries file\+Wrapper}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a6675e22f1c67d6725c34a654c9f0bac2}\label{classsimple__tts_1_1_audio_dictionary_s_d_a6675e22f1c67d6725c34a654c9f0bac2}} 
+Audio\+Fat {\bfseries SD}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_acd8c8db212f06d3f1f80f988f558c671}\label{classsimple__tts_1_1_audio_dictionary_s_d_acd8c8db212f06d3f1f80f988f558c671}} 
+const char $\ast$ {\bfseries path}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a566f237d2b10d4d3f5f7fcd52ae9833a}\label{classsimple__tts_1_1_audio_dictionary_s_d_a566f237d2b10d4d3f5f7fcd52ae9833a}} 
+const char $\ast$ {\bfseries ext}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a032b32eef607d5185607c84613e060cd}\label{classsimple__tts_1_1_audio_dictionary_s_d_a032b32eef607d5185607c84613e060cd}} 
+Str\+Ext {\bfseries file\+\_\+path} \{40\}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a5d6aa8e74c31c8304bdb1cf426398602}\label{classsimple__tts_1_1_audio_dictionary_s_d_a5d6aa8e74c31c8304bdb1cf426398602}} 
+bool {\bfseries is\+\_\+setup} = false
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_dictionary_s_d_a49d98a6b0ef0c2ad513e66bd64abb53e}\label{classsimple__tts_1_1_audio_dictionary_s_d_a49d98a6b0ef0c2ad513e66bd64abb53e}} 
+int {\bfseries cs\+\_\+pin} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A dictionary which is based on files stored on an SD card. By default we use the Sd\+Fat library. You can use the SD library with \#define USE\+\_\+\+SD before including this file. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Audio\+Dictionary\+SD.\+h\end{DoxyCompactItemize}

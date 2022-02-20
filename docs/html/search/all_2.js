@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numbertotext_7',['NumberToText',['../classsimple__tts_1_1_number_to_text.html',1,'simple_tts']]]
+  ['get_11',['get',['../classsimple__tts_1_1_audio_dictionary_s_d.html#a54008ebfe1b3d9b5a9f2685ee98a6056',1,'simple_tts::AudioDictionarySD']]]
 ];

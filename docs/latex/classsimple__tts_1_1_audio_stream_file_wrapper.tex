@@ -1,0 +1,61 @@
+\hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper}{}\doxysection{simple\+\_\+tts\+::Audio\+Stream\+File\+Wrapper$<$ T $>$ Class Template Reference}
+\label{classsimple__tts_1_1_audio_stream_file_wrapper}\index{simple\_tts::AudioStreamFileWrapper$<$ T $>$@{simple\_tts::AudioStreamFileWrapper$<$ T $>$}}
+
+
+A simple Wrapper that let\textquotesingle{}s a file pretend to be a Audio\+Stream to support the begin and end methods.  
+
+
+
+
+{\ttfamily \#include $<$Audio\+Dictionary\+SD.\+h$>$}
+
+Inheritance diagram for simple\+\_\+tts\+::Audio\+Stream\+File\+Wrapper$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsimple__tts_1_1_audio_stream_file_wrapper}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a5dc383f0157acc20bbe557111f174c92}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a5dc383f0157acc20bbe557111f174c92}} 
+virtual bool {\bfseries begin} (T \&file)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a52541de87d6c45d34687cc28241f2ec1}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a52541de87d6c45d34687cc28241f2ec1}} 
+virtual bool {\bfseries begin} () override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a409d32f6b59c08830383e3ca67980625}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a409d32f6b59c08830383e3ca67980625}} 
+virtual void {\bfseries end} () override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a2c61acb3bc042e3e331ef9cc1ae162e0}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a2c61acb3bc042e3e331ef9cc1ae162e0}} 
+virtual size\+\_\+t {\bfseries read\+Bytes} (uint8\+\_\+t $\ast$buffer, size\+\_\+t length) override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a8224b4fcdb7f680f29f1e849f3b673fd}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a8224b4fcdb7f680f29f1e849f3b673fd}} 
+virtual size\+\_\+t {\bfseries write} (const uint8\+\_\+t $\ast$buffer, size\+\_\+t length) override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a84a175de88cfaceba1cb9c4b64359e2f}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a84a175de88cfaceba1cb9c4b64359e2f}} 
+virtual int {\bfseries available} () override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_a5c16c5bd284bafec0e1c5c7f2b689dca}\label{classsimple__tts_1_1_audio_stream_file_wrapper_a5c16c5bd284bafec0e1c5c7f2b689dca}} 
+virtual int {\bfseries available\+For\+Write} () override
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_ad33a82cc03f865d743cabdf06c423e1c}\label{classsimple__tts_1_1_audio_stream_file_wrapper_ad33a82cc03f865d743cabdf06c423e1c}} 
+{\bfseries operator bool} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_audio_stream_file_wrapper_acb405b10d981d9acac5abdc05c927582}\label{classsimple__tts_1_1_audio_stream_file_wrapper_acb405b10d981d9acac5abdc05c927582}} 
+T $\ast$ {\bfseries p\+\_\+file} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class simple\+\_\+tts\+::\+Audio\+Stream\+File\+Wrapper$<$ T $>$}
+
+A simple Wrapper that let\textquotesingle{}s a file pretend to be a Audio\+Stream to support the begin and end methods. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Audio\+Dictionary\+SD.\+h\end{DoxyCompactItemize}

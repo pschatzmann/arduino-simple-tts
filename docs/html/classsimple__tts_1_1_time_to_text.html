@@ -95,10 +95,10 @@ Public Member Functions</h2></td></tr>
 audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_time_to_text.html#ae04d1dbaa601dc7abc579083ca07fc79">say</a> (int hour, int minutes)</td></tr>
 <tr class="memdesc:ae04d1dbaa601dc7abc579083ca07fc79"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a number to it's text representation <br /></td></tr>
 <tr class="separator:ae04d1dbaa601dc7abc579083ca07fc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eebe38ccb5fb0418b06fa5127eb7eea"><td class="memItemLeft" align="right" valign="top"><a id="a8eebe38ccb5fb0418b06fa5127eb7eea"></a>
-audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_time_to_text.html#a8eebe38ccb5fb0418b06fa5127eb7eea">say</a> (<a class="el" href="structsimple__tts_1_1_time.html">Time</a> time)</td></tr>
-<tr class="memdesc:a8eebe38ccb5fb0418b06fa5127eb7eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a number to it's text representation <br /></td></tr>
-<tr class="separator:a8eebe38ccb5fb0418b06fa5127eb7eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f7741e6778962dfe33dc2e68f609c2"><td class="memItemLeft" align="right" valign="top"><a id="af3f7741e6778962dfe33dc2e68f609c2"></a>
+audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_time_to_text.html#af3f7741e6778962dfe33dc2e68f609c2">say</a> (<a class="el" href="structsimple__tts_1_1_simple_time.html">SimpleTime</a> time)</td></tr>
+<tr class="memdesc:af3f7741e6778962dfe33dc2e68f609c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a number to it's text representation <br /></td></tr>
+<tr class="separator:af3f7741e6778962dfe33dc2e68f609c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ef824c187dbd480a5bd878d17b54b1"><td class="memItemLeft" align="right" valign="top"><a id="a11ef824c187dbd480a5bd878d17b54b1"></a>
 audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_time_to_text.html#a11ef824c187dbd480a5bd878d17b54b1">allTexts</a> ()</td></tr>
 <tr class="memdesc:a11ef824c187dbd480a5bd878d17b54b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">provides all texts <br /></td></tr>
@@ -107,6 +107,9 @@ audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRigh
 <tr class="memitem:a399e345694a184a7c48ce16a345def6a inherit pub_methods_classsimple__tts_1_1_simple_t_t_s_base"><td class="memItemLeft" align="right" valign="top"><a id="a399e345694a184a7c48ce16a345def6a"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>registerCallback</b> (void(*ptr)(audio_tools::Vector&lt; const char * &gt; words, void *refx), void *ref)</td></tr>
 <tr class="separator:a399e345694a184a7c48ce16a345def6a inherit pub_methods_classsimple__tts_1_1_simple_t_t_s_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af042bda3842ad7ab250b6c7cdc122c inherit pub_methods_classsimple__tts_1_1_simple_t_t_s_base"><td class="memItemLeft" align="right" valign="top"><a id="a0af042bda3842ad7ab250b6c7cdc122c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printCSV</b> (Print &amp;out)</td></tr>
+<tr class="separator:a0af042bda3842ad7ab250b6c7cdc122c inherit pub_methods_classsimple__tts_1_1_simple_t_t_s_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -119,18 +122,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const char *
 <tr class="memitem:ade5e72283fa4951c405bb7f695a9852e"><td class="memItemLeft" align="right" valign="top"><a id="ade5e72283fa4951c405bb7f695a9852e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addAll</b> (audio_tools::Vector&lt; const char * &gt; &amp;words)</td></tr>
 <tr class="separator:ade5e72283fa4951c405bb7f695a9852e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0ad746b72fd4fc30c466f9884013ed6"><td class="memItemLeft" align="right" valign="top"><a id="ae0ad746b72fd4fc30c466f9884013ed6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> (<a class="el" href="structsimple__tts_1_1_time.html">Time</a> time)</td></tr>
-<tr class="separator:ae0ad746b72fd4fc30c466f9884013ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f4a5ee3a714a497367206300643e706"><td class="memItemLeft" align="right" valign="top"><a id="a1f4a5ee3a714a497367206300643e706"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processMinutes</b> (<a class="el" href="structsimple__tts_1_1_time.html">Time</a> &amp;time)</td></tr>
-<tr class="separator:a1f4a5ee3a714a497367206300643e706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4278ce13fa7e43bf016bc93a77feb95e"><td class="memItemLeft" align="right" valign="top"><a id="a4278ce13fa7e43bf016bc93a77feb95e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processHourPM</b> (<a class="el" href="structsimple__tts_1_1_time.html">Time</a> time)</td></tr>
-<tr class="separator:a4278ce13fa7e43bf016bc93a77feb95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9293dd2b8516c4f1e5950c88ada684de"><td class="memItemLeft" align="right" valign="top"><a id="a9293dd2b8516c4f1e5950c88ada684de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>processHourAM</b> (<a class="el" href="structsimple__tts_1_1_time.html">Time</a> time)</td></tr>
-<tr class="separator:a9293dd2b8516c4f1e5950c88ada684de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1691e8de1940c8fbe1c1de3eadada671"><td class="memItemLeft" align="right" valign="top"><a id="a1691e8de1940c8fbe1c1de3eadada671"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> (<a class="el" href="structsimple__tts_1_1_simple_time.html">SimpleTime</a> time)</td></tr>
+<tr class="separator:a1691e8de1940c8fbe1c1de3eadada671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56d694f29636e26e95d7a44ee46f138"><td class="memItemLeft" align="right" valign="top"><a id="ab56d694f29636e26e95d7a44ee46f138"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>processMinutes</b> (<a class="el" href="structsimple__tts_1_1_simple_time.html">SimpleTime</a> &amp;time)</td></tr>
+<tr class="separator:ab56d694f29636e26e95d7a44ee46f138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371e178835ec69716c0402ae5c131e6a"><td class="memItemLeft" align="right" valign="top"><a id="a371e178835ec69716c0402ae5c131e6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>processHourPM</b> (<a class="el" href="structsimple__tts_1_1_simple_time.html">SimpleTime</a> time)</td></tr>
+<tr class="separator:a371e178835ec69716c0402ae5c131e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5498911801be9ff581bdf05d16bb395"><td class="memItemLeft" align="right" valign="top"><a id="aa5498911801be9ff581bdf05d16bb395"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>processHourAM</b> (<a class="el" href="structsimple__tts_1_1_simple_time.html">SimpleTime</a> time)</td></tr>
+<tr class="separator:aa5498911801be9ff581bdf05d16bb395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>

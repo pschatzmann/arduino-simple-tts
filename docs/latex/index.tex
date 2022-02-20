@@ -1,10 +1,10 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. However often it might be good enough just to provide a solution which is based on some pre-\/recorded audio.
+ Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. However, often it might be good enough to provide a solution which is based on some pre-\/recorded audio.
 
-I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library which is based on the \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} for the audio output.
+I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library that is based on the \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} for the audio output.
 
-To keep things simple I decided to start with an simple implementation which can process numbers and on top of that another one which reads out the time. So the starting point are some classes wich tranlate numbers to test.
+To keep things simple I started with a simple implementation that can process numbers and on top of that another one which reads out the time. So the starting point are some classes that tranlate numbers to test.
 
 This functionality can be used e.\+g. to build some
 
@@ -28,7 +28,7 @@ Number\+To\+Text translates the number input into a audio\+\_\+tools\+::\+Vector
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md3}{}\doxysubsection{Time to Text}\label{index_autotoc_md3}
+ The result is\+: SEVEN HUNDRED THOUSAND ONE HUNDRED AND TWENTY THREE DOT FOUR THREE ONE ZERO ZERO ZERO\hypertarget{index_autotoc_md3}{}\doxysubsection{Time to Text}\label{index_autotoc_md3}
 To process the time you need to provide the hours and minuts as input.
 
 
@@ -43,8 +43,37 @@ To process the time you need to provide the hours and minuts as input.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md4}{}\doxysection{Text to Speech}\label{index_autotoc_md4}
-If we record the words in mp3 we might even get away with the need of a separate SD drive because we can store the audio in program memory. The following sketch demonstrates how you can use the classes described above to convert them into audio output.
+ The result is\+: NOON\hypertarget{index_autotoc_md4}{}\doxysection{Text to Speech}\label{index_autotoc_md4}
+If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The Example\+Audio\+Dictionary\+Values contains the prerecorded mp3 files which are stored in the progmem.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include "{}SimpleTTS.h"{}}
+\DoxyCodeLine{\#include "{}AudioCodecs/CodecMP3Helix.h"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
+\DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
+\DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
+\DoxyCodeLine{TextToSpeech tts(i2s, mp3, dictionary);}
+\DoxyCodeLine{}
+\DoxyCodeLine{void setup()\{}
+\DoxyCodeLine{    Serial.begin(115200);}
+\DoxyCodeLine{    // setup i2s}
+\DoxyCodeLine{    auto cfg = i2s.defaultConfig(); }
+\DoxyCodeLine{    cfg.sample\_rate = 24000;}
+\DoxyCodeLine{    cfg.channels = 1;}
+\DoxyCodeLine{    i2s.begin(cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    tts.say("{}BILLION"{});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ The word \char`\"{}\+Billion\char`\"{} is spoken out via I2S.
+
+You can also use the text generation classes described above to convert them into audio output\+:
 
 
 \begin{DoxyCode}{0}
@@ -55,22 +84,24 @@ If we record the words in mp3 we might even get away with the need of a separate
 \DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
 \DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
 \DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
-\DoxyCodeLine{TextToSpeech tts(tts, i2s, mp3, dictionary);}
+\DoxyCodeLine{TextToSpeech tts(i2s, mp3, dictionary);}
 \DoxyCodeLine{}
 \DoxyCodeLine{void setup()\{}
 \DoxyCodeLine{    Serial.begin(115200);}
 \DoxyCodeLine{    // setup i2s}
 \DoxyCodeLine{    auto cfg = i2s.defaultConfig(); }
+\DoxyCodeLine{    cfg.sample\_rate = 24000;}
+\DoxyCodeLine{    cfg.channels = 1;}
 \DoxyCodeLine{    i2s.begin(cfg);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    tts.say(14,40);}
+\DoxyCodeLine{    ttt.say(14,40);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{void loop() \{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- The Example\+Audio\+Dictionary\+Values contains the prerecorded mp3 files which are stored in the progmem.\hypertarget{index_autotoc_md5}{}\doxysection{Memory Usage}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md5}{}\doxysection{Memory Usage}\label{index_autotoc_md5}
 Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Sketch uses 740438 bytes (23\%) of program storage space. Maximum is 3145728 bytes.}
@@ -79,4 +110,5 @@ Here is the info for sketch which provides talking time and number support and s
 \end{DoxyCode}
 
 
-I think this leave plenty of headroom... 
+I think this leave plenty of headroom and you still have the option to store the audio on an SD drive...\hypertarget{index_autotoc_md6}{}\doxysection{Documentation}\label{index_autotoc_md6}
+Here is the \href{https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html}{\texttt{ link to the generated class documentation}}. Further information can be found in the \href{https://github.com/pschatzmann/arduino-simple-tts/wiki}{\texttt{ Wiki}} and in my \href{https://www.pschatzmann.ch/home/tag/tts/}{\texttt{ Blogs}} 
