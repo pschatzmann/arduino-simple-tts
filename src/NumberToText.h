@@ -16,21 +16,25 @@ class NumberToText : public SimpleTTSBase {
 
   /// converts a real number to it's text representation (with the indicated number of digits)
   audio_tools::Vector<const char*> &say(double value, int digits=3) {
-    int32_t intValue = value;
+    int64_t intValue = value;
     double dec_double = abs(value - intValue);
-    uint32_t dec_int = round(dec_double * pow(10,digits+1)) / 10;
+    uint64_t dec_int = round(dec_double * pow(10,digits+1)) / 10;
     return say(intValue, dec_int);
   }
 
   audio_tools::Vector<const char*> &say(int16_t wholeNumber, uint16_t decimals=0) {
-    return say(static_cast<int32_t>(wholeNumber),static_cast<uint32_t>(decimals));
+    return say(static_cast<int64_t>(wholeNumber),static_cast<uint64_t>(decimals));
+  }
+
+  audio_tools::Vector<const char*> &say(int32_t wholeNumber, uint32_t decimals=0) {
+    return say(static_cast<int64_t>(wholeNumber),static_cast<uint64_t>(decimals));
   }
 
   /// converts a number to it's text representation
-  audio_tools::Vector<const char*> &say(int32_t wholeNumber, uint32_t decimals=0) {
+  audio_tools::Vector<const char*> &say(int64_t wholeNumber, uint64_t decimals=0) {
     result.clear();
 
-    LOGI("say(%d,%d)",wholeNumber,decimals);
+    LOGI("say(%lld,%llu)",wholeNumber,decimals);
     if (wholeNumber<0){
       add(third[MINUS]);
     }
@@ -89,10 +93,10 @@ class NumberToText : public SimpleTTSBase {
     result.push_back(str);
   }
 
-  void convertDecimals(uint16_t decimals) {
+  void convertDecimals(uint64_t decimals) {
     char str_decimals[50];
     if (decimals!=0.0){
-      snprintf(str_decimals,50,"%u", decimals);
+      snprintf(str_decimals,50,"%llu", decimals);
       char* ch=str_decimals;
       add(third[DOT]);
       while (*++ch){
@@ -102,28 +106,28 @@ class NumberToText : public SimpleTTSBase {
     }
   }
 
-  void convert(int32_t value){
+  void convert(int64_t value){
     if (value < 0) {
       convert(-value);
     } else if (value >= 1000000000) {
       convert(value / 1000000000);
       add(third[BILLION]);
-      int32_t remainder = value%1000000000;
+      int64_t remainder = value%1000000000;
       if (remainder) convert(remainder);
     } else if (value >= 1000000) {
       convert(value / 1000000);
       add(third[MILLION]);
-      int32_t remainder = value%1000000;
+      int64_t remainder = value%1000000;
       if (remainder) convert(remainder);
     } else if (value >= 1000) {
       convert(value / 1000);
       add(third[THOUSAND]);
-      int32_t remainder = value%1000;
+      int64_t remainder = value%1000;
       if (remainder) convert(remainder);
     } else if (value >= 100) {
       convert(value / 100);
       add(third[HUNDRED]);
-      int32_t remainder = value%100;
+      int64_t remainder = value%100;
       if (remainder) convert(remainder);
     } else if (value >= 20) {
       add(second[value / 10]);
