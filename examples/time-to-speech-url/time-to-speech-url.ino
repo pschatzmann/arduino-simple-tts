@@ -2,7 +2,8 @@
 /**
  * @file time-to-speech.ino
  * @author Phil Schatzmann
- * @brief Test sketch which announces the indicated time - the audio files are loaded from the internet
+ * @brief Test sketch which announces the indicated time - the audio files are loaded from the internet.
+ * However I think this is rather too slow...
  * @version 0.1
  * @date 2022-02-16
  * 
@@ -24,8 +25,8 @@ TimeToText ttt;
 URLStream in(ssid, password); 
 AudioDictionaryURL dictionary(in, url, "mp3");
 MP3DecoderHelix mp3;
-TextToSpeech tts(ttt, in, mp3, dictionary);
-AudioKitStream i2s; // Replace with desired class e.g. I2SStream
+AudioKitStream i2s; // Replace with desired output class e.g. I2SStream
+TextToSpeech tts(ttt, i2s, mp3, dictionary);
 
 void setup(){
     Serial.begin(115200);
