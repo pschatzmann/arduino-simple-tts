@@ -38,6 +38,7 @@ class TextToSpeech {
     p_dictionary = &dict;
     p_decoder = &decoder;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+    begin();
   }
 
 
@@ -48,26 +49,38 @@ class TextToSpeech {
     LOGI("say: %s",word);
     AudioStream *mp3Stream = p_dictionary->get(word);
     if (mp3Stream != nullptr) {
-      p_decoder->begin();
+      if (!active) begin();
       mp3Stream->begin();
       copier.begin(*decodedStream, *mp3Stream);
       copier.copyAll();
       copier.end();
       mp3Stream->end();
-      p_decoder->end();
     } else {
       LOGE("Word not available in dictionary: %s", word);
     }
   }
 
+  void begin() {
+    p_decoder->begin();
+    active = true;
+  }
+
+  void end() {
+    p_decoder->end();
+    active = false;
+  }
+
   /// a simple API to say multiple of the supported words
   void say(audio_tools::Vector<const char *> words) {
+    begin();
     for (auto word : words) {      
       say(word);
     }
+    end();
   }
 
  protected:
+  bool active = false;
   NumberToText ntt;
   audio_tools::AudioDecoder *p_decoder = nullptr;
   audio_tools::EncodedAudioStream *decodedStream = nullptr;  // Decoding stream
