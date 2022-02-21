@@ -15,5 +15,5 @@ add_library(simple-tts INTERFACE)
 target_include_directories(simple-tts INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src )
 
 # build examples
-add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/examples" EXCLUDE_FROM_ALL)
-#add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/examples" )
+#add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/examples" EXCLUDE_FROM_ALL)
+add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/examples" )

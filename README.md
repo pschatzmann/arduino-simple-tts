@@ -51,6 +51,23 @@ for (auto str : result){
 ```
 The result is: NOON
 
+### Numbers with Units
+
+You can also process numbers with the corresponding units
+```
+NumberUnitToText utt;
+
+auto result = utt.say(1.01,"usd");
+
+for (auto str : result){
+    Serial.print(str);
+    Serial.print(" ");
+}
+
+```
+The result is: ONE u.s. dollar AND ONE cent 
+
+
 ## Text to Speech
 
 If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the PROGMEM.

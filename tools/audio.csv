@@ -1,48 +1,79 @@
-Name, Text
-zero, zero
-one, one
-two, two
-three, three
-four, four
-five, five
-six, six
-seven, seven
-eight, eight
-nine, nine
-ten, ten
-eleven, eleven
-twelve, twelve
-thirteen, thirteen
-fourteen, fourteen
-fifteen, fifteen
-sixteen, sixteen
-seventeen, seventeen
-eightteen, eightteen
-nineteen, nineteen
-ten, ten
-twenty, twenty
-thirty, thirty
-forty, forty
-fifty, fifty
-sixty, sixty
-seventy, seventy
-eighty, eighty
-ninety, ninety
-and, and
-dot, dot
-minus, minus
-hundred, hundred
-thousand, thousand
-million, million
-billion, billion
-its, its
-noon, noon
-midnight, midnight
-oclock, oclock
-to, to
-past, past
-am, am
-pm, pm
-half, half
-quarter, quarter
+Name,Text
+zero,zero
+one,one
+two,two
+three,three
+four,four
+five,five
+six,six
+seven,seven
+eight,eight
+nine,nine
+ten,ten
+eleven,eleven
+twelve,twelve
+thirteen,thirteen
+fourteen,fourteen
+fifteen,fifteen
+sixteen,sixteen
+seventeen,seventeen
+eighteen,eighteen
+nineteen,nineteen
+ten,ten
+twenty,twenty
+thirty,thirty
+forty,forty
+fifty,fifty
+sixty,sixty
+seventy,seventy
+eighty,eighty
+ninety,ninety
+and,and
+dot,dot
+minus,minus
+hundred,hundred
+thousand,thousand
+million,million
+billion,billion
+its,its
+noon,noon
+midnight,midnight
+oclock,oclock
+to,to
+past,past
+am,am
+pm,pm
+half,half
+quarter,quarter
+pound,pound
+pounds,pounds
+foot,foot
+feet,feet
+inch,inch
+inches,inches
+mile,mile
+miles,miles
+dollar,dollar
+dollars,dollars
+cent,cent
+cents,cents
+miles,miles
+per,per
+hour,hour
+degrees,degrees
+celcius,celcius
+degrees,degrees
+fahrenheit,fahrenheit
+percent,percent
+liter,liter
+milli,milli
+gram,gram
+kilo,kilo
+milli,milli
+kilo,kilo
+meter,meter
+centi,centi
+milli,milli
+us,u.s.
+
 

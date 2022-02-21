@@ -3,6 +3,7 @@
 #include "AudioBasic/Vector.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 namespace simple_tts {
 
@@ -15,27 +16,26 @@ class NumberToText : public SimpleTTSBase {
  public:
 
   /// converts a real number to it's text representation (with the indicated number of digits)
-  audio_tools::Vector<const char*> &say(double value, int digits=3) {
-    int64_t intValue = value;
-    double dec_double = abs(value - intValue);
-    uint64_t dec_int = round(dec_double * pow(10,digits+1)) / 10;
-    return say(intValue, dec_int);
+  audio_tools::Vector<const char*> &say(double value, int decimals=2) {
+    Number number;
+    number.set(value, decimals);
+    return say(number.intValue(), number.decValues());
   }
 
-  audio_tools::Vector<const char*> &say(int16_t wholeNumber, uint16_t decimals=0) {
-    return say(static_cast<int64_t>(wholeNumber),static_cast<uint64_t>(decimals));
-  }
-
-  audio_tools::Vector<const char*> &say(int32_t wholeNumber, uint32_t decimals=0) {
-    return say(static_cast<int64_t>(wholeNumber),static_cast<uint64_t>(decimals));
+  audio_tools::Vector<const char*> &say(int64_t wholeNumber) {
+    Number number;
+    number.set(wholeNumber);
+    return say(number.intValue(), number.decValues());
   }
 
   /// converts a number to it's text representation
-  audio_tools::Vector<const char*> &say(int64_t wholeNumber, uint64_t decimals=0) {
+  audio_tools::Vector<const char*> &say(const char* wholeNumber, const char* decimals="") {
     result.clear();
 
-    LOGI("say(%lld,%llu)",wholeNumber,decimals);
-    if (wholeNumber<0){
+    LOGI("say(number='%s', decimal='%s')",wholeNumber, decimals);
+    Str wn(wholeNumber);
+    wn.trim();
+    if (wn.startsWith("-")){
       add(third[MINUS]);
     }
 
@@ -43,7 +43,7 @@ class NumberToText : public SimpleTTSBase {
     convert(wholeNumber);
  
     // add decimals
-    if (decimals>0){
+    if (Str(decimals).toLong()>0l){
       convertDecimals(decimals);
     }
 
@@ -75,7 +75,7 @@ class NumberToText : public SimpleTTSBase {
                            "FOUR",    "FIVE",      "SIX",       "SEVEN",
                            "EIGHT",   "NINE",      "TEN",       "ELEVEN",
                            "TWELVE",  "THIRTEEN",  "FOURTEEN",  "FIFTEEN",
-                           "SIXTEEN", "SEVENTEEN", "EIGHTTEEN", "NINETEEN"};
+                           "SIXTEEN", "SEVENTEEN", "EIGHTEEN",  "NINETEEN"};
 
   const char* second[10] = {"",      "TEN",   "TWENTY",  "THIRTY", "FORTY",
                             "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY"};
@@ -93,11 +93,10 @@ class NumberToText : public SimpleTTSBase {
     result.push_back(str);
   }
 
-  void convertDecimals(uint64_t decimals) {
-    char str_decimals[50];
-    if (decimals!=0.0){
-      snprintf(str_decimals,50,"%llu", decimals);
-      char* ch=str_decimals;
+  void convertDecimals(const char* decimals) {
+    Str dec(decimals);
+    if (dec.toInt()!=0.0){
+      const char* ch=decimals;
       add(third[DOT]);
       while (*++ch){
         int idx = (*ch)-48; // convert to index
@@ -105,7 +104,11 @@ class NumberToText : public SimpleTTSBase {
       }
     }
   }
+  void convert(const char* strValue){
+    convert(Str(strValue).toLong());
+  }
 
+  // TODO: convert to string operations
   void convert(int64_t value){
     if (value < 0) {
       convert(-value);

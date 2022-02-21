@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "AudioTools.h"
 
@@ -29,7 +30,7 @@ class SimpleTTSBase {
         StrExt str = txt; 
         str.toLowerCase(); // convert txt to lowercase
         out.print(str.c_str());
-        out.print(", ");
+        out.print(",");
         out.println(str.c_str());
       }
     }
@@ -75,6 +76,8 @@ struct AudioSDEntry {
 
 /**
  * @brief Just a simple structure with the hour and minutes
+ * @author Phil Schatzmann
+ * @copyright GPLv3
  *
  */
 struct SimpleTime {
@@ -91,6 +94,68 @@ struct SimpleTime {
   bool operator!=(const SimpleTime& alt) {
     return alt.hour != hour || alt.minute != minute;
   }
+};
+
+/**
+ * @brief Convert numbers to string and provide integer and decimals
+ * @author Phil Schatzmann
+ * @copyright GPLv3
+ *
+ */
+
+class Number {
+public:
+  void set(double value, int digits=2) {
+    char format[10];
+    // e.g. %0.2f for 2 digits.
+    sprintf(format,"%%0.%df", digits);
+    LOGD("format: %s", format);
+    memset(buffer, 0, buffer_len);
+    // convert to string
+    sprintf(buffer, format, value);
+    LOGD("number: %s",buffer);
+    dot = strchr(buffer, '.');
+    // split string
+    *dot = 0;
+
+    LOGD("int: %s", intValue());
+    LOGD("dec: %s", decValues());
+  }
+
+  void set(int64_t wholeNumber) {
+    memset(buffer,0,buffer_len);
+    // convert to string
+    sprintf(buffer, "%lld", wholeNumber);
+    //ltoa(wholeNumber, buffer, 10);
+    dot = buffer+strlen(buffer);
+  }
+
+  /// provides the full number
+  const char* intValue() {
+    return buffer;
+  }
+
+  /// provides the decimals after the .
+  const char* decValues() {
+    return dot+1;
+  }
+
+  // converts a decimal to a full number: 1 gives 10, 01 dives 1 if digits are 2. This is used e.g. for USD 1.1 which
+  // will need to render 1 dollar and 10 cents; attn: 1.101 should still give 10 cents!
+  const char* decAsInt(const char* decimals, int digits){
+    memset(buffer, 0, buffer_len);
+    memset(buffer,'0', digits);
+    int len = min((int)strlen(decimals),digits);
+    memcpy(buffer, decimals, len);
+    return buffer;
+  }
+
+protected:
+    // convert to string
+    static const int buffer_len = 100;
+    char buffer[buffer_len];
+    char* dot=buffer;
+
 };
 
 }  // namespace simple_tts

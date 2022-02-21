@@ -2,6 +2,7 @@
 
 #include "TimeToText.h"
 #include "NumberToText.h"
+#include "NumberUnitToText.h"
 #include "TextToSpeech.h"
 
 #ifndef NO_SIMPLE_TTS_NS

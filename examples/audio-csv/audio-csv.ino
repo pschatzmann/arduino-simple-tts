@@ -16,7 +16,7 @@ TimeToText ttt;
 
 void setup() {
     Serial.begin(115200);
-    Serial.println("Name, Text");
+    Serial.println("Name,Text");
     ntt.printCSV(Serial);
     ttt.printCSV(Serial);
 }
