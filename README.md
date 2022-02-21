@@ -1,6 +1,6 @@
 # Arduino Simple TTS
 
-Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. 
+Microcontrollers do not have enough resources to provide a high quality 'Text to Speech' functionality. 
 However, often it might be good enough to provide a solution which is based on some pre-recorded audio.
 
 I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library
