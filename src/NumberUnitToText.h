@@ -44,11 +44,16 @@ class NumberUnitToText : public SimpleTTSBase {
 
     // determine unit
     const char* unit = unitIn ? unitIn : default_unit;
+    // singular or plural ?
     bool isOne = Str(wholeNumber).toLong() == 1l;
 
     // We support 2 scenarios: combined units or just a smple number with a single unit.
     int idx = idxCombinedUnit(unit);
-    if (idx != -1) {
+    if (idx == -1) {
+      // Simple units scenario
+      addAll(ntt.say(wholeNumber, decimals));
+      process(unit, isOne);
+    } else {
       // Combined units ->
       // say the wholeNumber first
       addAll(ntt.say(wholeNumber));
@@ -64,10 +69,6 @@ class NumberUnitToText : public SimpleTTSBase {
       // say decimals unit
       bool decIsOne = Str(decimals).toLong() == 1l;
       processDecimalUnit(idx, decIsOne);
-    } else {
-       // Simple units scenario
-      addAll(ntt.say(wholeNumber, decimals));
-      process(unit, isOne);
     }
 
     // provide result to callback
