@@ -32,6 +32,15 @@ class TextToSpeech {
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
   }
 
+  TextToSpeech(SimpleTTSBase &tts, AudioPrint &sink, AudioDecoder &decoder,
+               AudioDictionaryBase &dict) {
+    tts.registerCallback(callback, this);
+    p_tts = &tts;
+    p_dictionary = &dict;
+    p_decoder = &decoder;
+    decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+  }
+
   /// Default Constructor
   TextToSpeech(AudioStream &sink, AudioDecoder &decoder,
                AudioDictionaryBase &dict) {
