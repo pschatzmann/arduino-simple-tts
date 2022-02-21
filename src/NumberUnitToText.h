@@ -46,16 +46,17 @@ class NumberUnitToText : public SimpleTTSBase {
     const char* unit = unitIn ? unitIn : default_unit;
     bool isOne = Str(wholeNumber).toLong() == 1l;
 
-    // say remainder
+    // We support 2 scenarios: combined units or just a smple number with a single unit.
     int idx = idxCombinedUnit(unit);
     if (idx != -1) {
+      // Combined units ->
       // say the wholeNumber first
       addAll(ntt.say(wholeNumber));
-      // say whol number unit
+      // say whole number unit
       processCombinedUnit(idx, isOne);
-      // combined them with AND
+      // combine them with AND
       add("AND");
-      // say decimals
+      // say converted decimals
       Number calc;
       int digits = decimalInfo(unit);
       const char* decimals_to_say = calc.decAsInt(decimals, digits);
@@ -64,6 +65,7 @@ class NumberUnitToText : public SimpleTTSBase {
       bool decIsOne = Str(decimals).toLong() == 1l;
       processDecimalUnit(idx, decIsOne);
     } else {
+       // Simple units scenario
       addAll(ntt.say(wholeNumber, decimals));
       process(unit, isOne);
     }
@@ -72,7 +74,7 @@ class NumberUnitToText : public SimpleTTSBase {
     if (callback){
         callback(result, reference);
     }
-
+    
     return result;
   }
 
@@ -135,7 +137,7 @@ class NumberUnitToText : public SimpleTTSBase {
   const char* unit3[max_unit_3][2] = {{"usd", "¢"}, {"gr", "mg"}, {"kg", "gr"},
                                       {"m", "mm"},  {"km", "m"},  {"lt", "ml"}};
   
-  /// Units mighthave different decimals. The decimal system is based on 3. But currencies have usually 2.
+  /// Units might have different decimals. The decimal system is based on 3. But currencies have usually 2.
   struct DecimalInfo {
     const char* id;
     int dec;
