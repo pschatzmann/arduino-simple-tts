@@ -19,8 +19,7 @@ class NumberUnitToText : public SimpleTTSBase {
   // it
   NumberUnitToText(const char* defaultUnit) { default_unit = defaultUnit; }
 
-  /// converts a real number to it's text representation (with the indicated
-  /// number of digits)
+  /// converts a real number with a unit to it's text representation
   audio_tools::Vector<const char*>& say(double value,
                                         const char* unit = nullptr,
                                         int decimals = 2) {
@@ -29,6 +28,7 @@ class NumberUnitToText : public SimpleTTSBase {
     return say(number.intValue(), number.decValues(), unit);
   }
 
+  /// converts an integer with a unit to it's text representation
   audio_tools::Vector<const char*>& say(int64_t wholeNumber,
                                         const char* unit = nullptr) {
     Number number;
@@ -36,7 +36,7 @@ class NumberUnitToText : public SimpleTTSBase {
     return say(number.intValue(), number.decValues(), unit);
   }
 
-  /// converts a number to it's text representation
+  /// converts a number provided by string components to it's text representation
   audio_tools::Vector<const char*>& say(const char* wholeNumber,
                                         const char* decimals,
                                         const char* unitIn) {
@@ -74,10 +74,11 @@ class NumberUnitToText : public SimpleTTSBase {
     if (callback){
         callback(result, reference);
     }
-    
+
     return result;
   }
 
+  /// Provides all texts
   virtual audio_tools::Vector<const char*>& allTexts() {
     result.clear();
 
