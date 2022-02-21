@@ -18,8 +18,14 @@ Inheritance diagram for simple\+\_\+tts\+::Number\+To\+Text\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}\label{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}} 
-audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a1ef621ce9bde932741e0f5d48613f750}{say}} (double value)
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}\label{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}{say}} (double value, int decimals=2)
+\begin{DoxyCompactList}\small\item\em converts a real number to it\textquotesingle{}s text representation (with the indicated number of digits) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ac9eed848510a1ee795c350c5b197abc2}\label{classsimple__tts_1_1_number_to_text_ac9eed848510a1ee795c350c5b197abc2}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries say} (int64\+\_\+t whole\+Number)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}\label{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}{say}} (const char $\ast$whole\+Number, const char $\ast$decimals=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em converts a number to it\textquotesingle{}s text representation \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}\label{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}} 
 audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}{all\+Texts}} ()
@@ -30,11 +36,14 @@ audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classs
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aef9174b91839a6c53f480463943e02db}\label{classsimple__tts_1_1_number_to_text_aef9174b91839a6c53f480463943e02db}} 
 void {\bfseries add} (const char $\ast$str)
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a115582a65365ca8c2cc1cbf53e8a3fd5}\label{classsimple__tts_1_1_number_to_text_a115582a65365ca8c2cc1cbf53e8a3fd5}} 
-void {\bfseries decimals} (double decimals)
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a05f31a129ec86258501b6bc1605903de}\label{classsimple__tts_1_1_number_to_text_a05f31a129ec86258501b6bc1605903de}} 
+void {\bfseries convert\+Decimals} (const char $\ast$decimals)
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ab9f3f86383893a3b91b0e83e4271e412}\label{classsimple__tts_1_1_number_to_text_ab9f3f86383893a3b91b0e83e4271e412}} 
-void {\bfseries convert} (int value)
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_af4df89943b68307fc4002e5b36b5f2c8}\label{classsimple__tts_1_1_number_to_text_af4df89943b68307fc4002e5b36b5f2c8}} 
+void {\bfseries convert} (const char $\ast$str\+Value)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_afe32b9bbaf5935de6dda4b0de1226b0b}\label{classsimple__tts_1_1_number_to_text_afe32b9bbaf5935de6dda4b0de1226b0b}} 
+void {\bfseries convert} (int64\+\_\+t value)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -46,26 +55,29 @@ const char $\ast$ {\bfseries first} \mbox{[}20\mbox{]}
 \item 
 const char $\ast$ {\bfseries second} \mbox{[}10\mbox{]}
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a36588d34624e6675b7f69916d8e92b74}\label{classsimple__tts_1_1_number_to_text_a36588d34624e6675b7f69916d8e92b74}} 
-const char $\ast$ {\bfseries third} \mbox{[}6\mbox{]} = \{\char`\"{}HUNDRED\char`\"{}, \char`\"{}THOUSAND\char`\"{}, \char`\"{}MILLION\char`\"{},\char`\"{}AND\char`\"{},\char`\"{}DOT\char`\"{},\char`\"{}MINUS\char`\"{}\}
-\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}\label{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}} 
-const int {\bfseries HUNDRED} = 0
-\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}\label{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}} 
-const int {\bfseries THOUSAND} = 1
-\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}\label{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}} 
-const int {\bfseries MILLION} = 2
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ad2a040a881fa1672bbc59d307fcb0d10}\label{classsimple__tts_1_1_number_to_text_ad2a040a881fa1672bbc59d307fcb0d10}} 
+const char $\ast$ {\bfseries third} \mbox{[}7\mbox{]} = \{\char`\"{}AND\char`\"{},\char`\"{}DOT\char`\"{},\char`\"{}MINUS\char`\"{}, \char`\"{}HUNDRED\char`\"{}, \char`\"{}THOUSAND\char`\"{}, \char`\"{}MILLION\char`\"{},\char`\"{}BILLION\char`\"{}\}
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a903ee66f81b80e4f9cde4c7d7344e392}\label{classsimple__tts_1_1_number_to_text_a903ee66f81b80e4f9cde4c7d7344e392}} 
-const int {\bfseries AND} = 3
+const int {\bfseries AND} = 0
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a008b5758593a8899e602f15f5aa00943}\label{classsimple__tts_1_1_number_to_text_a008b5758593a8899e602f15f5aa00943}} 
-const int {\bfseries DOT} = 4
+const int {\bfseries DOT} = 1
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a435ea4ccaf5191a91162c9361f81e899}\label{classsimple__tts_1_1_number_to_text_a435ea4ccaf5191a91162c9361f81e899}} 
-const int {\bfseries MINUS} = 5
+const int {\bfseries MINUS} = 2
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}\label{classsimple__tts_1_1_number_to_text_a51ae1ae636dc925735b0eb59e21873f1}} 
+const int {\bfseries HUNDRED} = 3
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}\label{classsimple__tts_1_1_number_to_text_a84e74c11c632d48d500f867d7a3087f7}} 
+const int {\bfseries THOUSAND} = 4
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}\label{classsimple__tts_1_1_number_to_text_a4fdb36632a3f86c4f98ab930c998639c}} 
+const int {\bfseries MILLION} = 5
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a1649cfafec8b4f8892d028478dfb2f54}\label{classsimple__tts_1_1_number_to_text_a1649cfafec8b4f8892d028478dfb2f54}} 
+const int {\bfseries BILLION} = 6
 \end{DoxyCompactItemize}
 
 
@@ -93,7 +105,7 @@ GPLv3
 \DoxyCodeLine{                           \textcolor{stringliteral}{"{}FOUR"{}},    \textcolor{stringliteral}{"{}FIVE"{}},      \textcolor{stringliteral}{"{}SIX"{}},       \textcolor{stringliteral}{"{}SEVEN"{}},}
 \DoxyCodeLine{                           \textcolor{stringliteral}{"{}EIGHT"{}},   \textcolor{stringliteral}{"{}NINE"{}},      \textcolor{stringliteral}{"{}TEN"{}},       \textcolor{stringliteral}{"{}ELEVEN"{}},}
 \DoxyCodeLine{                           \textcolor{stringliteral}{"{}TWELVE"{}},  \textcolor{stringliteral}{"{}THIRTEEN"{}},  \textcolor{stringliteral}{"{}FOURTEEN"{}},  \textcolor{stringliteral}{"{}FIFTEEN"{}},}
-\DoxyCodeLine{                           \textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{stringliteral}{"{}EIGHTTEEN"{}}, \textcolor{stringliteral}{"{}NINETEEN"{}}\}}
+\DoxyCodeLine{                           \textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{stringliteral}{"{}EIGHTEEN"{}},  \textcolor{stringliteral}{"{}NINETEEN"{}}\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}\label{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}} 

@@ -1,0 +1,60 @@
+\hypertarget{classsimple__tts_1_1_number}{}\doxysection{simple\+\_\+tts\+::Number Class Reference}
+\label{classsimple__tts_1_1_number}\index{simple\_tts::Number@{simple\_tts::Number}}
+
+
+Convert numbers to string and provide integer and decimals.  
+
+
+
+
+{\ttfamily \#include $<$Simple\+TTSBase.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a3789d2a1f9e43f26d5b6e27cd50b34dd}\label{classsimple__tts_1_1_number_a3789d2a1f9e43f26d5b6e27cd50b34dd}} 
+void {\bfseries set} (double value, int digits=2)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a2d1a503b4211eb4fa71252ec1eadbe1d}\label{classsimple__tts_1_1_number_a2d1a503b4211eb4fa71252ec1eadbe1d}} 
+void {\bfseries set} (int64\+\_\+t whole\+Number)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a61a3b3d9cb7328df3168318faa2e0308}\label{classsimple__tts_1_1_number_a61a3b3d9cb7328df3168318faa2e0308}} 
+const char $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_number_a61a3b3d9cb7328df3168318faa2e0308}{int\+Value}} ()
+\begin{DoxyCompactList}\small\item\em provides the full number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a189c6c723a0b8bb5e9c8e62893af7521}\label{classsimple__tts_1_1_number_a189c6c723a0b8bb5e9c8e62893af7521}} 
+const char $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_number_a189c6c723a0b8bb5e9c8e62893af7521}{dec\+Values}} ()
+\begin{DoxyCompactList}\small\item\em provides the decimals after the . \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_ad6a6b89e9d7e96f128c3d780cc647393}\label{classsimple__tts_1_1_number_ad6a6b89e9d7e96f128c3d780cc647393}} 
+const char $\ast$ {\bfseries dec\+As\+Int} (const char $\ast$decimals, int digits)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a50838b20860334fa7cbcc8c8a6416605}\label{classsimple__tts_1_1_number_a50838b20860334fa7cbcc8c8a6416605}} 
+char {\bfseries buffer} \mbox{[}buffer\+\_\+len\mbox{]}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a66dcb551bb60b64827a4e535d79a25c8}\label{classsimple__tts_1_1_number_a66dcb551bb60b64827a4e535d79a25c8}} 
+char $\ast$ {\bfseries dot} =buffer
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_a58ddfec35bd266b24ba47ee7a8c7cb0c}\label{classsimple__tts_1_1_number_a58ddfec35bd266b24ba47ee7a8c7cb0c}} 
+static const int {\bfseries buffer\+\_\+len} = 100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Convert numbers to string and provide integer and decimals. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Simple\+TTSBase.\+h\end{DoxyCompactItemize}

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['texttospeech_16',['TextToSpeech',['../classsimple__tts_1_1_text_to_speech.html',1,'simple_tts::TextToSpeech'],['../classsimple__tts_1_1_text_to_speech.html#a7ab9d174704592d9fdc5e5b7c97d4cf3',1,'simple_tts::TextToSpeech::TextToSpeech(SimpleTTSBase &amp;tts, AudioStream &amp;sink, AudioDecoder &amp;decoder, AudioDictionaryBase &amp;dict)'],['../classsimple__tts_1_1_text_to_speech.html#a316f6162063dc215f5e37b6326b109e1',1,'simple_tts::TextToSpeech::TextToSpeech(AudioStream &amp;sink, AudioDecoder &amp;decoder, AudioDictionaryBase &amp;dict)']]],
-  ['timetotext_17',['TimeToText',['../classsimple__tts_1_1_time_to_text.html',1,'simple_tts']]]
+  ['max_5funit_5f2_15',['max_unit_2',['../classsimple__tts_1_1_number_unit_to_text.html#ac9a76bb190de0cd5ebb2fe80cd990945',1,'simple_tts::NumberUnitToText']]]
 ];

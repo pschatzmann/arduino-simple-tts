@@ -91,10 +91,17 @@ Inheritance diagram for simple_tts::NumberToText:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1ef621ce9bde932741e0f5d48613f750"><td class="memItemLeft" align="right" valign="top"><a id="a1ef621ce9bde932741e0f5d48613f750"></a>
-audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">say</a> (double value)</td></tr>
-<tr class="memdesc:a1ef621ce9bde932741e0f5d48613f750"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a number to it's text representation <br /></td></tr>
-<tr class="separator:a1ef621ce9bde932741e0f5d48613f750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f561dc2f9c4fb2f0db28ca1a9c11695"><td class="memItemLeft" align="right" valign="top"><a id="a8f561dc2f9c4fb2f0db28ca1a9c11695"></a>
+audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">say</a> (double value, int decimals=2)</td></tr>
+<tr class="memdesc:a8f561dc2f9c4fb2f0db28ca1a9c11695"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a real number to it's text representation (with the indicated number of digits) <br /></td></tr>
+<tr class="separator:a8f561dc2f9c4fb2f0db28ca1a9c11695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9eed848510a1ee795c350c5b197abc2"><td class="memItemLeft" align="right" valign="top"><a id="ac9eed848510a1ee795c350c5b197abc2"></a>
+audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>say</b> (int64_t wholeNumber)</td></tr>
+<tr class="separator:ac9eed848510a1ee795c350c5b197abc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e88d4bba48e369dc6f6ed9e1ec5b78a"><td class="memItemLeft" align="right" valign="top"><a id="a9e88d4bba48e369dc6f6ed9e1ec5b78a"></a>
+audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_number_to_text.html#a9e88d4bba48e369dc6f6ed9e1ec5b78a">say</a> (const char *wholeNumber, const char *decimals=&quot;&quot;)</td></tr>
+<tr class="memdesc:a9e88d4bba48e369dc6f6ed9e1ec5b78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a number to it's text representation <br /></td></tr>
+<tr class="separator:a9e88d4bba48e369dc6f6ed9e1ec5b78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14718f4f792e01ec34b4486933fbf9d"><td class="memItemLeft" align="right" valign="top"><a id="aa14718f4f792e01ec34b4486933fbf9d"></a>
 audio_tools::Vector&lt; const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsimple__tts_1_1_number_to_text.html#aa14718f4f792e01ec34b4486933fbf9d">allTexts</a> ()</td></tr>
 <tr class="memdesc:aa14718f4f792e01ec34b4486933fbf9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">provides all texts <br /></td></tr>
@@ -112,12 +119,15 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:aef9174b91839a6c53f480463943e02db"><td class="memItemLeft" align="right" valign="top"><a id="aef9174b91839a6c53f480463943e02db"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const char *str)</td></tr>
 <tr class="separator:aef9174b91839a6c53f480463943e02db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a115582a65365ca8c2cc1cbf53e8a3fd5"><td class="memItemLeft" align="right" valign="top"><a id="a115582a65365ca8c2cc1cbf53e8a3fd5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decimals</b> (double decimals)</td></tr>
-<tr class="separator:a115582a65365ca8c2cc1cbf53e8a3fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9f3f86383893a3b91b0e83e4271e412"><td class="memItemLeft" align="right" valign="top"><a id="ab9f3f86383893a3b91b0e83e4271e412"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>convert</b> (int value)</td></tr>
-<tr class="separator:ab9f3f86383893a3b91b0e83e4271e412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05f31a129ec86258501b6bc1605903de"><td class="memItemLeft" align="right" valign="top"><a id="a05f31a129ec86258501b6bc1605903de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>convertDecimals</b> (const char *decimals)</td></tr>
+<tr class="separator:a05f31a129ec86258501b6bc1605903de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4df89943b68307fc4002e5b36b5f2c8"><td class="memItemLeft" align="right" valign="top"><a id="af4df89943b68307fc4002e5b36b5f2c8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>convert</b> (const char *strValue)</td></tr>
+<tr class="separator:af4df89943b68307fc4002e5b36b5f2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe32b9bbaf5935de6dda4b0de1226b0b"><td class="memItemLeft" align="right" valign="top"><a id="afe32b9bbaf5935de6dda4b0de1226b0b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>convert</b> (int64_t value)</td></tr>
+<tr class="separator:afe32b9bbaf5935de6dda4b0de1226b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -128,27 +138,30 @@ audio_tools::Vector&lt; const char * &gt;&#160;</td><td class="memItemRight" val
 <tr class="separator:a18f66f2a010b90e872d2112b7235acef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e95c6ceb2e64bbc07565219c2ac5c91"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><b>second</b> [10]</td></tr>
 <tr class="separator:a0e95c6ceb2e64bbc07565219c2ac5c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36588d34624e6675b7f69916d8e92b74"><td class="memItemLeft" align="right" valign="top"><a id="a36588d34624e6675b7f69916d8e92b74"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>third</b> [6] = {&quot;HUNDRED&quot;, &quot;THOUSAND&quot;, &quot;MILLION&quot;,&quot;AND&quot;,&quot;DOT&quot;,&quot;MINUS&quot;}</td></tr>
-<tr class="separator:a36588d34624e6675b7f69916d8e92b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ae1ae636dc925735b0eb59e21873f1"><td class="memItemLeft" align="right" valign="top"><a id="a51ae1ae636dc925735b0eb59e21873f1"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>HUNDRED</b> = 0</td></tr>
-<tr class="separator:a51ae1ae636dc925735b0eb59e21873f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84e74c11c632d48d500f867d7a3087f7"><td class="memItemLeft" align="right" valign="top"><a id="a84e74c11c632d48d500f867d7a3087f7"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>THOUSAND</b> = 1</td></tr>
-<tr class="separator:a84e74c11c632d48d500f867d7a3087f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdb36632a3f86c4f98ab930c998639c"><td class="memItemLeft" align="right" valign="top"><a id="a4fdb36632a3f86c4f98ab930c998639c"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>MILLION</b> = 2</td></tr>
-<tr class="separator:a4fdb36632a3f86c4f98ab930c998639c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a040a881fa1672bbc59d307fcb0d10"><td class="memItemLeft" align="right" valign="top"><a id="ad2a040a881fa1672bbc59d307fcb0d10"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>third</b> [7] = {&quot;AND&quot;,&quot;DOT&quot;,&quot;MINUS&quot;, &quot;HUNDRED&quot;, &quot;THOUSAND&quot;, &quot;MILLION&quot;,&quot;BILLION&quot;}</td></tr>
+<tr class="separator:ad2a040a881fa1672bbc59d307fcb0d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a903ee66f81b80e4f9cde4c7d7344e392"><td class="memItemLeft" align="right" valign="top"><a id="a903ee66f81b80e4f9cde4c7d7344e392"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>AND</b> = 3</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>AND</b> = 0</td></tr>
 <tr class="separator:a903ee66f81b80e4f9cde4c7d7344e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a008b5758593a8899e602f15f5aa00943"><td class="memItemLeft" align="right" valign="top"><a id="a008b5758593a8899e602f15f5aa00943"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>DOT</b> = 4</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>DOT</b> = 1</td></tr>
 <tr class="separator:a008b5758593a8899e602f15f5aa00943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a435ea4ccaf5191a91162c9361f81e899"><td class="memItemLeft" align="right" valign="top"><a id="a435ea4ccaf5191a91162c9361f81e899"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>MINUS</b> = 5</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>MINUS</b> = 2</td></tr>
 <tr class="separator:a435ea4ccaf5191a91162c9361f81e899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ae1ae636dc925735b0eb59e21873f1"><td class="memItemLeft" align="right" valign="top"><a id="a51ae1ae636dc925735b0eb59e21873f1"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>HUNDRED</b> = 3</td></tr>
+<tr class="separator:a51ae1ae636dc925735b0eb59e21873f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e74c11c632d48d500f867d7a3087f7"><td class="memItemLeft" align="right" valign="top"><a id="a84e74c11c632d48d500f867d7a3087f7"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>THOUSAND</b> = 4</td></tr>
+<tr class="separator:a84e74c11c632d48d500f867d7a3087f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fdb36632a3f86c4f98ab930c998639c"><td class="memItemLeft" align="right" valign="top"><a id="a4fdb36632a3f86c4f98ab930c998639c"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>MILLION</b> = 5</td></tr>
+<tr class="separator:a4fdb36632a3f86c4f98ab930c998639c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1649cfafec8b4f8892d028478dfb2f54"><td class="memItemLeft" align="right" valign="top"><a id="a1649cfafec8b4f8892d028478dfb2f54"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>BILLION</b> = 6</td></tr>
+<tr class="separator:a1649cfafec8b4f8892d028478dfb2f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classsimple__tts_1_1_simple_t_t_s_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classsimple__tts_1_1_simple_t_t_s_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classsimple__tts_1_1_simple_t_t_s_base.html">simple_tts::SimpleTTSBase</a></td></tr>
 <tr class="memitem:a056744a12b983215d731998d23244d14 inherit pro_attribs_classsimple__tts_1_1_simple_t_t_s_base"><td class="memItemLeft" align="right" valign="top"><a id="a056744a12b983215d731998d23244d14"></a>
 void(*&#160;</td><td class="memItemRight" valign="bottom"><b>callback</b> )(audio_tools::Vector&lt; const char * &gt; word, void *ref) = nullptr</td></tr>
@@ -185,7 +198,7 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = nul
 <div class="line">                           <span class="stringliteral">&quot;FOUR&quot;</span>,    <span class="stringliteral">&quot;FIVE&quot;</span>,      <span class="stringliteral">&quot;SIX&quot;</span>,       <span class="stringliteral">&quot;SEVEN&quot;</span>,</div>
 <div class="line">                           <span class="stringliteral">&quot;EIGHT&quot;</span>,   <span class="stringliteral">&quot;NINE&quot;</span>,      <span class="stringliteral">&quot;TEN&quot;</span>,       <span class="stringliteral">&quot;ELEVEN&quot;</span>,</div>
 <div class="line">                           <span class="stringliteral">&quot;TWELVE&quot;</span>,  <span class="stringliteral">&quot;THIRTEEN&quot;</span>,  <span class="stringliteral">&quot;FOURTEEN&quot;</span>,  <span class="stringliteral">&quot;FIFTEEN&quot;</span>,</div>
-<div class="line">                           <span class="stringliteral">&quot;SIXTEEN&quot;</span>, <span class="stringliteral">&quot;SEVENTEEN&quot;</span>, <span class="stringliteral">&quot;EIGHTTEEN&quot;</span>, <span class="stringliteral">&quot;NINETEEN&quot;</span>}</div>
+<div class="line">                           <span class="stringliteral">&quot;SIXTEEN&quot;</span>, <span class="stringliteral">&quot;SEVENTEEN&quot;</span>, <span class="stringliteral">&quot;EIGHTEEN&quot;</span>,  <span class="stringliteral">&quot;NINETEEN&quot;</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

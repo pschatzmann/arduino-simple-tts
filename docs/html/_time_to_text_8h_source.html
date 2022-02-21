@@ -170,7 +170,7 @@ $(function() {
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      add(QUARTER);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      add(PAST);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (time.minute &lt; 30) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">say</a>(time.minute));</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">say</a>(time.minute,0u));</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      add(PAST);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (time.minute == 30) {</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      add(HALF);</div>
@@ -182,7 +182,7 @@ $(function() {
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (time.minute &gt; 30) {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      time.hour += 1;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      time.minute = 60 - time.minute;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">say</a>(time.minute));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">say</a>(time.minute,0u));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      add(TO);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div>
@@ -194,7 +194,7 @@ $(function() {
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span> (hour == 0) {</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      hour = 12;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">say</a>(hour));</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">say</a>(hour,0u));</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span> (time.minute==0){</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      add(OCLOCK);</div>
@@ -209,7 +209,7 @@ $(function() {
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">if</span> (hour == 0) {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      hour = 12;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">say</a>(hour));</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    addAll(ntt.<a class="code" href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">say</a>(hour,0u));</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span> (time.minute==0){</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      add(OCLOCK);</div>
@@ -220,14 +220,14 @@ $(function() {
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;};</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}  <span class="comment">// namespace simple_tts</span></div>
-<div class="ttc" id="aclasssimple__tts_1_1_number_to_text_html"><div class="ttname"><a href="classsimple__tts_1_1_number_to_text.html">simple_tts::NumberToText</a></div><div class="ttdoc">Translates a number into englich words.</div><div class="ttdef"><b>Definition:</b> NumberToText.h:14</div></div>
-<div class="ttc" id="aclasssimple__tts_1_1_number_to_text_html_a1ef621ce9bde932741e0f5d48613f750"><div class="ttname"><a href="classsimple__tts_1_1_number_to_text.html#a1ef621ce9bde932741e0f5d48613f750">simple_tts::NumberToText::say</a></div><div class="ttdeci">audio_tools::Vector&lt; const char * &gt; &amp; say(double value)</div><div class="ttdoc">converts a number to it's text representation</div><div class="ttdef"><b>Definition:</b> NumberToText.h:18</div></div>
-<div class="ttc" id="aclasssimple__tts_1_1_simple_t_t_s_base_html"><div class="ttname"><a href="classsimple__tts_1_1_simple_t_t_s_base.html">simple_tts::SimpleTTSBase</a></div><div class="ttdoc">Common Functionality for TTS classes.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:14</div></div>
+<div class="ttc" id="aclasssimple__tts_1_1_number_to_text_html"><div class="ttname"><a href="classsimple__tts_1_1_number_to_text.html">simple_tts::NumberToText</a></div><div class="ttdoc">Translates a number into englich words.</div><div class="ttdef"><b>Definition:</b> NumberToText.h:15</div></div>
+<div class="ttc" id="aclasssimple__tts_1_1_number_to_text_html_a8f561dc2f9c4fb2f0db28ca1a9c11695"><div class="ttname"><a href="classsimple__tts_1_1_number_to_text.html#a8f561dc2f9c4fb2f0db28ca1a9c11695">simple_tts::NumberToText::say</a></div><div class="ttdeci">audio_tools::Vector&lt; const char * &gt; &amp; say(double value, int decimals=2)</div><div class="ttdoc">converts a real number to it's text representation (with the indicated number of digits)</div><div class="ttdef"><b>Definition:</b> NumberToText.h:19</div></div>
+<div class="ttc" id="aclasssimple__tts_1_1_simple_t_t_s_base_html"><div class="ttname"><a href="classsimple__tts_1_1_simple_t_t_s_base.html">simple_tts::SimpleTTSBase</a></div><div class="ttdoc">Common Functionality for TTS classes.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:15</div></div>
 <div class="ttc" id="aclasssimple__tts_1_1_time_to_text_html"><div class="ttname"><a href="classsimple__tts_1_1_time_to_text.html">simple_tts::TimeToText</a></div><div class="ttdoc">Translates a time in hour and minutes into englich words. This implementation builds upon the NumberT...</div><div class="ttdef"><b>Definition:</b> TimeToText.h:12</div></div>
 <div class="ttc" id="aclasssimple__tts_1_1_time_to_text_html_a11ef824c187dbd480a5bd878d17b54b1"><div class="ttname"><a href="classsimple__tts_1_1_time_to_text.html#a11ef824c187dbd480a5bd878d17b54b1">simple_tts::TimeToText::allTexts</a></div><div class="ttdeci">audio_tools::Vector&lt; const char * &gt; &amp; allTexts()</div><div class="ttdoc">provides all texts</div><div class="ttdef"><b>Definition:</b> TimeToText.h:44</div></div>
 <div class="ttc" id="aclasssimple__tts_1_1_time_to_text_html_ae04d1dbaa601dc7abc579083ca07fc79"><div class="ttname"><a href="classsimple__tts_1_1_time_to_text.html#ae04d1dbaa601dc7abc579083ca07fc79">simple_tts::TimeToText::say</a></div><div class="ttdeci">audio_tools::Vector&lt; const char * &gt; &amp; say(int hour, int minutes)</div><div class="ttdoc">converts a number to it's text representation</div><div class="ttdef"><b>Definition:</b> TimeToText.h:15</div></div>
 <div class="ttc" id="aclasssimple__tts_1_1_time_to_text_html_af3f7741e6778962dfe33dc2e68f609c2"><div class="ttname"><a href="classsimple__tts_1_1_time_to_text.html#af3f7741e6778962dfe33dc2e68f609c2">simple_tts::TimeToText::say</a></div><div class="ttdeci">audio_tools::Vector&lt; const char * &gt; &amp; say(SimpleTime time)</div><div class="ttdoc">converts a number to it's text representation</div><div class="ttdef"><b>Definition:</b> TimeToText.h:21</div></div>
-<div class="ttc" id="astructsimple__tts_1_1_simple_time_html"><div class="ttname"><a href="structsimple__tts_1_1_simple_time.html">simple_tts::SimpleTime</a></div><div class="ttdoc">Just a simple structure with the hour and minutes.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:79</div></div>
+<div class="ttc" id="astructsimple__tts_1_1_simple_time_html"><div class="ttname"><a href="structsimple__tts_1_1_simple_time.html">simple_tts::SimpleTime</a></div><div class="ttdoc">Just a simple structure with the hour and minutes.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:83</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

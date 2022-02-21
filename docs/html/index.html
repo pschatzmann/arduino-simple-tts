@@ -99,9 +99,20 @@ Time to Text</h2>
 <div class="line">    Serial.print(&quot; &quot;);</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> The result is: NOON</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Numbers with Units</h2>
+<p>You can also process numbers with the corresponding units </p><div class="fragment"><div class="line">NumberUnitToText utt;</div>
+<div class="line"> </div>
+<div class="line">auto result = utt.say(1.01,&quot;usd&quot;);</div>
+<div class="line"> </div>
+<div class="line">for (auto str : result){</div>
+<div class="line">    Serial.print(str);</div>
+<div class="line">    Serial.print(&quot; &quot;);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> The result is: ONE u.s. dollar AND ONE cent</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Text to Speech</h1>
-<p>If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the progmem.</p>
+<p>If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the PROGMEM.</p>
 <div class="fragment"><div class="line">#include &quot;SimpleTTS.h&quot;</div>
 <div class="line">#include &quot;AudioCodecs/CodecMP3Helix.h&quot;</div>
 <div class="line"> </div>
@@ -124,7 +135,7 @@ Text to Speech</h1>
 <div class="line">void loop() {</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> The word "Billion" is spoken out via I2S.</p>
-<p>You can also use the text generation classes described above to convert them into audio output:</p>
+<p>You can also use the text generation classes described above:</p>
 <div class="fragment"><div class="line">#include &quot;SimpleTTS.h&quot;</div>
 <div class="line">#include &quot;AudioCodecs/CodecMP3Helix.h&quot;</div>
 <div class="line"> </div>
@@ -147,14 +158,22 @@ Text to Speech</h1>
 <div class="line"> </div>
 <div class="line">void loop() {</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
-Memory Usage</h1>
-<p>Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32: </p><div class="fragment"><div class="line">Sketch uses 740438 bytes (23%) of program storage space. Maximum is 3145728 bytes.</div>
-<div class="line">Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes for </div>
-</div><!-- fragment --><p>I think this leave plenty of headroom and you still have the option to store the audio on an SD drive...</p>
+</div><!-- fragment --><p> This will output the audio result via I2S.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
+Memory Usage</h1>
+<p>Here is the info for a sketch that provides talking time and number support and stores all audio files as mp3 in PROGMEM on as ESP32: </p><div class="fragment"><div class="line">Sketch uses 740438 bytes (23%) of program storage space. Maximum is 3145728 bytes.</div>
+<div class="line">Global variables use 23632 bytes (7%) of dynamic memory, leaving 304048 bytes for </div>
+</div><!-- fragment --><p>I think this leave plenty of headroom and you still have the option to store the <b>audio on an SD drive</b>...</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Documentation</h1>
-<p>Here is the <a href="https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html">link to the generated class documentation</a>. Further information can be found in the <a href="https://github.com/pschatzmann/arduino-simple-tts/wiki">Wiki</a> and in my <a href="https://www.pschatzmann.ch/home/tag/tts/">Blogs</a> </p>
+<p>Here is the <a href="https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html">link to the generated class documentation</a>. Further information can be found in the <a href="https://github.com/pschatzmann/arduino-simple-tts/wiki">Wiki</a> and in my <a href="https://www.pschatzmann.ch/home/tag/tts/">Blogs</a></p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Dependencies</h1>
+<ul>
+<li><a href="https://github.com/pschatzmann/arduino-audio-tools">Arduino Audio Tools</a> - mandatory</li>
+<li><a href="https://github.com/greiman/SdFat">SdFat Library</a> - optional for SD examples (or you can use the SD library instead: see Wiki)</li>
+<li><a href="https://github.com/pschatzmann/arduino-audiokit">Arduino AudioKit</a> - optional if you use the AudioKit (alternatively you can just replace the AudioKitStream in the examples with e.g. an I2SStream) </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

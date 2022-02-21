@@ -1,0 +1,186 @@
+\hypertarget{classsimple__tts_1_1_number_unit_to_text}{}\doxysection{simple\+\_\+tts\+::Number\+Unit\+To\+Text Class Reference}
+\label{classsimple__tts_1_1_number_unit_to_text}\index{simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}}
+
+
+An extension of the \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} to Text functionality which supports numbers with units of measures.  
+
+
+
+
+{\ttfamily \#include $<$Number\+Unit\+To\+Text.\+h$>$}
+
+Inheritance diagram for simple\+\_\+tts\+::Number\+Unit\+To\+Text\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsimple__tts_1_1_number_unit_to_text}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info}{Decimal\+Info}}
+\begin{DoxyCompactList}\small\item\em Units mighthave different decimals. The decimal system is based on 3. But currencies have usually 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_aea8a89bc5c0b792208143b8b5cc53b39}\label{classsimple__tts_1_1_number_unit_to_text_aea8a89bc5c0b792208143b8b5cc53b39}} 
+{\bfseries Number\+Unit\+To\+Text} (const char $\ast$default\+Unit)
+\item 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_a9a09380a9dda0f5b50e0e0f6e10282d3}{say}} (double value, const char $\ast$unit=nullptr, int decimals=2)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_ab735cee416e8abfcac7eb8f695609486}\label{classsimple__tts_1_1_number_unit_to_text_ab735cee416e8abfcac7eb8f695609486}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries say} (int64\+\_\+t whole\+Number, const char $\ast$unit=nullptr)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a41140676ffe6f55b28cda843012408fe}\label{classsimple__tts_1_1_number_unit_to_text_a41140676ffe6f55b28cda843012408fe}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_a41140676ffe6f55b28cda843012408fe}{say}} (const char $\ast$whole\+Number, const char $\ast$decimals, const char $\ast$unit\+In)
+\begin{DoxyCompactList}\small\item\em converts a number to it\textquotesingle{}s text representation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a298727278987bd1e3e8209b84b0f254d}\label{classsimple__tts_1_1_number_unit_to_text_a298727278987bd1e3e8209b84b0f254d}} 
+virtual audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries all\+Texts} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a17a63a254a812d8f1d9c46133b3030d8}\label{classsimple__tts_1_1_number_unit_to_text_a17a63a254a812d8f1d9c46133b3030d8}} 
+void {\bfseries add} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_ad12252b0fb069ff8163a556c37ae7f5d}\label{classsimple__tts_1_1_number_unit_to_text_ad12252b0fb069ff8163a556c37ae7f5d}} 
+void {\bfseries add\+All} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \&words)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}\label{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}} 
+bool \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}} (const char $\ast$unit, bool is\+One)
+\begin{DoxyCompactList}\small\item\em resolve keys until we end up with final words \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a8893c1970608c93aa06ea0608e5b20a0}\label{classsimple__tts_1_1_number_unit_to_text_a8893c1970608c93aa06ea0608e5b20a0}} 
+bool {\bfseries process2} (const char $\ast$unit, bool is\+One)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a473aa0633300d7b308c487bd16540740}\label{classsimple__tts_1_1_number_unit_to_text_a473aa0633300d7b308c487bd16540740}} 
+bool {\bfseries process1} (const char $\ast$unit, bool is\+One)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_adaffbcabd6c0d60d9082965be3a36202}\label{classsimple__tts_1_1_number_unit_to_text_adaffbcabd6c0d60d9082965be3a36202}} 
+bool {\bfseries is\+Key} (const char $\ast$unit)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a193df451dbd57b39bb6a198c2d439e91}\label{classsimple__tts_1_1_number_unit_to_text_a193df451dbd57b39bb6a198c2d439e91}} 
+int {\bfseries idx\+Combined\+Unit} (const char $\ast$unit)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a3fb962f0dee41ee73f8e713c19b78bd4}\label{classsimple__tts_1_1_number_unit_to_text_a3fb962f0dee41ee73f8e713c19b78bd4}} 
+bool {\bfseries process\+Combined\+Unit} (int idx, bool is\+One)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a6aedc42534d975f4f25736878363df19}\label{classsimple__tts_1_1_number_unit_to_text_a6aedc42534d975f4f25736878363df19}} 
+bool {\bfseries process\+Decimal\+Unit} (int idx, bool is\+One)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a80991b153f933cf2226218717cbf0ef4}\label{classsimple__tts_1_1_number_unit_to_text_a80991b153f933cf2226218717cbf0ef4}} 
+int {\bfseries decimal\+Info} (const char $\ast$unit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a2d4982d7b5283f86f8791a38374f5f1d}\label{classsimple__tts_1_1_number_unit_to_text_a2d4982d7b5283f86f8791a38374f5f1d}} 
+const char $\ast$ {\bfseries default\+\_\+unit} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_acd3fdc41c9652c169f5995cc18740995}\label{classsimple__tts_1_1_number_unit_to_text_acd3fdc41c9652c169f5995cc18740995}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ {\bfseries result}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a0ae14afe5a75502d732e86d9aaaad0dc}\label{classsimple__tts_1_1_number_unit_to_text_a0ae14afe5a75502d732e86d9aaaad0dc}} 
+\mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{Number\+To\+Text}} {\bfseries ntt}
+\item 
+const char $\ast$ {\bfseries unit\+\_\+1} \mbox{[}max\+\_\+unit\+\_\+1\mbox{]}\mbox{[}3\mbox{]}
+\item 
+const char $\ast$ {\bfseries unit2} \mbox{[}\mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\+\_\+unit\+\_\+2}}\mbox{]}\mbox{[}4\mbox{]}
+\item 
+const char $\ast$ {\bfseries unit3} \mbox{[}max\+\_\+unit\+\_\+3\mbox{]}\mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a4dd416e6512b7277789e86bc9b9b2cca}\label{classsimple__tts_1_1_number_unit_to_text_a4dd416e6512b7277789e86bc9b9b2cca}} 
+const \mbox{\hyperlink{structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info}{Decimal\+Info}} {\bfseries decimal\+\_\+info} \mbox{[}decimal\+\_\+info\+\_\+len\mbox{]} = \{\{\char`\"{}usd\char`\"{}, 2\}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a8491812ba6c062a692df6c124e0e831e}\label{classsimple__tts_1_1_number_unit_to_text_a8491812ba6c062a692df6c124e0e831e}} 
+static const int {\bfseries max\+\_\+unit\+\_\+1} = 6
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}\label{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}} 
+static const int \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\+\_\+unit\+\_\+2}} = 14
+\begin{DoxyCompactList}\small\item\em units that can be constructed by combining words \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_ab2c1d19ba2866c6493a0a45091d13978}\label{classsimple__tts_1_1_number_unit_to_text_ab2c1d19ba2866c6493a0a45091d13978}} 
+static const int {\bfseries max\+\_\+unit\+\_\+3} = 6
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_aaf501d0da97607aa4df148f722ce3c11}\label{classsimple__tts_1_1_number_unit_to_text_aaf501d0da97607aa4df148f722ce3c11}} 
+static const int {\bfseries decimal\+\_\+info\+\_\+len} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An extension of the \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} to Text functionality which supports numbers with units of measures. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a9a09380a9dda0f5b50e0e0f6e10282d3}\label{classsimple__tts_1_1_number_unit_to_text_a9a09380a9dda0f5b50e0e0f6e10282d3}} 
+\index{simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}!say@{say}}
+\index{say@{say}!simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}}
+\doxysubsubsection{\texorpdfstring{say()}{say()}}
+{\footnotesize\ttfamily audio\+\_\+tools\+::\+Vector$<$const char$\ast$$>$\& simple\+\_\+tts\+::\+Number\+Unit\+To\+Text\+::say (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{const char $\ast$}]{unit = {\ttfamily nullptr},  }\item[{int}]{decimals = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+converts a real number to it\textquotesingle{}s text representation (with the indicated number of digits) 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a7cbbbdbd8d106de40922834efb80aeb6}\label{classsimple__tts_1_1_number_unit_to_text_a7cbbbdbd8d106de40922834efb80aeb6}} 
+\index{simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}!unit2@{unit2}}
+\index{unit2@{unit2}!simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}}
+\doxysubsubsection{\texorpdfstring{unit2}{unit2}}
+{\footnotesize\ttfamily const char$\ast$ simple\+\_\+tts\+::\+Number\+Unit\+To\+Text\+::unit2\mbox{[}\mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\+\_\+unit\+\_\+2}}\mbox{]}\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\textcolor{stringliteral}{"{}mph"{}}, \textcolor{stringliteral}{"{}miles"{}}, \textcolor{stringliteral}{"{}per"{}}, \textcolor{stringliteral}{"{}hour"{}}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}C"{}}, \textcolor{stringliteral}{"{}degrees"{}}, \textcolor{stringliteral}{"{}celcius"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}F"{}}, \textcolor{stringliteral}{"{}degrees"{}}, \textcolor{stringliteral}{"{}fahrenheit"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}\%"{}}, \textcolor{stringliteral}{"{}percent"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}lt"{}}, \textcolor{stringliteral}{"{}liter"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}ml"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}lt"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}gr"{}}, \textcolor{stringliteral}{"{}gram"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}kg"{}}, \textcolor{stringliteral}{"{}kilo"{}}, \textcolor{stringliteral}{"{}gr"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}mg"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}gr"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}km"{}}, \textcolor{stringliteral}{"{}kilo"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}m"{}}, \textcolor{stringliteral}{"{}meter"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}cm"{}}, \textcolor{stringliteral}{"{}centi"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}mm"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}usd"{}}, \textcolor{stringliteral}{"{}u.s."{}}, \textcolor{stringliteral}{"{}\$"{}}, \textcolor{keyword}{nullptr}\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_a9832593e0370eaa9285d9f2f17f366f4}\label{classsimple__tts_1_1_number_unit_to_text_a9832593e0370eaa9285d9f2f17f366f4}} 
+\index{simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}!unit3@{unit3}}
+\index{unit3@{unit3}!simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}}
+\doxysubsubsection{\texorpdfstring{unit3}{unit3}}
+{\footnotesize\ttfamily const char$\ast$ simple\+\_\+tts\+::\+Number\+Unit\+To\+Text\+::unit3\mbox{[}max\+\_\+unit\+\_\+3\mbox{]}\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\textcolor{stringliteral}{"{}usd"{}}, \textcolor{stringliteral}{"{}¢"{}}\}, \{\textcolor{stringliteral}{"{}gr"{}}, \textcolor{stringliteral}{"{}mg"{}}\}, \{\textcolor{stringliteral}{"{}kg"{}}, \textcolor{stringliteral}{"{}gr"{}}\},}
+\DoxyCodeLine{                                      \{\textcolor{stringliteral}{"{}m"{}}, \textcolor{stringliteral}{"{}mm"{}}\},  \{\textcolor{stringliteral}{"{}km"{}}, \textcolor{stringliteral}{"{}m"{}}\},  \{\textcolor{stringliteral}{"{}lt"{}}, \textcolor{stringliteral}{"{}ml"{}}\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_unit_to_text_afe80ec0e3bd29eff52bae579659d3c1c}\label{classsimple__tts_1_1_number_unit_to_text_afe80ec0e3bd29eff52bae579659d3c1c}} 
+\index{simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}!unit\_1@{unit\_1}}
+\index{unit\_1@{unit\_1}!simple\_tts::NumberUnitToText@{simple\_tts::NumberUnitToText}}
+\doxysubsubsection{\texorpdfstring{unit\_1}{unit\_1}}
+{\footnotesize\ttfamily const char$\ast$ simple\+\_\+tts\+::\+Number\+Unit\+To\+Text\+::unit\+\_\+1\mbox{[}max\+\_\+unit\+\_\+1\mbox{]}\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}lb"{}}, \textcolor{stringliteral}{"{}pound"{}}, \textcolor{stringliteral}{"{}pounds"{}}\},  \{\textcolor{stringliteral}{"{}ft"{}}, \textcolor{stringliteral}{"{}foot"{}}, \textcolor{stringliteral}{"{}feet"{}}\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}inch"{}}, \textcolor{stringliteral}{"{}inches"{}}\},   \{\textcolor{stringliteral}{"{}mi"{}}, \textcolor{stringliteral}{"{}mile"{}}, \textcolor{stringliteral}{"{}miles"{}}\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}\$"{}}, \textcolor{stringliteral}{"{}dollar"{}}, \textcolor{stringliteral}{"{}dollars"{}}\}, \{\textcolor{stringliteral}{"{}¢"{}}, \textcolor{stringliteral}{"{}cent"{}}, \textcolor{stringliteral}{"{}cents"{}}\}\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Number\+Unit\+To\+Text.\+h\end{DoxyCompactItemize}

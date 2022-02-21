@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numbertotext_26',['NumberToText',['../classsimple__tts_1_1_number_to_text.html',1,'simple_tts']]]
+  ['decimalinfo_33',['DecimalInfo',['../structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info.html',1,'simple_tts::NumberUnitToText']]]
 ];

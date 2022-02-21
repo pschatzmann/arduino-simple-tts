@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['simpletime_27',['SimpleTime',['../structsimple__tts_1_1_simple_time.html',1,'simple_tts']]],
-  ['simplettsbase_28',['SimpleTTSBase',['../classsimple__tts_1_1_simple_t_t_s_base.html',1,'simple_tts']]]
+  ['number_34',['Number',['../classsimple__tts_1_1_number.html',1,'simple_tts']]],
+  ['numbertotext_35',['NumberToText',['../classsimple__tts_1_1_number_to_text.html',1,'simple_tts']]],
+  ['numberunittotext_36',['NumberUnitToText',['../classsimple__tts_1_1_number_unit_to_text.html',1,'simple_tts']]]
 ];

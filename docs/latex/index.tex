@@ -43,8 +43,21 @@ To process the time you need to provide the hours and minuts as input.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- The result is\+: NOON\hypertarget{index_autotoc_md4}{}\doxysection{Text to Speech}\label{index_autotoc_md4}
-If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The Example\+Audio\+Dictionary\+Values contains the prerecorded mp3 files which are stored in the progmem.
+ The result is\+: NOON\hypertarget{index_autotoc_md4}{}\doxysubsection{Numbers with Units}\label{index_autotoc_md4}
+You can also process numbers with the corresponding units 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{NumberUnitToText utt;}
+\DoxyCodeLine{}
+\DoxyCodeLine{auto result = utt.say(1.01,"{}usd"{});}
+\DoxyCodeLine{}
+\DoxyCodeLine{for (auto str : result)\{}
+\DoxyCodeLine{    Serial.print(str);}
+\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ The result is\+: ONE u.\+s. dollar AND ONE cent\hypertarget{index_autotoc_md5}{}\doxysection{Text to Speech}\label{index_autotoc_md5}
+If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The Example\+Audio\+Dictionary\+Values contains the prerecorded mp3 files which are stored in the PROGMEM.
 
 
 \begin{DoxyCode}{0}
@@ -73,7 +86,7 @@ If we record the words in mp3 we might even get away with the need for a separat
 \end{DoxyCode}
  The word \char`\"{}\+Billion\char`\"{} is spoken out via I2S.
 
-You can also use the text generation classes described above to convert them into audio output\+:
+You can also use the text generation classes described above\+:
 
 
 \begin{DoxyCode}{0}
@@ -101,8 +114,8 @@ You can also use the text generation classes described above to convert them int
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md5}{}\doxysection{Memory Usage}\label{index_autotoc_md5}
-Here is the info for sketch which provides talking time and number support and stores all audio files as mp3 in progmem on as ESP32\+: 
+ This will output the audio result via I2S.\hypertarget{index_autotoc_md6}{}\doxysection{Memory Usage}\label{index_autotoc_md6}
+Here is the info for a sketch that provides talking time and number support and stores all audio files as mp3 in PROGMEM on as ESP32\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Sketch uses 740438 bytes (23\%) of program storage space. Maximum is 3145728 bytes.}
 \DoxyCodeLine{Global variables use 23632 bytes (7\%) of dynamic memory, leaving 304048 bytes for }
@@ -110,5 +123,11 @@ Here is the info for sketch which provides talking time and number support and s
 \end{DoxyCode}
 
 
-I think this leave plenty of headroom and you still have the option to store the audio on an SD drive...\hypertarget{index_autotoc_md6}{}\doxysection{Documentation}\label{index_autotoc_md6}
-Here is the \href{https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html}{\texttt{ link to the generated class documentation}}. Further information can be found in the \href{https://github.com/pschatzmann/arduino-simple-tts/wiki}{\texttt{ Wiki}} and in my \href{https://www.pschatzmann.ch/home/tag/tts/}{\texttt{ Blogs}} 
+I think this leave plenty of headroom and you still have the option to store the {\bfseries{audio on an SD drive}}...\hypertarget{index_autotoc_md7}{}\doxysection{Documentation}\label{index_autotoc_md7}
+Here is the \href{https://pschatzmann.github.io/arduino-simple-tts/docs/html/annotated.html}{\texttt{ link to the generated class documentation}}. Further information can be found in the \href{https://github.com/pschatzmann/arduino-simple-tts/wiki}{\texttt{ Wiki}} and in my \href{https://www.pschatzmann.ch/home/tag/tts/}{\texttt{ Blogs}}\hypertarget{index_autotoc_md8}{}\doxysection{Dependencies}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} -\/ mandatory
+\item \href{https://github.com/greiman/SdFat}{\texttt{ Sd\+Fat Library}} -\/ optional for SD examples (or you can use the SD library instead\+: see Wiki)
+\item \href{https://github.com/pschatzmann/arduino-audiokit}{\texttt{ Arduino Audio\+Kit}} -\/ optional if you use the Audio\+Kit (alternatively you can just replace the Audio\+Kit\+Stream in the examples with e.\+g. an I2\+SStream) 
+\end{DoxyItemize}
