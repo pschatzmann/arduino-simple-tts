@@ -46,7 +46,7 @@ void increment() {
 
 void loop() {
     // speach output
-    ntt.say((int32_t)number);
+    ntt.say(number);
 
     increment();
     delay(1000);
