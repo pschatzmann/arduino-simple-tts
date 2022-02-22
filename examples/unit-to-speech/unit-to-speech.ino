@@ -30,6 +30,8 @@ double number = 1.1;
 
 void setup(){
     Serial.begin(115200);
+    AudioLogger::instance().begin(Serial, AudioLogger::Info);
+
     // setup out
     auto cfg = out.defaultConfig(); 
     cfg.sample_rate = 24000;

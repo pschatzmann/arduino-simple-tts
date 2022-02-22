@@ -30,6 +30,7 @@ class TextToSpeech {
     p_dictionary = &dict;
     p_decoder = &decoder;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+    begin();
   }
 
   TextToSpeech(SimpleTTSBase &tts, AudioPrint &sink, AudioDecoder &decoder,
@@ -39,6 +40,7 @@ class TextToSpeech {
     p_dictionary = &dict;
     p_decoder = &decoder;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+    begin();
   }
 
   /// Default Constructor

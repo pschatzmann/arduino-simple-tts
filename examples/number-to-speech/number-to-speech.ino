@@ -30,6 +30,8 @@ int64_t number = 1;
 
 void setup(){
     Serial.begin(115200);
+    AudioLogger::instance().begin(Serial, AudioLogger::Warning);
+
     // setup out
     auto cfg = out.defaultConfig(); 
     cfg.sample_rate = 24000;
