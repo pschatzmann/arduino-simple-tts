@@ -11,13 +11,15 @@
 
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
+#include "Desktop.h"
 
-I2SStream out;
+I2SStream i2s;
 VolumeOutput volume(i2s);
 SilenceRemovalStream<int16_t> out(volume);
 
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
+NumberUnitToText utt;
 TextToSpeech tts(utt, out, mp3, dictionary);
 
 double number = 1.1;
