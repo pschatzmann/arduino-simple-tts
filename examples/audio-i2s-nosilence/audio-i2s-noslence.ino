@@ -13,29 +13,28 @@
 #include "AudioCodecs/CodecMP3Helix.h"
 
 I2SStream out;
-VolumeOutput volume(out);
+VolumeOutput volume(i2s);
+SilenceRemovalStream<int16_t> out(volume);
 
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
-NumberUnitToText utt;
-TextToSpeech tts(utt, volume, mp3, dictionary);
+TextToSpeech tts(utt, out, mp3, dictionary);
 
 double number = 1.1;
 
 void setup(){
     Serial.begin(115200);
     AudioLogger::instance().begin(Serial, AudioLogger::Info);
-
-    // setting the volume
-    volume.setVolume(0.6);
-
     // setup out
-    auto cfg = out.defaultConfig(); 
+    auto cfg = i2s.defaultConfig(); 
     cfg.sample_rate = 24000;
     cfg.channels = 1;
-    out.begin(cfg);
+    i2s.begin(cfg);
 
-    
+    // remoeve the last 5 samples if amplidue is below 1
+    out.begin(5, 1);
+    volume.setVolume(0.6);
+
 }
 
 void increment() {
