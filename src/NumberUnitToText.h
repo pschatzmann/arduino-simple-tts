@@ -117,7 +117,7 @@ class NumberUnitToText : public SimpleTTSBase {
       {"$", "dollar", "dollars"}, {"¢", "cent", "cents"}};
 
   /// units that can be constructed by combining words
-  const static int max_unit_2 = 14;
+  const static int max_unit_2 = 15;
   const char* unit2[max_unit_2][4] = {{"mph", "miles", "per", "hour"},
                                       {"C", "degrees", "celcius", nullptr},
                                       {"F", "degrees", "fahrenheit", nullptr},
@@ -131,6 +131,7 @@ class NumberUnitToText : public SimpleTTSBase {
                                       {"m", "meter", nullptr, nullptr},
                                       {"cm", "centi", "m", nullptr},
                                       {"mm", "milli", "m", nullptr},
+                                      {"u.s.", "us", nullptr, nullptr},
                                       {"usd", "u.s.", "$", nullptr}};
 
   // split unit before and after the decimal point: 1.20 USD is 1 dollar and 20
