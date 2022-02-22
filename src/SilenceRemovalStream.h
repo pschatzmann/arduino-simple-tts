@@ -56,7 +56,7 @@ class SilenceRemovalStream : public audio_tools::AudioStreamX {
     p_out->write(buffer, write_size);
     LOGI("filtered silence from %d -> %d", (int)size, (int)write_size);
 
-    // calculate negative offset for next run
+    // number of empty samples of prior buffer
     priorLastAudioPos =  findLastAudioPos(audio, sample_count - 1);
 
     // return processed data size
