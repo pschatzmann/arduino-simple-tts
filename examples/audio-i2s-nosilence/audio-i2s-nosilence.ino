@@ -12,12 +12,14 @@
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
 
-I2SStream out;
-VolumeOutput volume(i2s);
-SilenceRemovalStream<int16_t> out(volume);
+I2SStream i2s; // final output
+VolumeStream volume(i2s); // volume support
+SilenceRemovalConverter<int16_t> silence(8,2); // suppress silence
+ConvertedStream<int16_t, SilenceRemovalConverter<int16_t>> out(volume,silence);
 
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
+NumberUnitToText utt;
 TextToSpeech tts(utt, out, mp3, dictionary);
 
 double number = 1.1;
@@ -31,8 +33,7 @@ void setup(){
     cfg.channels = 1;
     i2s.begin(cfg);
 
-    // remoeve the last 5 samples if amplidue is below 1
-    out.begin(5, 1);
+    // define volume
     volume.setVolume(0.6);
 
 }

@@ -13,7 +13,7 @@
 #include "AudioCodecs/CodecMP3Helix.h"
 
 PWMAudioStream out;
-VolumeOutput volume(out);
+VolumeStream volume(out);
 
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
