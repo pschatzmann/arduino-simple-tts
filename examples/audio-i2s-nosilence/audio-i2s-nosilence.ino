@@ -11,11 +11,12 @@
 
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
+#include "Desktop.h"
 
-I2SStream i2s; // final output
-VolumeStream volume(i2s); // volume support
-SilenceRemovalConverter<int16_t> silence(8,2); // suppress silence
-ConvertedStream<int16_t, SilenceRemovalConverter<int16_t>> out(volume,silence);
+I2SStream i2s;
+VolumeStream volume(i2s);
+SilenceRemovalConverter<int16_t> rem(8, 2);
+ConvertedStream<int16_t,SilenceRemovalConverter<int16_t>> out(volume, rem); 
 
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);

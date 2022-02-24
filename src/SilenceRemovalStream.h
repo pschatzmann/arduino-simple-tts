@@ -26,8 +26,9 @@ class SilenceRemovalStream : public audio_tools::AudioStreamX {
     LOGI("begin(n=%d, aplidudeLimit=%d", n, aplidudeLimit);
     this->n = n;
     this->amplidude_limit = aplidudeLimit;
-    this->priorLastAudioPos = 0;
+    this->priorLastAudioPos = n+1;  // ignore first values
     this->active = n > 0;
+    return true;
   }
 
   virtual size_t write(const uint8_t *data, size_t size) override {
@@ -53,10 +54,10 @@ class SilenceRemovalStream : public audio_tools::AudioStreamX {
     // write audio data w/o silence
     size_t write_size = write_count * sizeof(T);
     p_out->write(buffer, write_size);
-    LOGD("filtered from %d -> %d", size, write_size);
+    LOGI("filtered silence from %d -> %d", (int)size, (int)write_size);
 
-    // calculate negative offset for next run
-    priorLastAudioPos = size - findLastAudioPos(audio, sample_count - 1);
+    // number of empty samples of prior buffer
+    priorLastAudioPos =  findLastAudioPos(audio, sample_count - 1);
 
     // return processed data size
     return size;
@@ -64,7 +65,7 @@ class SilenceRemovalStream : public audio_tools::AudioStreamX {
 
   virtual int availableForWrite() override { return p_out->availableForWrite(); }
 
-  void end() {
+  void end() override {
     priorLastAudioPos = 0;
     active = false;
   }
@@ -87,8 +88,8 @@ class SilenceRemovalStream : public audio_tools::AudioStreamX {
   int findLastAudioPos(T *audio, int pos) {
     for (int j = 0; j < n; j++) {
       // we are before the start of the current buffer
-      if (pos - j < 0) {
-        return pos - j + priorLastAudioPos;
+      if (pos - j <= 0) {
+        return priorLastAudioPos;
       }
       // we are in the current buffer
       if (abs(audio[pos - j]) > amplidude_limit) {
