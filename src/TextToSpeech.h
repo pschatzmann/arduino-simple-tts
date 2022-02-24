@@ -29,6 +29,7 @@ class TextToSpeech {
     p_tts = &tts;
     p_dictionary = &dict;
     p_decoder = &decoder;
+    p_sink = &sink;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
     begin();
   }
@@ -39,6 +40,7 @@ class TextToSpeech {
     p_tts = &tts;
     p_dictionary = &dict;
     p_decoder = &decoder;
+    p_sink = &sink;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
     begin();
   }
@@ -48,6 +50,7 @@ class TextToSpeech {
                AudioDictionaryBase &dict) {
     p_dictionary = &dict;
     p_decoder = &decoder;
+    p_sink = &sink;
     decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
     begin();
   }
@@ -90,14 +93,24 @@ class TextToSpeech {
     end();
   }
 
+  /// writes silence for the indicated ms
+  void delay(uint32_t delay_ms){
+      uint8_t buffer[1024] = {0};
+      unsigned long timeout = millis()+delay_ms;
+      while(timeout>millis()){
+         p_sink->write((const uint8_t*)buffer,1024);
+      }
+  }
+
  protected:
   bool active = false;
   NumberToText ntt;
   audio_tools::AudioDecoder *p_decoder = nullptr;
   audio_tools::EncodedAudioStream *decodedStream = nullptr;  // Decoding stream
-  SimpleTTSBase *p_tts = nullptr;             // Text source
+  SimpleTTSBase *p_tts = nullptr;               // Text source
   AudioDictionaryBase *p_dictionary = nullptr;  // Dictionary to access audio data
-  audio_tools::StreamCopy copier;                          // copy in to out
+  audio_tools::StreamCopy copier;               // copy in to out
+  Print *p_sink=nullptr;
 
   /// callback which says the words
   static void callback(audio_tools::Vector<const char *> words, void* ref) { 

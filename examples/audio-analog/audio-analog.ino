@@ -42,11 +42,9 @@ void increment() {
 
 void loop() {
     // speach output
-    out.begin();
     utt.say(number, "usd");
-    delay(200);
-    out.end(); // closing to avoid disturbing noise
 
     increment();
-    delay(1000);
+    // we continue to write empty audio to avoid noise
+    tts.delay(200); 
 }
