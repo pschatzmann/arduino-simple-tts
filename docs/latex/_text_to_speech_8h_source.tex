@@ -1,0 +1,117 @@
+\hypertarget{_text_to_speech_8h_source}{}\doxysection{Text\+To\+Speech.\+h}
+\label{_text_to_speech_8h_source}\index{src/TextToSpeech.h@{src/TextToSpeech.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef NO\_SPEECH}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AudioCodecs/CodecMP3Helix.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}AudioTools/AudioOutput.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioTools/AudioStreams.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}AudioTools/AudioTypes.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}NumberToText.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}AudioDictionary.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}en/all.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// the audio includes do not have a namespace so we import them here}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }TextToSpeech;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{TextToSpeech}} \{}
+\DoxyCodeLine{24  \textcolor{keyword}{public}:}
+\DoxyCodeLine{26   \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}{TextToSpeech}}(\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \&tts, AudioStream \&sink, AudioDecoder \&decoder,}
+\DoxyCodeLine{27                \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \&dict) \{}
+\DoxyCodeLine{28     tts.registerCallback(\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}{callback}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{29     p\_tts = \&tts;}
+\DoxyCodeLine{30     p\_dictionary = \&dict;}
+\DoxyCodeLine{31     p\_decoder = \&decoder;}
+\DoxyCodeLine{32     p\_sink = \&sink;}
+\DoxyCodeLine{33     decodedStream = \textcolor{keyword}{new} audio\_tools::EncodedAudioStream(\&sink, \&decoder);}
+\DoxyCodeLine{34     begin();}
+\DoxyCodeLine{35   \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}{TextToSpeech}}(\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \&tts, AudioPrint \&sink, AudioDecoder \&decoder,}
+\DoxyCodeLine{38                \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \&dict) \{}
+\DoxyCodeLine{39     tts.registerCallback(\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}{callback}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{40     p\_tts = \&tts;}
+\DoxyCodeLine{41     p\_dictionary = \&dict;}
+\DoxyCodeLine{42     p\_decoder = \&decoder;}
+\DoxyCodeLine{43     p\_sink = \&sink;}
+\DoxyCodeLine{44     decodedStream = \textcolor{keyword}{new} audio\_tools::EncodedAudioStream(\&sink, \&decoder);}
+\DoxyCodeLine{45     begin();}
+\DoxyCodeLine{46   \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{49   \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a316f6162063dc215f5e37b6326b109e1}{TextToSpeech}}(AudioStream \&sink, AudioDecoder \&decoder,}
+\DoxyCodeLine{50                \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \&dict) \{}
+\DoxyCodeLine{51     p\_dictionary = \&dict;}
+\DoxyCodeLine{52     p\_decoder = \&decoder;}
+\DoxyCodeLine{53     p\_sink = \&sink;}
+\DoxyCodeLine{54     decodedStream = \textcolor{keyword}{new} audio\_tools::EncodedAudioStream(\&sink, \&decoder);}
+\DoxyCodeLine{55     begin();}
+\DoxyCodeLine{56   \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{\string~TextToSpeech}}() \{ \textcolor{keyword}{delete} decodedStream; \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{62   \textcolor{keywordtype}{void} \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}{say}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *word) \{}
+\DoxyCodeLine{63     LOGI(\textcolor{stringliteral}{"{}say: \%s"{}},word);}
+\DoxyCodeLine{64     AudioStream *mp3Stream = p\_dictionary-\/>get(word);}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (mp3Stream != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{66       \textcolor{keywordflow}{if} (!active) begin();}
+\DoxyCodeLine{67       mp3Stream-\/>begin();}
+\DoxyCodeLine{68       copier.begin(*decodedStream, *mp3Stream);}
+\DoxyCodeLine{69       copier.copyAll();}
+\DoxyCodeLine{70       copier.end();}
+\DoxyCodeLine{71       mp3Stream-\/>end();}
+\DoxyCodeLine{72     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{73       LOGE(\textcolor{stringliteral}{"{}Word not available in dictionary: \%s"{}}, word);}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75   \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{keywordtype}{void} begin() \{}
+\DoxyCodeLine{78     p\_decoder-\/>begin();}
+\DoxyCodeLine{79     active = \textcolor{keyword}{true};}
+\DoxyCodeLine{80   \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} end() \{}
+\DoxyCodeLine{83     p\_decoder-\/>end();}
+\DoxyCodeLine{84     active = \textcolor{keyword}{false};}
+\DoxyCodeLine{85   \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{88   \textcolor{keywordtype}{void} \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}{say}}(audio\_tools::Vector<const char *> words) \{}
+\DoxyCodeLine{89     begin();}
+\DoxyCodeLine{90     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} word : words) \{      }
+\DoxyCodeLine{91       \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}{say}}(word);}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93     end();}
+\DoxyCodeLine{94   \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{97   \textcolor{keywordtype}{void} \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aa7ebf5afbc70655c9a0116de496ae58e}{delay}}(uint32\_t delay\_ms)\{}
+\DoxyCodeLine{98       uint8\_t buffer[1024] = \{0\};}
+\DoxyCodeLine{99       \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} timeout = millis()+delay\_ms;}
+\DoxyCodeLine{100       \textcolor{keywordflow}{while}(timeout>millis())\{}
+\DoxyCodeLine{101          p\_sink-\/>write((\textcolor{keyword}{const} uint8\_t*)buffer,1024);}
+\DoxyCodeLine{102       \}}
+\DoxyCodeLine{103   \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{106   \textcolor{keywordtype}{bool} active = \textcolor{keyword}{false};}
+\DoxyCodeLine{107   \mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{NumberToText}} ntt;}
+\DoxyCodeLine{108   audio\_tools::AudioDecoder *p\_decoder = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{109   audio\_tools::EncodedAudioStream *decodedStream = \textcolor{keyword}{nullptr};  \textcolor{comment}{// Decoding stream}}
+\DoxyCodeLine{110   \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} *p\_tts = \textcolor{keyword}{nullptr};               \textcolor{comment}{// Text source}}
+\DoxyCodeLine{111   \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} *p\_dictionary = \textcolor{keyword}{nullptr};  \textcolor{comment}{// Dictionary to access audio data}}
+\DoxyCodeLine{112   audio\_tools::StreamCopy copier;               \textcolor{comment}{// copy in to out}}
+\DoxyCodeLine{113   Print *p\_sink=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}{callback}}(audio\_tools::Vector<const char *> words, \textcolor{keywordtype}{void}* ref) \{ }
+\DoxyCodeLine{117     \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{TextToSpeech}}* self = (\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{TextToSpeech}}*)ref;}
+\DoxyCodeLine{118     self-\/>\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}{say}}(words); \}}
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \}  \textcolor{comment}{// namespace simple\_tts}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

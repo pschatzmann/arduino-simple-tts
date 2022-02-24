@@ -1,0 +1,144 @@
+\hypertarget{_number_to_text_8h_source}{}\doxysection{Number\+To\+Text.\+h}
+\label{_number_to_text_8h_source}\index{src/NumberToText.h@{src/NumberToText.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}SimpleTTSBase.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AudioBasic/Vector.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{NumberToText}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \{}
+\DoxyCodeLine{16  \textcolor{keyword}{public}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{19   audio\_tools::Vector<const char*> \&\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(\textcolor{keywordtype}{double} value, \textcolor{keywordtype}{int} decimals=2) \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} number;}
+\DoxyCodeLine{21     number.set(value, decimals);}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(number.\mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}(), number.\mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}());}
+\DoxyCodeLine{23   \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   audio\_tools::Vector<const char*> \&\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(int64\_t wholeNumber) \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} number;}
+\DoxyCodeLine{27     number.set(wholeNumber);}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(number.\mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}(), number.\mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}());}
+\DoxyCodeLine{29   \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32   audio\_tools::Vector<const char*> \&\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a6ad6f5daf5caf6fbc9665947ee3cdc5d}{say}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* wholeNumber, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* decimals=\textcolor{stringliteral}{"{}"{}}) \{}
+\DoxyCodeLine{33     result.clear();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     LOGI(\textcolor{stringliteral}{"{}say(number='\%s', decimal='\%s')"{}},wholeNumber, decimals);}
+\DoxyCodeLine{36     Str wn(wholeNumber);}
+\DoxyCodeLine{37     wn.trim();}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (wn.startsWith(\textcolor{stringliteral}{"{}-\/"{}}))\{}
+\DoxyCodeLine{39       add(third[MINUS]);}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// number before decimals}}
+\DoxyCodeLine{43     convert(wholeNumber);}
+\DoxyCodeLine{44  }
+\DoxyCodeLine{45     \textcolor{comment}{// add decimals}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (Str(decimals).toLong()>0l)\{}
+\DoxyCodeLine{47       convertDecimals(decimals);}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// provide result to callback}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (callback)\{}
+\DoxyCodeLine{52         callback(result, reference);}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{55   \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{58   audio\_tools::Vector<const char*> \&\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_ae7cdf641730a749293956193b785a772}{allTexts}}() \{}
+\DoxyCodeLine{59     result.clear();}
+\DoxyCodeLine{60     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0;j<20;j++)\{}
+\DoxyCodeLine{61       add(first[j]);}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0;j<10;j++)\{}
+\DoxyCodeLine{64       add(second[j]);}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0;j<7;j++)\{}
+\DoxyCodeLine{67       add(third[j]);}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{70   \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{73   audio\_tools::Vector<const char*> result;}
+\DoxyCodeLine{74   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* first[20] = \{\textcolor{stringliteral}{"{}ZERO"{}},    \textcolor{stringliteral}{"{}ONE"{}},       \textcolor{stringliteral}{"{}TWO"{}},       \textcolor{stringliteral}{"{}THREE"{}},}
+\DoxyCodeLine{75                            \textcolor{stringliteral}{"{}FOUR"{}},    \textcolor{stringliteral}{"{}FIVE"{}},      \textcolor{stringliteral}{"{}SIX"{}},       \textcolor{stringliteral}{"{}SEVEN"{}},}
+\DoxyCodeLine{76                            \textcolor{stringliteral}{"{}EIGHT"{}},   \textcolor{stringliteral}{"{}NINE"{}},      \textcolor{stringliteral}{"{}TEN"{}},       \textcolor{stringliteral}{"{}ELEVEN"{}},}
+\DoxyCodeLine{77                            \textcolor{stringliteral}{"{}TWELVE"{}},  \textcolor{stringliteral}{"{}THIRTEEN"{}},  \textcolor{stringliteral}{"{}FOURTEEN"{}},  \textcolor{stringliteral}{"{}FIFTEEN"{}},}
+\DoxyCodeLine{78                            \textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{stringliteral}{"{}EIGHTEEN"{}},  \textcolor{stringliteral}{"{}NINETEEN"{}}\};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* second[10] = \{\textcolor{stringliteral}{"{}"{}},      \textcolor{stringliteral}{"{}TEN"{}},   \textcolor{stringliteral}{"{}TWENTY"{}},  \textcolor{stringliteral}{"{}THIRTY"{}}, \textcolor{stringliteral}{"{}FORTY"{}},}
+\DoxyCodeLine{81                             \textcolor{stringliteral}{"{}FIFTY"{}}, \textcolor{stringliteral}{"{}SIXTY"{}}, \textcolor{stringliteral}{"{}SEVENTY"{}}, \textcolor{stringliteral}{"{}EIGHTY"{}}, \textcolor{stringliteral}{"{}NINETY"{}}\};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* third[7] = \{\textcolor{stringliteral}{"{}AND"{}},\textcolor{stringliteral}{"{}DOT"{}},\textcolor{stringliteral}{"{}MINUS"{}}, \textcolor{stringliteral}{"{}HUNDRED"{}}, \textcolor{stringliteral}{"{}THOUSAND"{}}, \textcolor{stringliteral}{"{}MILLION"{}},\textcolor{stringliteral}{"{}BILLION"{}}\};}
+\DoxyCodeLine{84   \textcolor{keyword}{const} \textcolor{keywordtype}{int} AND = 0;}
+\DoxyCodeLine{85   \textcolor{keyword}{const} \textcolor{keywordtype}{int} DOT = 1;}
+\DoxyCodeLine{86   \textcolor{keyword}{const} \textcolor{keywordtype}{int} MINUS = 2;}
+\DoxyCodeLine{87   \textcolor{keyword}{const} \textcolor{keywordtype}{int} HUNDRED = 3;}
+\DoxyCodeLine{88   \textcolor{keyword}{const} \textcolor{keywordtype}{int} THOUSAND = 4;}
+\DoxyCodeLine{89   \textcolor{keyword}{const} \textcolor{keywordtype}{int} MILLION = 5;}
+\DoxyCodeLine{90   \textcolor{keyword}{const} \textcolor{keywordtype}{int} BILLION = 6;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \textcolor{keywordtype}{void} add(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str)\{}
+\DoxyCodeLine{93     result.push\_back(str);}
+\DoxyCodeLine{94   \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   \textcolor{keywordtype}{void} convertDecimals(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* decimals) \{}
+\DoxyCodeLine{97     Str dec(decimals);}
+\DoxyCodeLine{98     \textcolor{keywordflow}{if} (dec.toInt()!=0.0)\{}
+\DoxyCodeLine{99       \textcolor{keyword}{const} \textcolor{keywordtype}{char}* ch=decimals;}
+\DoxyCodeLine{100       add(third[DOT]);}
+\DoxyCodeLine{101       \textcolor{keywordflow}{while} (*++ch)\{}
+\DoxyCodeLine{102         \textcolor{keywordtype}{int} idx = (*ch)-\/48; \textcolor{comment}{// convert to index}}
+\DoxyCodeLine{103         add(first[idx]);}
+\DoxyCodeLine{104       \}}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106   \}}
+\DoxyCodeLine{107   \textcolor{keywordtype}{void} convert(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* strValue)\{}
+\DoxyCodeLine{108     convert(Str(strValue).toLong());}
+\DoxyCodeLine{109   \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \textcolor{comment}{// TODO: convert to string operations}}
+\DoxyCodeLine{112   \textcolor{keywordtype}{void} convert(int64\_t value)\{}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} (value < 0) \{}
+\DoxyCodeLine{114       convert(-\/value);}
+\DoxyCodeLine{115     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value >= 1000000000) \{}
+\DoxyCodeLine{116       convert(value / 1000000000);}
+\DoxyCodeLine{117       add(third[BILLION]);}
+\DoxyCodeLine{118       int64\_t remainder = value\%1000000000;}
+\DoxyCodeLine{119       \textcolor{keywordflow}{if} (remainder) convert(remainder);}
+\DoxyCodeLine{120     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value >= 1000000) \{}
+\DoxyCodeLine{121       convert(value / 1000000);}
+\DoxyCodeLine{122       add(third[MILLION]);}
+\DoxyCodeLine{123       int64\_t remainder = value\%1000000;}
+\DoxyCodeLine{124       \textcolor{keywordflow}{if} (remainder) convert(remainder);}
+\DoxyCodeLine{125     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value >= 1000) \{}
+\DoxyCodeLine{126       convert(value / 1000);}
+\DoxyCodeLine{127       add(third[THOUSAND]);}
+\DoxyCodeLine{128       int64\_t remainder = value\%1000;}
+\DoxyCodeLine{129       \textcolor{keywordflow}{if} (remainder) convert(remainder);}
+\DoxyCodeLine{130     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value >= 100) \{}
+\DoxyCodeLine{131       convert(value / 100);}
+\DoxyCodeLine{132       add(third[HUNDRED]);}
+\DoxyCodeLine{133       int64\_t remainder = value\%100;}
+\DoxyCodeLine{134       \textcolor{keywordflow}{if} (remainder) convert(remainder);}
+\DoxyCodeLine{135     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value >= 20) \{}
+\DoxyCodeLine{136       add(second[value / 10]);}
+\DoxyCodeLine{137       \textcolor{keywordflow}{if} (value \% 10) \{}
+\DoxyCodeLine{138         convert(value \% 10);}
+\DoxyCodeLine{139       \}}
+\DoxyCodeLine{140     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{141       add(first[value]);}
+\DoxyCodeLine{142     \}}
+\DoxyCodeLine{143   \}}
+\DoxyCodeLine{144 \};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \}  \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}

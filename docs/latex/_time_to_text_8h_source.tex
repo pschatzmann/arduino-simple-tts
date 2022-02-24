@@ -1,0 +1,157 @@
+\hypertarget{_time_to_text_8h_source}{}\doxysection{Time\+To\+Text.\+h}
+\label{_time_to_text_8h_source}\index{src/TimeToText.h@{src/TimeToText.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}NumberToText.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_time_to_text}{TimeToText}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \{}
+\DoxyCodeLine{13  \textcolor{keyword}{public}:}
+\DoxyCodeLine{15   audio\_tools::Vector<const char *> \&\mbox{\hyperlink{classsimple__tts_1_1_time_to_text_a65c5d0ca832cda665a63697293f94fb7}{say}}(\textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} minutes) \{}
+\DoxyCodeLine{16     \mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}} time(hour,minutes);}
+\DoxyCodeLine{17     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_time_to_text_a65c5d0ca832cda665a63697293f94fb7}{say}}(time);}
+\DoxyCodeLine{18   \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{21   audio\_tools::Vector<const char *> \&\mbox{\hyperlink{classsimple__tts_1_1_time_to_text_a3fea7fbf6c9cc754049c144c8fdfffd5}{say}}(\mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}} time) \{}
+\DoxyCodeLine{22     result.clear();}
+\DoxyCodeLine{23     LOGI(\textcolor{stringliteral}{"{}say: \%d:\%d"{}},time.hour, time.minute);}
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} (time.minute < 0 || time.minute >= 60) \{}
+\DoxyCodeLine{25       LOGE(\textcolor{stringliteral}{"{}Invalid minute (range 0-\/59): \%d"{}}, time.minute);}
+\DoxyCodeLine{26       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if} (time.hour < 0 || time.hour > 24) \{}
+\DoxyCodeLine{29       LOGE(\textcolor{stringliteral}{"{}Invalid hour (range 0-\/24): \%d"{}}, time.hour);}
+\DoxyCodeLine{30       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     process(time);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// provide result to callback}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} (callback)\{}
+\DoxyCodeLine{37         callback(result, reference);}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{41   \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44   audio\_tools::Vector<const char *> \&\mbox{\hyperlink{classsimple__tts_1_1_time_to_text_a74b2534f6c65dc2f3a5403952ff80690}{allTexts}}() \{}
+\DoxyCodeLine{45     result.clear();}
+\DoxyCodeLine{46     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 10; j++) \{}
+\DoxyCodeLine{47       add(j);}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{50   \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{53   audio\_tools::Vector<const char *> result;}
+\DoxyCodeLine{54   \mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{NumberToText}} ntt;}
+\DoxyCodeLine{55   \textcolor{keyword}{const} \textcolor{keywordtype}{int} ITS = 0;}
+\DoxyCodeLine{56   \textcolor{keyword}{const} \textcolor{keywordtype}{int} NOON = 1;}
+\DoxyCodeLine{57   \textcolor{keyword}{const} \textcolor{keywordtype}{int} MIDNIGHT = 2;}
+\DoxyCodeLine{58   \textcolor{keyword}{const} \textcolor{keywordtype}{int} OCLOCK = 3;}
+\DoxyCodeLine{59   \textcolor{keyword}{const} \textcolor{keywordtype}{int} TO = 4;}
+\DoxyCodeLine{60   \textcolor{keyword}{const} \textcolor{keywordtype}{int} PAST = 5;}
+\DoxyCodeLine{61   \textcolor{keyword}{const} \textcolor{keywordtype}{int} AM = 6;}
+\DoxyCodeLine{62   \textcolor{keyword}{const} \textcolor{keywordtype}{int} PM = 7;}
+\DoxyCodeLine{63   \textcolor{keyword}{const} \textcolor{keywordtype}{int} HALF = 8;}
+\DoxyCodeLine{64   \textcolor{keyword}{const} \textcolor{keywordtype}{int} QUARTER = 9;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *words[10] = \{\textcolor{stringliteral}{"{}ITS"{}}, \textcolor{stringliteral}{"{}NOON"{}}, \textcolor{stringliteral}{"{}MIDNIGHT"{}}, \textcolor{stringliteral}{"{}OCLOCK"{}}, \textcolor{stringliteral}{"{}TO"{}},}
+\DoxyCodeLine{67                            \textcolor{stringliteral}{"{}PAST"{}}, \textcolor{stringliteral}{"{}AM"{}},   \textcolor{stringliteral}{"{}PM"{}},       \textcolor{stringliteral}{"{}HALF"{}},    \textcolor{stringliteral}{"{}QUARTER"{}}\};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{keywordtype}{void} add(\textcolor{keywordtype}{int} idx) \{ add(words[idx]); \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} add(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str) \{ result.push\_back(str); \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73   \textcolor{keywordtype}{void} addAll(audio\_tools::Vector<const char *> \&words) \{}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} word : words) \{}
+\DoxyCodeLine{75       add(word);}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77   \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79   \textcolor{keywordtype}{void} process(SimpleTime time) \{}
+\DoxyCodeLine{80     add(ITS);}
+\DoxyCodeLine{81     \textcolor{comment}{// process exceptional times}}
+\DoxyCodeLine{82     \textcolor{keywordflow}{if} (time.hour == 12 \&\& time.minute == 00) \{}
+\DoxyCodeLine{83       add(NOON);}
+\DoxyCodeLine{84       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} (time.hour == 0 \&\& time.minute == 00) \{}
+\DoxyCodeLine{87       add(MIDNIGHT);}
+\DoxyCodeLine{88       \textcolor{keywordflow}{return};}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{// add minutes}}
+\DoxyCodeLine{92     processMinutes(time);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{// add hour}}
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} (time.hour <= 12) \{}
+\DoxyCodeLine{96       processHourAM(time);}
+\DoxyCodeLine{97     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{98       processHourPM(time);}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{101   \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103   \textcolor{keywordtype}{void} processMinutes(SimpleTime \&time) \{}
+\DoxyCodeLine{104     \textcolor{comment}{// process minutes}}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (time.minute == 0) \{}
+\DoxyCodeLine{106       \textcolor{comment}{// do nothing}}
+\DoxyCodeLine{107     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (time.minute == 15) \{}
+\DoxyCodeLine{108       add(QUARTER);}
+\DoxyCodeLine{109       add(PAST);}
+\DoxyCodeLine{110     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (time.minute < 30) \{}
+\DoxyCodeLine{111       addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(time.minute,0u));}
+\DoxyCodeLine{112       add(PAST);}
+\DoxyCodeLine{113     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (time.minute == 30) \{}
+\DoxyCodeLine{114       add(HALF);}
+\DoxyCodeLine{115       add(PAST);}
+\DoxyCodeLine{116     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (time.minute == 45) \{}
+\DoxyCodeLine{117       time.hour += 1;}
+\DoxyCodeLine{118       add(QUARTER);}
+\DoxyCodeLine{119       add(TO);}
+\DoxyCodeLine{120     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (time.minute > 30) \{}
+\DoxyCodeLine{121       time.hour += 1;}
+\DoxyCodeLine{122       time.minute = 60 -\/ time.minute;}
+\DoxyCodeLine{123       addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(time.minute,0u));}
+\DoxyCodeLine{124       add(TO);}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126   \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128   \textcolor{keywordtype}{void} processHourPM(SimpleTime time) \{}
+\DoxyCodeLine{129     \textcolor{keywordtype}{int} hour = time.hour;}
+\DoxyCodeLine{130     hour -\/= 12;}
+\DoxyCodeLine{131     \textcolor{comment}{// we do not say 0pm -\/> 12pm}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} (hour == 0) \{}
+\DoxyCodeLine{133       hour = 12;}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135     addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(hour,0u));}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{keywordflow}{if} (time.minute==0)\{}
+\DoxyCodeLine{138       add(OCLOCK);}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     add(PM);}
+\DoxyCodeLine{142   \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144   \textcolor{keywordtype}{void} processHourAM(SimpleTime time) \{}
+\DoxyCodeLine{145     \textcolor{keywordtype}{int} hour = time.hour;}
+\DoxyCodeLine{146     \textcolor{comment}{// we do not say 0am -\/> 12am}}
+\DoxyCodeLine{147     \textcolor{keywordflow}{if} (hour == 0) \{}
+\DoxyCodeLine{148       hour = 12;}
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150     addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(hour,0u));}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keywordflow}{if} (time.minute==0)\{}
+\DoxyCodeLine{153       add(OCLOCK);}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     add(AM);}
+\DoxyCodeLine{157   \}}
+\DoxyCodeLine{158 \};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \}  \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}

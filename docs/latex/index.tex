@@ -1,6 +1,6 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- Microcontrollers do not have enough resources to provide a high quality Text to Speech functionality. However, often it might be good enough to provide a solution which is based on some pre-\/recorded audio.
+ Microcontrollers do not have enough resources to provide a high quality \textquotesingle{}Text to Speech\textquotesingle{} functionality. However, often it might be good enough to provide a solution which is based on some pre-\/recorded audio.
 
 I was wondering about the limitations of this approach and decided to implement a small prototype Arduino library that is based on the \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} for the audio output.
 
@@ -97,7 +97,7 @@ You can also use the text generation classes described above\+:
 \DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
 \DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
 \DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
-\DoxyCodeLine{TextToSpeech tts(i2s, mp3, dictionary);}
+\DoxyCodeLine{TextToSpeech tts(ttt, i2s, mp3, dictionary);}
 \DoxyCodeLine{}
 \DoxyCodeLine{void setup()\{}
 \DoxyCodeLine{    Serial.begin(115200);}
@@ -128,6 +128,7 @@ Here is the \href{https://pschatzmann.github.io/arduino-simple-tts/docs/html/ann
 
 \begin{DoxyItemize}
 \item \href{https://github.com/pschatzmann/arduino-audio-tools}{\texttt{ Arduino Audio Tools}} -\/ mandatory
+\item \href{https://github.com/pschatzmann/arduino-libhelix}{\texttt{ arduino-\/libhelix}} A {\bfseries{MP3 and AAC Decoder}} from Realnetworks -\/ mandatory if you use the mp3 of the examles
 \item \href{https://github.com/greiman/SdFat}{\texttt{ Sd\+Fat Library}} -\/ optional for SD examples (or you can use the SD library instead\+: see Wiki)
 \item \href{https://github.com/pschatzmann/arduino-audiokit}{\texttt{ Arduino Audio\+Kit}} -\/ optional if you use the Audio\+Kit (alternatively you can just replace the Audio\+Kit\+Stream in the examples with e.\+g. an I2\+SStream) 
 \end{DoxyItemize}

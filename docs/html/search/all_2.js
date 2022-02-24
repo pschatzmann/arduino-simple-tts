@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['decimalinfo_11',['DecimalInfo',['../structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info.html',1,'simple_tts::NumberUnitToText']]],
-  ['decvalues_12',['decValues',['../classsimple__tts_1_1_number.html#a189c6c723a0b8bb5e9c8e62893af7521',1,'simple_tts::Number']]]
+  ['decimalinfo_0',['DecimalInfo',['../structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info.html',1,'simple_tts::NumberUnitToText']]],
+  ['decvalues_1',['decValues',['../classsimple__tts_1_1_number.html#a33e8504471cb6f4ab31a43b178ec26e5',1,'simple_tts::Number']]],
+  ['delay_2',['delay',['../classsimple__tts_1_1_text_to_speech.html#aa7ebf5afbc70655c9a0116de496ae58e',1,'simple_tts::TextToSpeech']]]
 ];

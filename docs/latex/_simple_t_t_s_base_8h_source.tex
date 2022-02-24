@@ -1,0 +1,129 @@
+\hypertarget{_simple_t_t_s_base_8h_source}{}\doxysection{Simple\+TTSBase.\+h}
+\label{_simple_t_t_s_base_8h_source}\index{src/SimpleTTSBase.h@{src/SimpleTTSBase.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}AudioTools.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \{}
+\DoxyCodeLine{16  \textcolor{keyword}{public}:}
+\DoxyCodeLine{17   \textcolor{keyword}{virtual} audio\_tools::Vector<const char*>\& allTexts() = 0;}
+\DoxyCodeLine{18   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} registerCallback(}
+\DoxyCodeLine{19       \textcolor{keywordtype}{void} (*ptr)(audio\_tools::Vector<const char*> words, \textcolor{keywordtype}{void}* refx),}
+\DoxyCodeLine{20       \textcolor{keywordtype}{void}* ref) \{}
+\DoxyCodeLine{21     callback = ptr;}
+\DoxyCodeLine{22     reference = ref;}
+\DoxyCodeLine{23   \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \textcolor{comment}{// Creates all missing audio recording files for the indicated source. We make sure}}
+\DoxyCodeLine{26   \textcolor{comment}{// that the output is lowercase}}
+\DoxyCodeLine{27   \textcolor{keywordtype}{void} printCSV(Print \&out) \{}
+\DoxyCodeLine{28     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} txt : allTexts()) \{}
+\DoxyCodeLine{29       \textcolor{keywordflow}{if} (txt!=\textcolor{keyword}{nullptr} \&\& strlen(txt)>0)\{}
+\DoxyCodeLine{30         StrExt str = txt; }
+\DoxyCodeLine{31         str.toLowerCase(); \textcolor{comment}{// convert txt to lowercase}}
+\DoxyCodeLine{32         out.print(str.c\_str());}
+\DoxyCodeLine{33         out.print(\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{34         out.println(str.c\_str());}
+\DoxyCodeLine{35       \}}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37   \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{40   void (*callback)(audio\_tools::Vector<const char*> word, \textcolor{keywordtype}{void}* ref) = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{41   \textcolor{keywordtype}{void}* reference = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \{}
+\DoxyCodeLine{50  \textcolor{keyword}{public}:}
+\DoxyCodeLine{51   \textcolor{keyword}{virtual} AudioStream* get(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* word) = 0;}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{60 \textcolor{keyword}{struct }\mbox{\hyperlink{structsimple__tts_1_1_audio_dictionary_entry}{AudioDictionaryEntry}} \{}
+\DoxyCodeLine{61   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name;}
+\DoxyCodeLine{62   AudioStream* audio;}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{72 \textcolor{keyword}{struct }\mbox{\hyperlink{structsimple__tts_1_1_audio_s_d_entry}{AudioSDEntry}} \{}
+\DoxyCodeLine{73   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* name;}
+\DoxyCodeLine{74   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* text = \textcolor{keyword}{nullptr};  \textcolor{comment}{// optional -\/ when different from name}}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{83 \textcolor{keyword}{struct }\mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}} \{}
+\DoxyCodeLine{84   \textcolor{keywordtype}{int} hour = 0;}
+\DoxyCodeLine{85   \textcolor{keywordtype}{int} minute = 0;}
+\DoxyCodeLine{86   \mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{87   \mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}}(\textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} minutes) \{}
+\DoxyCodeLine{88     this-\/>hour = hour;}
+\DoxyCodeLine{89     this-\/>minute = minutes;}
+\DoxyCodeLine{90   \}}
+\DoxyCodeLine{91   \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}}\& alt) \{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{return} alt.hour == hour \&\& alt.minute == minute;}
+\DoxyCodeLine{93   \}}
+\DoxyCodeLine{94   \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{structsimple__tts_1_1_simple_time}{SimpleTime}}\& alt) \{}
+\DoxyCodeLine{95     \textcolor{keywordflow}{return} alt.hour != hour || alt.minute != minute;}
+\DoxyCodeLine{96   \}}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{106 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} \{}
+\DoxyCodeLine{107 \textcolor{keyword}{public}:}
+\DoxyCodeLine{108   \textcolor{keywordtype}{void} set(\textcolor{keywordtype}{double} value, \textcolor{keywordtype}{int} digits=2) \{}
+\DoxyCodeLine{109     \textcolor{keywordtype}{char} format[10];}
+\DoxyCodeLine{110     \textcolor{comment}{// e.g. \%0.2f for 2 digits.}}
+\DoxyCodeLine{111     sprintf(format,\textcolor{stringliteral}{"{}\%\%0.\%df"{}}, digits);}
+\DoxyCodeLine{112     LOGD(\textcolor{stringliteral}{"{}format: \%s"{}}, format);}
+\DoxyCodeLine{113     memset(buffer, 0, buffer\_len);}
+\DoxyCodeLine{114     \textcolor{comment}{// convert to string}}
+\DoxyCodeLine{115     sprintf(buffer, format, value);}
+\DoxyCodeLine{116     LOGD(\textcolor{stringliteral}{"{}number: \%s"{}},buffer);}
+\DoxyCodeLine{117     dot = strchr(buffer, \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{118     \textcolor{comment}{// split string}}
+\DoxyCodeLine{119     *dot = 0;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     LOGD(\textcolor{stringliteral}{"{}int: \%s"{}}, \mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}());}
+\DoxyCodeLine{122     LOGD(\textcolor{stringliteral}{"{}dec: \%s"{}}, \mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}());}
+\DoxyCodeLine{123   \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{keywordtype}{void} set(int64\_t wholeNumber) \{}
+\DoxyCodeLine{126     memset(buffer,0,buffer\_len);}
+\DoxyCodeLine{127     \textcolor{comment}{// convert to string}}
+\DoxyCodeLine{128     sprintf(buffer, \textcolor{stringliteral}{"{}\%lld"{}}, wholeNumber);}
+\DoxyCodeLine{129     \textcolor{comment}{//ltoa(wholeNumber, buffer, 10);}}
+\DoxyCodeLine{130     dot = buffer+strlen(buffer);}
+\DoxyCodeLine{131   \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}() \{}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} buffer;}
+\DoxyCodeLine{136   \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}() \{}
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} dot+1;}
+\DoxyCodeLine{141   \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{comment}{// converts a decimal to a full number: 1 gives 10, 01 dives 1 if digits are 2. This is used e.g. for USD 1.1 which}}
+\DoxyCodeLine{144   \textcolor{comment}{// will need to render 1 dollar and 10 cents; attn: 1.101 should still give 10 cents!}}
+\DoxyCodeLine{145   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* decAsInt(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* decimals, \textcolor{keywordtype}{int} digits)\{}
+\DoxyCodeLine{146     memset(buffer, 0, buffer\_len);}
+\DoxyCodeLine{147     memset(buffer,\textcolor{charliteral}{'0'}, digits);}
+\DoxyCodeLine{148     \textcolor{keywordtype}{int} len = min((\textcolor{keywordtype}{int})strlen(decimals),digits);}
+\DoxyCodeLine{149     memcpy(buffer, decimals, len);}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} buffer;}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{154     \textcolor{comment}{// convert to string}}
+\DoxyCodeLine{155     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} buffer\_len = 100;}
+\DoxyCodeLine{156     \textcolor{keywordtype}{char} buffer[buffer\_len];}
+\DoxyCodeLine{157     \textcolor{keywordtype}{char}* dot=buffer;}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \}  \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}

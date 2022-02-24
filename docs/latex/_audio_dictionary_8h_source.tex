@@ -1,0 +1,115 @@
+\hypertarget{_audio_dictionary_8h_source}{}\doxysection{Audio\+Dictionary.\+h}
+\label{_audio_dictionary_8h_source}\index{src/AudioDictionary.h@{src/AudioDictionary.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}SimpleTTSBase.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}en/all.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary}{AudioDictionary}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}}  \{}
+\DoxyCodeLine{15  \textcolor{keyword}{public}:}
+\DoxyCodeLine{16   \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary}{AudioDictionary}}(\mbox{\hyperlink{structsimple__tts_1_1_audio_dictionary_entry}{AudioDictionaryEntry}} *dict) \{ dictionary = dict; \}}
+\DoxyCodeLine{17   AudioStream *get(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *word) \{}
+\DoxyCodeLine{18     \textcolor{keywordflow}{if} (word==\textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{19     Str str(word);}
+\DoxyCodeLine{20     \mbox{\hyperlink{structsimple__tts_1_1_audio_dictionary_entry}{AudioDictionaryEntry}} *e = dictionary;}
+\DoxyCodeLine{21     \textcolor{keywordflow}{while} (e-\/>name != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{22       \textcolor{keywordflow}{if} (str.equalsIgnoreCase(e-\/>name)) \{}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} e-\/>audio;}
+\DoxyCodeLine{24       \}}
+\DoxyCodeLine{25       e++;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{28   \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{31   \mbox{\hyperlink{structsimple__tts_1_1_audio_dictionary_entry}{AudioDictionaryEntry}} *dictionary;}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39 \mbox{\hyperlink{structsimple__tts_1_1_audio_dictionary_entry}{AudioDictionaryEntry}} ExampleAudioDictionaryValues[] = \{}
+\DoxyCodeLine{40     \{\textcolor{stringliteral}{"{}AND"{}}, \textcolor{keyword}{new} MemoryStream(and\_mp3, and\_mp3\_len)\},}
+\DoxyCodeLine{41     \{\textcolor{stringliteral}{"{}BILLION"{}}, \textcolor{keyword}{new} MemoryStream(billion\_mp3, billion\_mp3\_len)\},}
+\DoxyCodeLine{42     \{\textcolor{stringliteral}{"{}DOT"{}}, \textcolor{keyword}{new} MemoryStream(dot\_mp3, dot\_mp3\_len)\},}
+\DoxyCodeLine{43     \{\textcolor{stringliteral}{"{}EIGHT"{}}, \textcolor{keyword}{new} MemoryStream(eight\_mp3, eight\_mp3\_len)\},}
+\DoxyCodeLine{44     \{\textcolor{stringliteral}{"{}EIGHTEEN"{}}, \textcolor{keyword}{new} MemoryStream(eighteen\_mp3, eighteen\_mp3\_len)\},}
+\DoxyCodeLine{45     \{\textcolor{stringliteral}{"{}EIGHTY"{}}, \textcolor{keyword}{new} MemoryStream(eighty\_mp3, eighty\_mp3\_len)\},}
+\DoxyCodeLine{46     \{\textcolor{stringliteral}{"{}ELEVEN"{}}, \textcolor{keyword}{new} MemoryStream(eleven\_mp3, eleven\_mp3\_len)\},}
+\DoxyCodeLine{47     \{\textcolor{stringliteral}{"{}FIFTEEN"{}}, \textcolor{keyword}{new} MemoryStream(fifteen\_mp3, fifteen\_mp3\_len)\},}
+\DoxyCodeLine{48     \{\textcolor{stringliteral}{"{}FIFTY"{}}, \textcolor{keyword}{new} MemoryStream(fifty\_mp3, fifty\_mp3\_len)\},}
+\DoxyCodeLine{49     \{\textcolor{stringliteral}{"{}FIVE"{}}, \textcolor{keyword}{new} MemoryStream(five\_mp3, five\_mp3\_len)\},}
+\DoxyCodeLine{50     \{\textcolor{stringliteral}{"{}FOUR"{}}, \textcolor{keyword}{new} MemoryStream(four\_mp3, four\_mp3\_len)\},}
+\DoxyCodeLine{51     \{\textcolor{stringliteral}{"{}FOURTEEN"{}}, \textcolor{keyword}{new} MemoryStream(fourteen\_mp3, fourteen\_mp3\_len)\},}
+\DoxyCodeLine{52     \{\textcolor{stringliteral}{"{}FOURTY"{}}, \textcolor{keyword}{new} MemoryStream(fourty\_mp3, fourty\_mp3\_len)\},}
+\DoxyCodeLine{53     \{\textcolor{stringliteral}{"{}HUNDRED"{}}, \textcolor{keyword}{new} MemoryStream(hundred\_mp3, hundred\_mp3\_len)\},}
+\DoxyCodeLine{54     \{\textcolor{stringliteral}{"{}MILLION"{}}, \textcolor{keyword}{new} MemoryStream(million\_mp3, million\_mp3\_len)\},}
+\DoxyCodeLine{55     \{\textcolor{stringliteral}{"{}MINUS"{}}, \textcolor{keyword}{new} MemoryStream(minus\_mp3, minus\_mp3\_len)\},}
+\DoxyCodeLine{56     \{\textcolor{stringliteral}{"{}NINE"{}}, \textcolor{keyword}{new} MemoryStream(nine\_mp3, nine\_mp3\_len)\},}
+\DoxyCodeLine{57     \{\textcolor{stringliteral}{"{}NINETEEN"{}}, \textcolor{keyword}{new} MemoryStream(nineteen\_mp3, nineteen\_mp3\_len)\},}
+\DoxyCodeLine{58     \{\textcolor{stringliteral}{"{}NINETY"{}}, \textcolor{keyword}{new} MemoryStream(ninety\_mp3, ninety\_mp3\_len)\},}
+\DoxyCodeLine{59     \{\textcolor{stringliteral}{"{}OCLOCK"{}}, \textcolor{keyword}{new} MemoryStream(oclock\_mp3, oclock\_mp3\_len)\},}
+\DoxyCodeLine{60     \{\textcolor{stringliteral}{"{}ONE"{}}, \textcolor{keyword}{new} MemoryStream(one\_mp3, one\_mp3\_len)\},}
+\DoxyCodeLine{61     \{\textcolor{stringliteral}{"{}SEVEN"{}}, \textcolor{keyword}{new} MemoryStream(seven\_mp3, seven\_mp3\_len)\},}
+\DoxyCodeLine{62     \{\textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{keyword}{new} MemoryStream(seventeen\_mp3, seventeen\_mp3\_len)\},}
+\DoxyCodeLine{63     \{\textcolor{stringliteral}{"{}SEVENTY"{}}, \textcolor{keyword}{new} MemoryStream(seventy\_mp3, seventy\_mp3\_len)\},}
+\DoxyCodeLine{64     \{\textcolor{stringliteral}{"{}SIX"{}}, \textcolor{keyword}{new} MemoryStream(six\_mp3, six\_mp3\_len)\},}
+\DoxyCodeLine{65     \{\textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{keyword}{new} MemoryStream(sixteen\_mp3, sixteen\_mp3\_len)\},}
+\DoxyCodeLine{66     \{\textcolor{stringliteral}{"{}SIXTY"{}}, \textcolor{keyword}{new} MemoryStream(sixty\_mp3, sixty\_mp3\_len)\},}
+\DoxyCodeLine{67     \{\textcolor{stringliteral}{"{}TEN"{}}, \textcolor{keyword}{new} MemoryStream(ten\_mp3, ten\_mp3\_len)\},}
+\DoxyCodeLine{68     \{\textcolor{stringliteral}{"{}THIRTEEN"{}}, \textcolor{keyword}{new} MemoryStream(thirteen\_mp3, thirteen\_mp3\_len)\},}
+\DoxyCodeLine{69     \{\textcolor{stringliteral}{"{}THIRTY"{}}, \textcolor{keyword}{new} MemoryStream(thirty\_mp3, thirty\_mp3\_len)\},}
+\DoxyCodeLine{70     \{\textcolor{stringliteral}{"{}THOUSAND"{}}, \textcolor{keyword}{new} MemoryStream(thousand\_mp3, thousand\_mp3\_len)\},}
+\DoxyCodeLine{71     \{\textcolor{stringliteral}{"{}THREE"{}}, \textcolor{keyword}{new} MemoryStream(three\_mp3, three\_mp3\_len)\},}
+\DoxyCodeLine{72     \{\textcolor{stringliteral}{"{}TWELVE"{}}, \textcolor{keyword}{new} MemoryStream(twelve\_mp3, twelve\_mp3\_len)\},}
+\DoxyCodeLine{73     \{\textcolor{stringliteral}{"{}TWENTY"{}}, \textcolor{keyword}{new} MemoryStream(twenty\_mp3, twenty\_mp3\_len)\},}
+\DoxyCodeLine{74     \{\textcolor{stringliteral}{"{}TWO"{}}, \textcolor{keyword}{new} MemoryStream(two\_mp3, two\_mp3\_len)\},}
+\DoxyCodeLine{75     \{\textcolor{stringliteral}{"{}ZERO"{}}, \textcolor{keyword}{new} MemoryStream(zero\_mp3, zero\_mp3\_len)\},}
+\DoxyCodeLine{76     \textcolor{comment}{// additional entries to support time}}
+\DoxyCodeLine{77     \{\textcolor{stringliteral}{"{}AM"{}}, \textcolor{keyword}{new} MemoryStream(am\_mp3, am\_mp3\_len)\},}
+\DoxyCodeLine{78     \{\textcolor{stringliteral}{"{}HALF"{}}, \textcolor{keyword}{new} MemoryStream(half\_mp3, half\_mp3\_len)\},}
+\DoxyCodeLine{79     \{\textcolor{stringliteral}{"{}ITS"{}}, \textcolor{keyword}{new} MemoryStream(its\_mp3, its\_mp3\_len)\},}
+\DoxyCodeLine{80     \{\textcolor{stringliteral}{"{}MIDNIGHT"{}}, \textcolor{keyword}{new} MemoryStream(midnight\_mp3, midnight\_mp3\_len)\},}
+\DoxyCodeLine{81     \{\textcolor{stringliteral}{"{}NOON"{}}, \textcolor{keyword}{new} MemoryStream(noon\_mp3, noon\_mp3\_len)\},}
+\DoxyCodeLine{82     \{\textcolor{stringliteral}{"{}PAST"{}}, \textcolor{keyword}{new} MemoryStream(past\_mp3, past\_mp3\_len)\},}
+\DoxyCodeLine{83     \{\textcolor{stringliteral}{"{}PM"{}}, \textcolor{keyword}{new} MemoryStream(pm\_mp3, pm\_mp3\_len)\},}
+\DoxyCodeLine{84     \{\textcolor{stringliteral}{"{}QUARTER"{}}, \textcolor{keyword}{new} MemoryStream(quarter\_mp3, quarter\_mp3\_len)\},}
+\DoxyCodeLine{85     \{\textcolor{stringliteral}{"{}TO"{}}, \textcolor{keyword}{new} MemoryStream(to\_mp3, to\_mp3\_len)\},}
+\DoxyCodeLine{86     \textcolor{comment}{// units}}
+\DoxyCodeLine{87     \{\textcolor{stringliteral}{"{}pound"{}}, \textcolor{keyword}{new} MemoryStream(pound\_mp3, pound\_mp3\_len)\},}
+\DoxyCodeLine{88     \{\textcolor{stringliteral}{"{}pounds"{}}, \textcolor{keyword}{new} MemoryStream(pounds\_mp3, pounds\_mp3\_len)\},}
+\DoxyCodeLine{89     \{\textcolor{stringliteral}{"{}foot"{}}, \textcolor{keyword}{new} MemoryStream(foot\_mp3, foot\_mp3\_len)\},}
+\DoxyCodeLine{90     \{\textcolor{stringliteral}{"{}feet"{}}, \textcolor{keyword}{new} MemoryStream(feet\_mp3, feet\_mp3\_len)\},}
+\DoxyCodeLine{91     \{\textcolor{stringliteral}{"{}inch"{}}, \textcolor{keyword}{new} MemoryStream(inch\_mp3, inch\_mp3\_len)\},}
+\DoxyCodeLine{92     \{\textcolor{stringliteral}{"{}inches"{}}, \textcolor{keyword}{new} MemoryStream(inches\_mp3, inches\_mp3\_len)\},}
+\DoxyCodeLine{93     \{\textcolor{stringliteral}{"{}mile"{}}, \textcolor{keyword}{new} MemoryStream(mile\_mp3, mile\_mp3\_len)\},}
+\DoxyCodeLine{94     \{\textcolor{stringliteral}{"{}miles"{}}, \textcolor{keyword}{new} MemoryStream(miles\_mp3, miles\_mp3\_len)\},}
+\DoxyCodeLine{95     \{\textcolor{stringliteral}{"{}dollar"{}}, \textcolor{keyword}{new} MemoryStream(dollar\_mp3, dollar\_mp3\_len)\},}
+\DoxyCodeLine{96     \{\textcolor{stringliteral}{"{}dollars"{}}, \textcolor{keyword}{new} MemoryStream(dollars\_mp3, dollars\_mp3\_len)\},}
+\DoxyCodeLine{97     \{\textcolor{stringliteral}{"{}cent"{}}, \textcolor{keyword}{new} MemoryStream(cent\_mp3, cent\_mp3\_len)\},}
+\DoxyCodeLine{98     \{\textcolor{stringliteral}{"{}centi"{}}, \textcolor{keyword}{new} MemoryStream(centi\_mp3, centi\_mp3\_len)\},}
+\DoxyCodeLine{99     \{\textcolor{stringliteral}{"{}cents"{}}, \textcolor{keyword}{new} MemoryStream(cents\_mp3, cents\_mp3\_len)\},}
+\DoxyCodeLine{100     \{\textcolor{stringliteral}{"{}miles"{}}, \textcolor{keyword}{new} MemoryStream(miles\_mp3, miles\_mp3\_len)\},}
+\DoxyCodeLine{101     \{\textcolor{stringliteral}{"{}per"{}}, \textcolor{keyword}{new} MemoryStream(per\_mp3, per\_mp3\_len)\},}
+\DoxyCodeLine{102     \{\textcolor{stringliteral}{"{}hour"{}}, \textcolor{keyword}{new} MemoryStream(hour\_mp3, hour\_mp3\_len)\},}
+\DoxyCodeLine{103     \{\textcolor{stringliteral}{"{}degrees"{}}, \textcolor{keyword}{new} MemoryStream(degrees\_mp3, degrees\_mp3\_len)\},}
+\DoxyCodeLine{104     \{\textcolor{stringliteral}{"{}celcius"{}}, \textcolor{keyword}{new} MemoryStream(celcius\_mp3, celcius\_mp3\_len)\},}
+\DoxyCodeLine{105     \{\textcolor{stringliteral}{"{}fahrenheit"{}}, \textcolor{keyword}{new} MemoryStream(fahrenheit\_mp3, fahrenheit\_mp3\_len)\},}
+\DoxyCodeLine{106     \{\textcolor{stringliteral}{"{}percent"{}}, \textcolor{keyword}{new} MemoryStream(percent\_mp3, percent\_mp3\_len)\},}
+\DoxyCodeLine{107     \{\textcolor{stringliteral}{"{}liter"{}}, \textcolor{keyword}{new} MemoryStream(liter\_mp3, liter\_mp3\_len)\},}
+\DoxyCodeLine{108     \{\textcolor{stringliteral}{"{}milli"{}}, \textcolor{keyword}{new} MemoryStream(milli\_mp3, milli\_mp3\_len)\},}
+\DoxyCodeLine{109     \{\textcolor{stringliteral}{"{}meter"{}}, \textcolor{keyword}{new} MemoryStream(meter\_mp3, meter\_mp3\_len)\},}
+\DoxyCodeLine{110     \{\textcolor{stringliteral}{"{}kilo"{}}, \textcolor{keyword}{new} MemoryStream(kilo\_mp3, kilo\_mp3\_len)\},}
+\DoxyCodeLine{111     \{\textcolor{stringliteral}{"{}gram"{}}, \textcolor{keyword}{new} MemoryStream(gram\_mp3, gram\_mp3\_len)\},}
+\DoxyCodeLine{112     \{\textcolor{stringliteral}{"{}us"{}}, \textcolor{keyword}{new} MemoryStream(us\_mp3, us\_mp3\_len)\},}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{comment}{// must end with nullptr to mark end}}
+\DoxyCodeLine{115     \{\textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}

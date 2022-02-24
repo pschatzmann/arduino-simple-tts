@@ -1,0 +1,45 @@
+\hypertarget{_audio_dictionary_u_r_l_8h_source}{}\doxysection{Audio\+Dictionary\+URL.\+h}
+\label{_audio_dictionary_u_r_l_8h_source}\index{src/AudioDictionaryURL.h@{src/AudioDictionaryURL.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AudioHttp/URLStream.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SimpleTTSBase.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}en/all.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_u_r_l}{AudioDictionaryURL}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18   \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_u_r_l}{AudioDictionaryURL}}(URLStream \&urlStream, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *url, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ext) \{}
+\DoxyCodeLine{19     p\_url = \&urlStream;}
+\DoxyCodeLine{20     url\_cstr = url;}
+\DoxyCodeLine{21     ext\_cstr = ext;}
+\DoxyCodeLine{22   \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   AudioStream *get(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *word) \{}
+\DoxyCodeLine{25     url\_str = url\_cstr;}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (!url\_str.endsWith(\textcolor{stringliteral}{"{}/"{}}))\{}
+\DoxyCodeLine{27       url\_str.add(\textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     url\_str.add(word);}
+\DoxyCodeLine{30     url\_str.add(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{31     url\_str.add(ext\_cstr);}
+\DoxyCodeLine{32     url\_str.toLowerCase();}
+\DoxyCodeLine{33     LOGI(\textcolor{stringliteral}{"{}Using url: \%s"{}}, url\_str.c\_str());}
+\DoxyCodeLine{34     p\_url-\/>begin(url\_str.c\_str());}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} p\_url;}
+\DoxyCodeLine{36   \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{39   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *url\_cstr;}
+\DoxyCodeLine{40   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ext\_cstr;}
+\DoxyCodeLine{41   StrExt url\_str;}
+\DoxyCodeLine{42   URLStream *p\_url;}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \} \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}

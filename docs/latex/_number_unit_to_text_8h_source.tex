@@ -1,0 +1,254 @@
+\hypertarget{_number_unit_to_text_8h_source}{}\doxysection{Number\+Unit\+To\+Text.\+h}
+\label{_number_unit_to_text_8h_source}\index{src/NumberUnitToText.h@{src/NumberUnitToText.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}NumberToText.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text}{NumberUnitToText}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}} \{}
+\DoxyCodeLine{14  \textcolor{keyword}{public}:}
+\DoxyCodeLine{15   \textcolor{comment}{// Default constructor with no default unit}}
+\DoxyCodeLine{16   \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text}{NumberUnitToText}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   \textcolor{comment}{// Constructor which assigns a default uinit so that we do not need to provide}}
+\DoxyCodeLine{19   \textcolor{comment}{// it}}
+\DoxyCodeLine{20   \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text}{NumberUnitToText}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* defaultUnit) \{ default\_unit = defaultUnit; \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{23   audio\_tools::Vector<const char*>\& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aaca7f2bfba41ce229addd8d8177a95d0}{say}}(\textcolor{keywordtype}{double} value,}
+\DoxyCodeLine{24                                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit = \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{25                                         \textcolor{keywordtype}{int} decimals = 2) \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} number;}
+\DoxyCodeLine{27     number.set(value, decimals);}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aaca7f2bfba41ce229addd8d8177a95d0}{say}}(number.\mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}(), number.\mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}(), unit);}
+\DoxyCodeLine{29   \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32   audio\_tools::Vector<const char*>\& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_a5e192470d25434cd6d45aec3916fc409}{say}}(int64\_t wholeNumber,}
+\DoxyCodeLine{33                                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit = \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} number;}
+\DoxyCodeLine{35     number.set(wholeNumber);}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aaca7f2bfba41ce229addd8d8177a95d0}{say}}(number.\mbox{\hyperlink{classsimple__tts_1_1_number_a0768e8ce47dff8521cec1e662587da32}{intValue}}(), number.\mbox{\hyperlink{classsimple__tts_1_1_number_a33e8504471cb6f4ab31a43b178ec26e5}{decValues}}(), unit);}
+\DoxyCodeLine{37   \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40   audio\_tools::Vector<const char*>\& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_acf1210691e7681c739e27e6cba875bcf}{say}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* wholeNumber,}
+\DoxyCodeLine{41                                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* decimals,}
+\DoxyCodeLine{42                                         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unitIn) \{}
+\DoxyCodeLine{43     result.clear();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// determine unit}}
+\DoxyCodeLine{46     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit = unitIn ? unitIn : default\_unit;}
+\DoxyCodeLine{47     \textcolor{comment}{// singular or plural ?}}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} isOne = Str(wholeNumber).toLong() == 1l;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// We support 2 scenarios: combined units or just a smple number with a single unit.}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{int} idx = idxCombinedUnit(unit);}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} (idx == -\/1) \{}
+\DoxyCodeLine{53       \textcolor{comment}{// Simple units scenario}}
+\DoxyCodeLine{54       addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(wholeNumber, decimals));}
+\DoxyCodeLine{55       \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}}(unit, isOne);}
+\DoxyCodeLine{56     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{57       \textcolor{comment}{// Combined units -\/>}}
+\DoxyCodeLine{58       \textcolor{comment}{// say the wholeNumber first}}
+\DoxyCodeLine{59       addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(wholeNumber));}
+\DoxyCodeLine{60       \textcolor{comment}{// say whole number unit}}
+\DoxyCodeLine{61       processCombinedUnit(idx, isOne);}
+\DoxyCodeLine{62       \textcolor{comment}{// combine them with AND}}
+\DoxyCodeLine{63       add(\textcolor{stringliteral}{"{}AND"{}});}
+\DoxyCodeLine{64       \textcolor{comment}{// say converted decimals}}
+\DoxyCodeLine{65       \mbox{\hyperlink{classsimple__tts_1_1_number}{Number}} calc;}
+\DoxyCodeLine{66       \textcolor{keywordtype}{int} digits = decimalInfo(unit);}
+\DoxyCodeLine{67       \textcolor{keyword}{const} \textcolor{keywordtype}{char}* decimals\_to\_say = calc.decAsInt(decimals, digits);}
+\DoxyCodeLine{68       addAll(ntt.\mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}{say}}(decimals\_to\_say));}
+\DoxyCodeLine{69       \textcolor{comment}{// say decimals unit}}
+\DoxyCodeLine{70       \textcolor{keywordtype}{bool} decIsOne = Str(decimals).toLong() == 1l;}
+\DoxyCodeLine{71       processDecimalUnit(idx, decIsOne);}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{comment}{// provide result to callback}}
+\DoxyCodeLine{75     \textcolor{keywordflow}{if} (callback)\{}
+\DoxyCodeLine{76         callback(result, reference);}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{80   \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{83   \textcolor{keyword}{virtual} audio\_tools::Vector<const char*>\& \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_adfa5999c7e6b9adc5f51d8213614abc3}{allTexts}}() \{}
+\DoxyCodeLine{84     result.clear();}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{// add words from unit\_1}}
+\DoxyCodeLine{87     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < max\_unit\_1; j++) \{}
+\DoxyCodeLine{88       add(unit\_1[j][1]);}
+\DoxyCodeLine{89       add(unit\_1[j][2]);}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// add words form unit\_3}}
+\DoxyCodeLine{93     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\_unit\_2}}; j++) \{}
+\DoxyCodeLine{94       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < 4; i++) \{}
+\DoxyCodeLine{95         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* word = unit2[j][i];}
+\DoxyCodeLine{96         \textcolor{keywordflow}{if} (word != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{97           \textcolor{keywordflow}{if} (!isKey(word)) \{}
+\DoxyCodeLine{98             add(word);}
+\DoxyCodeLine{99           \}}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101       \}}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{105   \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{108   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* default\_unit = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{109   audio\_tools::Vector<const char*> result;}
+\DoxyCodeLine{110   \mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{NumberToText}} ntt;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112   \textcolor{comment}{// units which can have singurlar and plural}}
+\DoxyCodeLine{113   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} max\_unit\_1 = 6;}
+\DoxyCodeLine{114   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit\_1[max\_unit\_1][3] = \{}
+\DoxyCodeLine{115       \{\textcolor{stringliteral}{"{}lb"{}}, \textcolor{stringliteral}{"{}pound"{}}, \textcolor{stringliteral}{"{}pounds"{}}\},  \{\textcolor{stringliteral}{"{}ft"{}}, \textcolor{stringliteral}{"{}foot"{}}, \textcolor{stringliteral}{"{}feet"{}}\},}
+\DoxyCodeLine{116       \{\textcolor{stringliteral}{"{}in"{}}, \textcolor{stringliteral}{"{}inch"{}}, \textcolor{stringliteral}{"{}inches"{}}\},   \{\textcolor{stringliteral}{"{}mi"{}}, \textcolor{stringliteral}{"{}mile"{}}, \textcolor{stringliteral}{"{}miles"{}}\},}
+\DoxyCodeLine{117       \{\textcolor{stringliteral}{"{}\$"{}}, \textcolor{stringliteral}{"{}dollar"{}}, \textcolor{stringliteral}{"{}dollars"{}}\}, \{\textcolor{stringliteral}{"{}¢"{}}, \textcolor{stringliteral}{"{}cent"{}}, \textcolor{stringliteral}{"{}cents"{}}\}\};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{120   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\_unit\_2}} = 15;}
+\DoxyCodeLine{121   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit2[\mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\_unit\_2}}][4] = \{\{\textcolor{stringliteral}{"{}mph"{}}, \textcolor{stringliteral}{"{}miles"{}}, \textcolor{stringliteral}{"{}per"{}}, \textcolor{stringliteral}{"{}hour"{}}\},}
+\DoxyCodeLine{122                                       \{\textcolor{stringliteral}{"{}C"{}}, \textcolor{stringliteral}{"{}degrees"{}}, \textcolor{stringliteral}{"{}celcius"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{123                                       \{\textcolor{stringliteral}{"{}F"{}}, \textcolor{stringliteral}{"{}degrees"{}}, \textcolor{stringliteral}{"{}fahrenheit"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{124                                       \{\textcolor{stringliteral}{"{}\%"{}}, \textcolor{stringliteral}{"{}percent"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{125                                       \{\textcolor{stringliteral}{"{}lt"{}}, \textcolor{stringliteral}{"{}liter"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{126                                       \{\textcolor{stringliteral}{"{}ml"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}lt"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{127                                       \{\textcolor{stringliteral}{"{}gr"{}}, \textcolor{stringliteral}{"{}gram"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{128                                       \{\textcolor{stringliteral}{"{}kg"{}}, \textcolor{stringliteral}{"{}kilo"{}}, \textcolor{stringliteral}{"{}gr"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{129                                       \{\textcolor{stringliteral}{"{}mg"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}gr"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{130                                       \{\textcolor{stringliteral}{"{}km"{}}, \textcolor{stringliteral}{"{}kilo"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{131                                       \{\textcolor{stringliteral}{"{}m"{}}, \textcolor{stringliteral}{"{}meter"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{132                                       \{\textcolor{stringliteral}{"{}cm"{}}, \textcolor{stringliteral}{"{}centi"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{133                                       \{\textcolor{stringliteral}{"{}mm"{}}, \textcolor{stringliteral}{"{}milli"{}}, \textcolor{stringliteral}{"{}m"{}}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{134                                       \{\textcolor{stringliteral}{"{}u.s."{}}, \textcolor{stringliteral}{"{}us"{}}, \textcolor{keyword}{nullptr}, \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{135                                       \{\textcolor{stringliteral}{"{}usd"{}}, \textcolor{stringliteral}{"{}u.s."{}}, \textcolor{stringliteral}{"{}\$"{}}, \textcolor{keyword}{nullptr}\}\};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137   \textcolor{comment}{// split unit before and after the decimal point: 1.20 USD is 1 dollar and 20}}
+\DoxyCodeLine{138   \textcolor{comment}{// cents}}
+\DoxyCodeLine{139   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} max\_unit\_3 = 6;}
+\DoxyCodeLine{140   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit3[max\_unit\_3][2] = \{\{\textcolor{stringliteral}{"{}usd"{}}, \textcolor{stringliteral}{"{}¢"{}}\}, \{\textcolor{stringliteral}{"{}gr"{}}, \textcolor{stringliteral}{"{}mg"{}}\}, \{\textcolor{stringliteral}{"{}kg"{}}, \textcolor{stringliteral}{"{}gr"{}}\},}
+\DoxyCodeLine{141                                       \{\textcolor{stringliteral}{"{}m"{}}, \textcolor{stringliteral}{"{}mm"{}}\},  \{\textcolor{stringliteral}{"{}km"{}}, \textcolor{stringliteral}{"{}m"{}}\},  \{\textcolor{stringliteral}{"{}lt"{}}, \textcolor{stringliteral}{"{}ml"{}}\}\};}
+\DoxyCodeLine{142   }
+\DoxyCodeLine{144   \textcolor{keyword}{struct }\mbox{\hyperlink{structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info}{DecimalInfo}} \{}
+\DoxyCodeLine{145     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* id;}
+\DoxyCodeLine{146     \textcolor{keywordtype}{int} dec;}
+\DoxyCodeLine{147   \};}
+\DoxyCodeLine{148   \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} decimal\_info\_len = 1;}
+\DoxyCodeLine{149   \textcolor{keyword}{const} \mbox{\hyperlink{structsimple__tts_1_1_number_unit_to_text_1_1_decimal_info}{DecimalInfo}} decimal\_info[decimal\_info\_len] = \{\{\textcolor{stringliteral}{"{}usd"{}}, 2\}\};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151   \textcolor{comment}{// add a single word to the result}}
+\DoxyCodeLine{152   \textcolor{keywordtype}{void} add(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str) \{ result.push\_back(str); \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   \textcolor{comment}{// add a list to the result}}
+\DoxyCodeLine{155   \textcolor{keywordtype}{void} addAll(audio\_tools::Vector<const char*>\& words) \{}
+\DoxyCodeLine{156     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} word : words) \{}
+\DoxyCodeLine{157       add(word);}
+\DoxyCodeLine{158     \}}
+\DoxyCodeLine{159   \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{162   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit, \textcolor{keywordtype}{bool} isOne) \{}
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} (!isKey(unit)) \{}
+\DoxyCodeLine{164       add(unit);}
+\DoxyCodeLine{165       \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{166     \}}
+\DoxyCodeLine{167     \textcolor{comment}{// check in table1 first}}
+\DoxyCodeLine{168     \textcolor{keywordflow}{if} (process1(unit, isOne)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{169     \textcolor{comment}{// process table 2}}
+\DoxyCodeLine{170     \textcolor{keywordflow}{if} (process2(unit, isOne)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{171     \textcolor{comment}{// last resort use the unit directly}}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if} (!isKey(unit)) \{}
+\DoxyCodeLine{173       LOGE(\textcolor{stringliteral}{"{}Error \%s"{}}, unit);}
+\DoxyCodeLine{174     \}}
+\DoxyCodeLine{175     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{176   \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178   \textcolor{keywordtype}{bool} process2(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit, \textcolor{keywordtype}{bool} isOne) \{}
+\DoxyCodeLine{179     \textcolor{comment}{// process table 2}}
+\DoxyCodeLine{180     \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};}
+\DoxyCodeLine{181     Str u(unit);}
+\DoxyCodeLine{182     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\_unit\_2}}; j++) \{}
+\DoxyCodeLine{183       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(unit2[j][0])) \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < 4; i++) \{}
+\DoxyCodeLine{185           \textcolor{keyword}{const} \textcolor{keywordtype}{char}* word = unit2[j][i];}
+\DoxyCodeLine{186           \textcolor{keywordflow}{if} (word != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{187             \textcolor{keywordflow}{if} (!isKey(word)) \{}
+\DoxyCodeLine{188               add(word);}
+\DoxyCodeLine{189               result = \textcolor{keyword}{true};}
+\DoxyCodeLine{190             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{191               \textcolor{keywordflow}{if} (\mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}}(word, isOne)) \{}
+\DoxyCodeLine{192                 result = \textcolor{keyword}{true};}
+\DoxyCodeLine{193               \}}
+\DoxyCodeLine{194             \}}
+\DoxyCodeLine{195           \}}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197       \}}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{200   \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202   \textcolor{keywordtype}{bool} process1(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit, \textcolor{keywordtype}{bool} isOne) \{}
+\DoxyCodeLine{203     Str u(unit);}
+\DoxyCodeLine{204     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < max\_unit\_1; j++) \{}
+\DoxyCodeLine{205       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(unit\_1[j][0])) \{}
+\DoxyCodeLine{206         \textcolor{comment}{// determine singular or plural}}
+\DoxyCodeLine{207         add(isOne ? unit\_1[j][1] : unit\_1[j][2]);}
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{209       \}}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{212   \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214   \textcolor{keywordtype}{bool} isKey(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit) \{}
+\DoxyCodeLine{215     Str u(unit);}
+\DoxyCodeLine{216     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < max\_unit\_1; j++) \{}
+\DoxyCodeLine{217       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(unit\_1[j][0])) \{}
+\DoxyCodeLine{218         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{219       \}}
+\DoxyCodeLine{220     \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_ac9a76bb190de0cd5ebb2fe80cd990945}{max\_unit\_2}}; j++) \{}
+\DoxyCodeLine{223       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(unit2[j][0])) \{}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{225       \}}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{228   \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230   \textcolor{comment}{// checks if this is a combined unit (part of unit3) where we need to}}
+\DoxyCodeLine{231   \textcolor{comment}{// separate the integers from the decimals with a different unit}}
+\DoxyCodeLine{232   \textcolor{keywordtype}{int} idxCombinedUnit(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit) \{}
+\DoxyCodeLine{233     Str u(unit);}
+\DoxyCodeLine{234     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < max\_unit\_3; i++) \{}
+\DoxyCodeLine{235       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(unit3[i][0])) \{}
+\DoxyCodeLine{236         \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{237       \}}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{240   \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242   \textcolor{keywordtype}{bool} processCombinedUnit(\textcolor{keywordtype}{int} idx, \textcolor{keywordtype}{bool} isOne) \{}
+\DoxyCodeLine{243     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}}(unit3[idx][0], isOne);}
+\DoxyCodeLine{244   \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246   \textcolor{keywordtype}{bool} processDecimalUnit(\textcolor{keywordtype}{int} idx, \textcolor{keywordtype}{bool} isOne) \{}
+\DoxyCodeLine{247     \textcolor{keywordflow}{return} \mbox{\hyperlink{classsimple__tts_1_1_number_unit_to_text_aa2ef301472f16644e12ca377537188a0}{process}}(unit3[idx][1], isOne);}
+\DoxyCodeLine{248   \}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250   \textcolor{keywordtype}{int} decimalInfo(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* unit) \{}
+\DoxyCodeLine{251     Str u(unit);}
+\DoxyCodeLine{252     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < decimal\_info\_len; i++) \{}
+\DoxyCodeLine{253       \textcolor{keywordflow}{if} (u.equalsIgnoreCase(decimal\_info[i].id)) \{}
+\DoxyCodeLine{254         \textcolor{keywordflow}{return} decimal\_info[i].dec;}
+\DoxyCodeLine{255       \}}
+\DoxyCodeLine{256     \}}
+\DoxyCodeLine{257     \textcolor{comment}{// all metric units are based on 1000}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{return} 3;}
+\DoxyCodeLine{259   \}}
+\DoxyCodeLine{260 \};}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 \}  \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}

@@ -1,0 +1,146 @@
+\hypertarget{_audio_dictionary_s_d_8h_source}{}\doxysection{Audio\+Dictionary\+SD.\+h}
+\label{_audio_dictionary_s_d_8h_source}\index{src/AudioDictionarySD.h@{src/AudioDictionarySD.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <WiFi.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}SimpleTTSBase.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{// by default we use the SdFat Library}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifdef USE\_SD}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <SD.h>}}
+\DoxyCodeLine{11 \textcolor{keyword}{typedef} File AudioFile;}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <SdFat.h>}}
+\DoxyCodeLine{14 \textcolor{keyword}{typedef} File32 AudioFile;}
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} SdFat32 AudioFat;}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef SDFAT\_SPEED}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define SDFAT\_SPEED 2}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }simple\_tts \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}en/all.h"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{30 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_audio_stream_file_wrapper}{AudioStreamFileWrapper}} : \textcolor{keyword}{public} AudioStreamX \{}
+\DoxyCodeLine{32  \textcolor{keyword}{public}:}
+\DoxyCodeLine{33   \mbox{\hyperlink{classsimple__tts_1_1_audio_stream_file_wrapper}{AudioStreamFileWrapper}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34   \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} begin(T \&file) \{}
+\DoxyCodeLine{35     p\_file = \&file;}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{37   \}}
+\DoxyCodeLine{38   \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} begin()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{39     LOGI(LOG\_METHOD);}
+\DoxyCodeLine{40     p\_file-\/>seek(0);}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{42   \}}
+\DoxyCodeLine{43   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} end()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{44     LOGI(LOG\_METHOD);}
+\DoxyCodeLine{45     p\_file-\/>close();}
+\DoxyCodeLine{46   \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48   \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} readBytes(uint8\_t *buffer, \textcolor{keywordtype}{size\_t} length)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} p\_file-\/>readBytes((\textcolor{keywordtype}{char} *)buffer, length);}
+\DoxyCodeLine{50   \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} write(\textcolor{keyword}{const} uint8\_t *buffer, \textcolor{keywordtype}{size\_t} length)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} p\_file-\/>write(buffer, length);}
+\DoxyCodeLine{54   \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} available()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} p\_file-\/>available(); \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58   \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} availableForWrite()\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} p\_file-\/>availableForWrite();}
+\DoxyCodeLine{60   \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62   \textcolor{keyword}{operator} bool() \{ \textcolor{keywordflow}{return} *p\_file; \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{65   T *p\_file = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_s_d}{AudioDictionarySD}} : \textcolor{keyword}{public} \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}} \{}
+\DoxyCodeLine{76  \textcolor{keyword}{public}:}
+\DoxyCodeLine{77   \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_s_d}{AudioDictionarySD}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *path, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ext, \textcolor{keywordtype}{int} cs\_pin = PIN\_CS) \{}
+\DoxyCodeLine{78     this-\/>path = path;}
+\DoxyCodeLine{79     this-\/>ext = ext;}
+\DoxyCodeLine{80     this-\/>cs\_pin = cs\_pin;}
+\DoxyCodeLine{81   \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_s_d}{\string~AudioDictionarySD}}() \{ file.close(); \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86   AudioStream *\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_s_d_a6408d3dded7a71531a53fb4e0b8c48c1}{get}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *word) \{}
+\DoxyCodeLine{87     setup();}
+\DoxyCodeLine{88     \textcolor{comment}{// provide new file}}
+\DoxyCodeLine{89     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *file\_name = getFileWithPath(word);}
+\DoxyCodeLine{90     \textcolor{keywordflow}{if} (SD.exists(file\_name)) \{}
+\DoxyCodeLine{91       file = SD.open(file\_name, FILE\_READ);}
+\DoxyCodeLine{92       fileWrapper.begin(file);}
+\DoxyCodeLine{93       \textcolor{keywordflow}{return} \&fileWrapper;}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95     LOGE(\textcolor{stringliteral}{"{}File does not exist: \%s"{}}, file\_name);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100  \textcolor{keyword}{protected}:}
+\DoxyCodeLine{101   audio\_tools::StrExt url\_with\_text;}
+\DoxyCodeLine{102   AudioFile file;}
+\DoxyCodeLine{103   \mbox{\hyperlink{classsimple__tts_1_1_audio_stream_file_wrapper}{AudioStreamFileWrapper<AudioFile>}} fileWrapper;}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#ifndef USE\_SD}}
+\DoxyCodeLine{105   AudioFat SD;}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{107   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *path;}
+\DoxyCodeLine{108   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ext;}
+\DoxyCodeLine{109   StrExt file\_path\{40\};  \textcolor{comment}{// allocate 40 bytes as a typical good initial size}}
+\DoxyCodeLine{110   \textcolor{keywordtype}{bool} is\_setup = \textcolor{keyword}{false};}
+\DoxyCodeLine{111   \textcolor{keywordtype}{int} cs\_pin = -\/1;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113   \textcolor{keywordtype}{void} setup() \{}
+\DoxyCodeLine{114     \textcolor{keywordflow}{if} (!is\_setup) \{}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#ifdef USE\_SD}}
+\DoxyCodeLine{116       LOGI(\textcolor{stringliteral}{"{}Setup SD library"{}});}
+\DoxyCodeLine{117       \textcolor{keywordflow}{if} (!SD.begin(cs\_pin)) \{}
+\DoxyCodeLine{118         LOGE(\textcolor{stringliteral}{"{}SD.begin failed for cs\_pin: \%d"{}}, cs\_pin);}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{120       \}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{122       LOGI(\textcolor{stringliteral}{"{}Setup SdFat library"{}});}
+\DoxyCodeLine{123       \textcolor{keywordflow}{if} (!SD.begin(}
+\DoxyCodeLine{124               SdSpiConfig(cs\_pin, DEDICATED\_SPI, SD\_SCK\_MHZ(SDFAT\_SPEED)))) \{}
+\DoxyCodeLine{125         LOGE(\textcolor{stringliteral}{"{}SD.begin failed for cs\_pin: \%d"{}}, cs\_pin);}
+\DoxyCodeLine{126         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{127       \}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{129       \textcolor{keywordflow}{if} (!SD.exists(path)) \{}
+\DoxyCodeLine{130         LOGI(\textcolor{stringliteral}{"{}Creating directory: \%s"{}}, path)}
+\DoxyCodeLine{131         \textcolor{keywordflow}{if} (!SD.mkdir(path)) \{}
+\DoxyCodeLine{132           LOGE(\textcolor{stringliteral}{"{}Could not create directory: \%s"{}}, path);}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134       \}}
+\DoxyCodeLine{135       is\_setup = \textcolor{keyword}{true};}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137   \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139   \textcolor{comment}{// determines the filename for the word}}
+\DoxyCodeLine{140   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *getFileWithPath(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \{}
+\DoxyCodeLine{141     file\_path = path;}
+\DoxyCodeLine{142     file\_path.add(\textcolor{stringliteral}{"{}/"{}});}
+\DoxyCodeLine{143     file\_path.add(name);}
+\DoxyCodeLine{144     file\_path.add(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{145     file\_path.add(ext);}
+\DoxyCodeLine{146     file\_path.toLowerCase();}
+\DoxyCodeLine{147     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str = file\_path.c\_str();}
+\DoxyCodeLine{148     LOGI(\textcolor{stringliteral}{"{}\%s -\/> \%s"{}}, name, str);}
+\DoxyCodeLine{149     \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{150   \}}
+\DoxyCodeLine{151 \};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \}  \textcolor{comment}{// namespace simple\_tts}}
+
+\end{DoxyCode}
