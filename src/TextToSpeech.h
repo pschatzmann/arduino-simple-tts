@@ -6,7 +6,6 @@
 #include "AudioTools/AudioTypes.h"
 #include "NumberToText.h"
 #include "AudioDictionary.h"
-#include "en/all.h"
 
 namespace simple_tts {
 

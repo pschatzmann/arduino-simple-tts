@@ -5,8 +5,6 @@
 
 namespace simple_tts {
 
-#include "en/all.h"
-
 /**
  * @brief A dictionary which is based on audio files that can be accessed via
  * URLs

@@ -4,8 +4,6 @@
 
 namespace simple_tts {
 
-#include "en/all.h"
-
 /**
  * @brief A dictionary which is based on in memory audio files
  * @author Phil Schatzmann
@@ -30,6 +28,11 @@ class AudioDictionary : public AudioDictionaryBase  {
  protected:
   AudioDictionaryEntry *dictionary;
 };
+
+// if you define NO_EXAMPLES we do not include any example audio
+#ifndef NO_AUDIO_EXAMPLES
+
+#include "en/all.h"
 
 /**
  * @brief In Memory collection of words with the related mp3 files
@@ -115,5 +118,7 @@ AudioDictionaryEntry ExampleAudioDictionaryValues[] = {
     {nullptr, nullptr}
 
 };
+
+#endif
 
 }

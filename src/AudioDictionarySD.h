@@ -20,8 +20,6 @@ typedef SdFat32 AudioFat;
 
 namespace simple_tts {
 
-#include "en/all.h"
-
 /**
  * @brief A simple Wrapper that let's a file pretend to be a AudioStream to
  * support the begin and end methods
