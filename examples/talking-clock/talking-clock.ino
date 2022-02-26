@@ -10,8 +10,8 @@
  */
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
+#include "time/TimeInfoESP32.h" // or alternative TimeInfoRTC.h
 #include "AudioLibs/AudioKit.h"
-#include "TimeInfo.h"
 
 // Output
 TimeToText ttt;
@@ -37,8 +37,14 @@ void setup() {
 
   // We announce the time only every 5 minutes
   timeInfo.setEveryMinutes(5);
-  // start WIFI and time
+
+  // start WIFI and time (ESP32)
   timeInfo.begin(ssid, password);
+
+  //uRTCLib rtc(0x68);  // alternarive using RTC
+  //timeInfo.begin(rtc);
+
+  // time at startup
   ttt.say(timeInfo.time());
 }
 
