@@ -33,19 +33,13 @@ void setup(){
     auto cfg = out.defaultConfig(); 
     cfg.sample_rate = 24000;
     cfg.channels = 1;
-    out.begin(cfg);
-
-    
-}
-
-void increment() {
-    number +=1;
+    out.begin(cfg);    
 }
 
 void loop() {
     // speach output
     utt.say(number, "usd");
 
-    increment();
+    number++;
     delay(1000);
 }

@@ -7,7 +7,8 @@ I was wondering about the limitations of this approach and decided to implement 
 that is based on the [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) for the audio output.
 
 To keep things simple I started with a simple implementation that can process numbers and on top of that another one which 
-reads out the time. So the starting point are some classes that tranlate numbers to test.
+reads out the time. So the starting point are some classes that translate numbers to text. The text is then used to identify 
+the pre-recorded audio files.
 
 This functionality can be used e.g. to build some
 
