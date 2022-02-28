@@ -9,10 +9,6 @@
 
 namespace simple_tts {
 
-// the audio includes do not have a namespace so we import them here
-
-class TextToSpeech;
-
 /**
  * @brief Audio output from text via the indicated audio sink. The text
  * components need to be prerecorded and available as audio files.
