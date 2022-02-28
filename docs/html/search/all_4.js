@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intvalue_0',['intValue',['../classsimple__tts_1_1_number.html#a0768e8ce47dff8521cec1e662587da32',1,'simple_tts::Number']]]
+  ['end_16',['end',['../classsimple__tts_1_1_text_to_speech_queue.html#a875f9926b87ea3287e6cfcab6fd9703f',1,'simple_tts::TextToSpeechQueue']]]
 ];

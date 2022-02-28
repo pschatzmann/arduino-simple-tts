@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['process_0',['process',['../classsimple__tts_1_1_number_unit_to_text.html#aa2ef301472f16644e12ca377537188a0',1,'simple_tts::NumberUnitToText']]]
+  ['get_58',['get',['../classsimple__tts_1_1_audio_dictionary_s_d.html#a54008ebfe1b3d9b5a9f2685ee98a6056',1,'simple_tts::AudioDictionarySD']]]
 ];

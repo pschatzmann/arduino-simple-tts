@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['callback_0',['callback',['../classsimple__tts_1_1_text_to_speech.html#aef5be846d3540b0591952d4b50467bca',1,'simple_tts::TextToSpeech']]]
+  ['begin_52',['begin',['../classsimple__tts_1_1_text_to_speech_queue.html#aae0a8c5dc38c4dfff7c0ed9551a6cbc4',1,'simple_tts::TextToSpeechQueue']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['decvalues_0',['decValues',['../classsimple__tts_1_1_number.html#a33e8504471cb6f4ab31a43b178ec26e5',1,'simple_tts::Number']]],
-  ['delay_1',['delay',['../classsimple__tts_1_1_text_to_speech.html#aa7ebf5afbc70655c9a0116de496ae58e',1,'simple_tts::TextToSpeech']]]
+  ['callback_53',['callback',['../classsimple__tts_1_1_text_to_speech.html#aef5be846d3540b0591952d4b50467bca',1,'simple_tts::TextToSpeech::callback()'],['../classsimple__tts_1_1_text_to_speech_queue.html#aab744bc896bd996f4ffcb59d7424eb79',1,'simple_tts::TextToSpeechQueue::callback(audio_tools::Vector&lt; const char * &gt; words, void *ref)']]],
+  ['clear_54',['clear',['../classsimple__tts_1_1_text_to_speech_queue.html#acf498d62e072675701d8d21e08ca7d28',1,'simple_tts::TextToSpeechQueue']]]
 ];

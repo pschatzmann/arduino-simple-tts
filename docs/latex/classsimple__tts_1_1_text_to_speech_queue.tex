@@ -1,0 +1,128 @@
+\hypertarget{classsimple__tts_1_1_text_to_speech_queue}{}\doxysection{simple\+\_\+tts\+::Text\+To\+Speech\+Queue Class Reference}
+\label{classsimple__tts_1_1_text_to_speech_queue}\index{simple\_tts::TextToSpeechQueue@{simple\_tts::TextToSpeechQueue}}
+
+
+Audio output from text via the indicated audio sink. The text components need to be prerecorded and available as audio files.  
+
+
+
+
+{\ttfamily \#include $<$Text\+To\+Speech\+Queue.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_ab33ad51a66945e59edae75460dd023e6}\label{classsimple__tts_1_1_text_to_speech_queue_ab33ad51a66945e59edae75460dd023e6}} 
+\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ab33ad51a66945e59edae75460dd023e6}{Text\+To\+Speech\+Queue}} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{Text\+To\+Speech}} which support a \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aa78bb1b499aa052569b1658fee6c88de}\label{classsimple__tts_1_1_text_to_speech_queue_aa78bb1b499aa052569b1658fee6c88de}} 
+{\bfseries Text\+To\+Speech\+Queue} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Print \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aa05c1ef531306fe70b093671ef8b814a}\label{classsimple__tts_1_1_text_to_speech_queue_aa05c1ef531306fe70b093671ef8b814a}} 
+\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aa05c1ef531306fe70b093671ef8b814a}{Text\+To\+Speech\+Queue}} (Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}\label{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}} (const char $\ast$word)
+\begin{DoxyCompactList}\small\item\em a simple API to add a single c string to the queue \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_abc85a3fedac7b291c783440d2112ca79}\label{classsimple__tts_1_1_text_to_speech_queue_abc85a3fedac7b291c783440d2112ca79}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_abc85a3fedac7b291c783440d2112ca79}{say\+Now}} (const char $\ast$word)
+\begin{DoxyCompactList}\small\item\em Adds a word to the front. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_af6ae6fd328a073cd9b386881e0a10890}\label{classsimple__tts_1_1_text_to_speech_queue_af6ae6fd328a073cd9b386881e0a10890}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_af6ae6fd328a073cd9b386881e0a10890}{say}} (const char $\ast$word\mbox{[}$\,$\mbox{]}, int \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}})
+\begin{DoxyCompactList}\small\item\em Addds an array of c strings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a990fdaf4629913f1c7b542a25aac8f33}\label{classsimple__tts_1_1_text_to_speech_queue_a990fdaf4629913f1c7b542a25aac8f33}} 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a990fdaf4629913f1c7b542a25aac8f33}{say}} (char $\ast$(\&word)\mbox{[}N\mbox{]})
+\begin{DoxyCompactList}\small\item\em Addds an array of c strings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_ad946ed72d69896178a587ad57ff04c1a}\label{classsimple__tts_1_1_text_to_speech_queue_ad946ed72d69896178a587ad57ff04c1a}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad946ed72d69896178a587ad57ff04c1a}{say}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words)
+\begin{DoxyCompactList}\small\item\em a simple API to say multiple of the supported words \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a997cf5bbccb7fb2a13c705abf11d06ea}\label{classsimple__tts_1_1_text_to_speech_queue_a997cf5bbccb7fb2a13c705abf11d06ea}} 
+void {\bfseries process} ()
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}\label{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}} 
+size\+\_\+t \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of words to be spoken in the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a5719b478407e4229bb35e3ede6db44c1}\label{classsimple__tts_1_1_text_to_speech_queue_a5719b478407e4229bb35e3ede6db44c1}} 
+bool \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a5719b478407e4229bb35e3ede6db44c1}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the queue is empty. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a4a4fc3d0ad248d22575fbc52b56d3902}\label{classsimple__tts_1_1_text_to_speech_queue_a4a4fc3d0ad248d22575fbc52b56d3902}} 
+const char $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a4a4fc3d0ad248d22575fbc52b56d3902}{operator\mbox{[}$\,$\mbox{]}}} (int n)
+\begin{DoxyCompactList}\small\item\em Determines the nth word in the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}\label{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Opens the processing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a875f9926b87ea3287e6cfcab6fd9703f}\label{classsimple__tts_1_1_text_to_speech_queue_a875f9926b87ea3287e6cfcab6fd9703f}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a875f9926b87ea3287e6cfcab6fd9703f}{end}} ()
+\begin{DoxyCompactList}\small\item\em Ends the processing and clears the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_acf498d62e072675701d8d21e08ca7d28}\label{classsimple__tts_1_1_text_to_speech_queue_acf498d62e072675701d8d21e08ca7d28}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_acf498d62e072675701d8d21e08ca7d28}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a1543ff493a10a7f5d3222fb0135d98ce}\label{classsimple__tts_1_1_text_to_speech_queue_a1543ff493a10a7f5d3222fb0135d98ce}} 
+void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a1543ff493a10a7f5d3222fb0135d98ce}{delay}} (uint32\+\_\+t delay\+\_\+ms=1000)
+\begin{DoxyCompactList}\small\item\em writes silence for the indicated ms \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}\label{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}} 
+static void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}{callback}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$ref)
+\begin{DoxyCompactList}\small\item\em callback which adds the words to the queue \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_ae1a5a490937614ab788664397e9607ce}\label{classsimple__tts_1_1_text_to_speech_queue_ae1a5a490937614ab788664397e9607ce}} 
+Vector$<$ const char $\ast$ $>$ {\bfseries queue}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aece2650d2bd1fa63312b11b98c7724dd}\label{classsimple__tts_1_1_text_to_speech_queue_aece2650d2bd1fa63312b11b98c7724dd}} 
+bool {\bfseries active} = false
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a90bf7afd6a39a8e0a3520e3c23b64ded}\label{classsimple__tts_1_1_text_to_speech_queue_a90bf7afd6a39a8e0a3520e3c23b64ded}} 
+\mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{Number\+To\+Text}} {\bfseries ntt}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_ae4154d0df7cc36919206e5f83710afbf}\label{classsimple__tts_1_1_text_to_speech_queue_ae4154d0df7cc36919206e5f83710afbf}} 
+audio\+\_\+tools\+::\+Audio\+Decoder $\ast$ {\bfseries p\+\_\+decoder} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a3a3d5ce5cf5b823b879418653415bb09}\label{classsimple__tts_1_1_text_to_speech_queue_a3a3d5ce5cf5b823b879418653415bb09}} 
+audio\+\_\+tools\+::\+Encoded\+Audio\+Stream $\ast$ {\bfseries decoded\+Stream} = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_aad0feb6861ef28210e6796337e0ed7f3}\label{classsimple__tts_1_1_text_to_speech_queue_aad0feb6861ef28210e6796337e0ed7f3}} 
+\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} $\ast$ {\bfseries p\+\_\+tts} = nullptr
+\item 
+\mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} $\ast$ {\bfseries p\+\_\+dictionary}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_afc025183988e08ffecc1a27cb00cfb9e}\label{classsimple__tts_1_1_text_to_speech_queue_afc025183988e08ffecc1a27cb00cfb9e}} 
+audio\+\_\+tools\+::\+Stream\+Copy {\bfseries copier}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a41a086526dad3b6f510883fa7317dc25}\label{classsimple__tts_1_1_text_to_speech_queue_a41a086526dad3b6f510883fa7317dc25}} 
+Print $\ast$ {\bfseries p\+\_\+sink} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Audio output from text via the indicated audio sink. The text components need to be prerecorded and available as audio files. 
+
+\begin{DoxyAuthor}{Author}
+Phil Schatzmann 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+GPLv3 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_queue_a5a0d2a21727e6d6deded87dadb65da1a}\label{classsimple__tts_1_1_text_to_speech_queue_a5a0d2a21727e6d6deded87dadb65da1a}} 
+\index{simple\_tts::TextToSpeechQueue@{simple\_tts::TextToSpeechQueue}!p\_dictionary@{p\_dictionary}}
+\index{p\_dictionary@{p\_dictionary}!simple\_tts::TextToSpeechQueue@{simple\_tts::TextToSpeechQueue}}
+\doxysubsubsection{\texorpdfstring{p\_dictionary}{p\_dictionary}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}}$\ast$ simple\+\_\+tts\+::\+Text\+To\+Speech\+Queue\+::p\+\_\+dictionary\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{      \textcolor{keyword}{nullptr}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Text\+To\+Speech\+Queue.\+h\end{DoxyCompactItemize}

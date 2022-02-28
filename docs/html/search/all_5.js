@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5funit_5f2_0',['max_unit_2',['../classsimple__tts_1_1_number_unit_to_text.html#ac9a76bb190de0cd5ebb2fe80cd990945',1,'simple_tts::NumberUnitToText']]]
+  ['get_17',['get',['../classsimple__tts_1_1_audio_dictionary_s_d.html#a54008ebfe1b3d9b5a9f2685ee98a6056',1,'simple_tts::AudioDictionarySD']]]
 ];
