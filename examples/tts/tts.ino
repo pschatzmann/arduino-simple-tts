@@ -1,19 +1,22 @@
 #define NO_AUDIO_EXAMPLES
-#include "AudioCodecs/CodecMP3Helix.h"
 #include "SimpleTTS.h"
+#include "AudioCodecs/CodecMP3Helix.h"
 #include "speechArray.h"
 
 I2SStream i2s;
 VolumeStream volume(i2s);
-SilenceRemovalConverter<int16_t> rem(8, 2);
-ConvertedStream<int16_t, SilenceRemovalConverter<int16_t>> out(volume, rem);
+//SilenceRemovalConverter<int16_t> rem(8, 2);
+//ConvertedStream<int16_t, SilenceRemovalConverter<int16_t>> out(volume, rem);
 AudioDictionary dictionary(MyAudioDictionaryValues);
 
 MP3DecoderHelix mp3;
-TextToSpeechQueue tts(out, mp3, dictionary);
+TextToSpeechQueue tts(volume, mp3, dictionary);
+int idx=0;
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(115200);
+  AudioLogger::instance().begin(Serial, AudioLogger::Info);
+
   // setup out
   auto cfg = i2s.defaultConfig(TX_MODE);
   cfg.i2s_format = I2S_LSB_FORMAT;
@@ -29,7 +32,10 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (tts.isEmpty()) {
     delay(1000);
-    tts.say("ONE");
+    tts.say(MyAudioDictionaryValues[idx++].name);
+    if (idx>58){
+      idx = 0;      
+    }
   }
 
   tts.process();
