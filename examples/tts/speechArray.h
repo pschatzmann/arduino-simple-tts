@@ -6,6 +6,7 @@
 // please note that the processing here is w/o namespace
 
 simple_tts::AudioDictionaryEntry MyAudioDictionaryValues[] = {
+{"SILENCE", new MemoryStream(silence_mp3, silence_mp3_len)}, 
 {"ZERO", new MemoryStream(zero_mp3, zero_mp3_len)},
 {"ZED", new MemoryStream(zed_mp3, zed_mp3_len)},
 {"Z", new MemoryStream(z_mp3, z_mp3_len)},

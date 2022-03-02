@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SimpleTTSBase.h"
+#include "ext/silence_mp3.h"
 
 namespace simple_tts {
 
@@ -40,6 +41,7 @@ class AudioDictionary : public AudioDictionaryBase  {
  * @copyright GPLv3
  */
 AudioDictionaryEntry ExampleAudioDictionaryValues[] = {
+    {"SILENCE", new MemoryStream(silence_mp3, silence_mp3_len)},
     {"AND", new MemoryStream(and_mp3, and_mp3_len)},
     {"BILLION", new MemoryStream(billion_mp3, billion_mp3_len)},
     {"DOT", new MemoryStream(dot_mp3, dot_mp3_len)},

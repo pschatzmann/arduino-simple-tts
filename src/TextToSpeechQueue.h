@@ -93,24 +93,37 @@ class TextToSpeechQueue {
       queue.pop_front();
 
       LOGI("say: %s  (size: %d -> %d)", word, size, queue.size());
-      AudioStream *mp3Stream = p_dictionary->get(word);
-      if (mp3Stream != nullptr) {
-        if (!active) {
-          begin();
-        }
-        // decode to audio
-        mp3Stream->begin();
-        copier.begin(*decodedStream, *mp3Stream);
-        copier.copyAll();
-        copier.end();
-        mp3Stream->end();
-
-        if (queue.size() == 0) {
-          end();
-        }
-      } else {
-        LOGE("Word not available in dictionary: %s", word);
+      processWord(word);
+      if (queue.size() == 0) {
+        // end();
+        silence(1);
       }
+    }
+  }
+
+  /// Output of word to audio sink
+  void processWord(const char *word) {
+    AudioStream *mp3Stream = p_dictionary->get(word);
+    if (mp3Stream != nullptr) {
+      if (!active) {
+        begin();
+      }
+      // decode to audio
+      mp3Stream->begin();
+      copier.begin(*decodedStream, *mp3Stream);
+      copier.copyAll();
+      copier.end();
+      mp3Stream->end();
+
+    } else {
+      LOGE("Word not available in dictionary: %s", word);
+    }
+  }
+
+  /// Sends silence to mp3 decoder for n secods
+  void silence(int n=1){
+    for (int j=0;j<n;j++){
+      processWord("SILENCE");
     }
   }
 
@@ -157,7 +170,7 @@ class TextToSpeechQueue {
   }
 
  protected:
-  //std::list<const char *> queue;
+  // std::list<const char *> queue;
   Vector<const char *> queue;
   bool active = false;
   NumberToText ntt;
@@ -168,6 +181,7 @@ class TextToSpeechQueue {
       nullptr;                     // Dictionary to access audio data
   audio_tools::StreamCopy copier;  // copy in to out
   Print *p_sink = nullptr;
+
 
   /// callback which adds the words to the queue
   static void callback(audio_tools::Vector<const char *> words, void *ref) {

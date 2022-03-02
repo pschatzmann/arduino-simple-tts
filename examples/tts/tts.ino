@@ -2,6 +2,7 @@
 #include "SimpleTTS.h"
 #include "AudioCodecs/CodecMP3Helix.h"
 #include "speechArray.h"
+//#include "Desktop.h" // some special logic for desktop builds
 
 I2SStream i2s;
 VolumeStream volume(i2s);
@@ -18,8 +19,8 @@ void setup() {
   AudioLogger::instance().begin(Serial, AudioLogger::Info);
 
   // setup out
-  auto cfg = i2s.defaultConfig(TX_MODE);
-  cfg.i2s_format = I2S_LSB_FORMAT;
+  auto cfg = i2s.defaultConfig();
+  //cfg.i2s_format = I2S_LSB_FORMAT;
   cfg.sample_rate = 24000;
   cfg.channels = 1;
   i2s.begin(cfg);
