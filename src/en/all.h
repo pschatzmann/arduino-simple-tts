@@ -48,7 +48,6 @@
 #include "pm.h"
 #include "quarter.h"
 #include "to.h"
-#include "silence.h"
 
 // units
 #include "pound.h"
