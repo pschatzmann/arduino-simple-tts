@@ -20,7 +20,7 @@ void setup() {
 
   // setup out
   auto cfg = i2s.defaultConfig();
-  //cfg.i2s_format = I2S_LSB_FORMAT;
+  cfg.i2s_format = I2S_LSB_FORMAT;
   cfg.sample_rate = 24000;
   cfg.channels = 1;
   i2s.begin(cfg);
