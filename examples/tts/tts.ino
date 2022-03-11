@@ -32,7 +32,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if (tts.isEmpty()) {
-    delay(1000);
+    delay(1000); // in your real sketch: avoid delays
     tts.say(MyAudioDictionaryValues[idx++].name);
     if (idx>58){
       idx = 0;      
