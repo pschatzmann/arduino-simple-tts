@@ -20,7 +20,7 @@ void setup() {
 
   // setup out
   auto cfg = i2s.defaultConfig();
-  cfg.i2s_format = I2S_LSB_FORMAT;
+  cfg.i2s_format = I2S_LSB_FORMAT;  //or I2S_STD_FORMAT
   cfg.sample_rate = 24000;
   cfg.channels = 1;
   i2s.begin(cfg);
@@ -33,7 +33,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (tts.isEmpty()) {
     delay(1000); // in your real sketch: avoid delays
-    tts.say(MyAudioDictionaryValues[idx++].name);
+    tts.say(MyAudioDictionaryValues[idx++].name); // but better use a full sencense
     if (idx>58){
       idx = 0;      
     }

@@ -72,119 +72,121 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;SimpleTTSBase.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>simple_tts {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classsimple__tts_1_1_audio_dictionary.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsimple__tts_1_1_audio_dictionary.html">AudioDictionary</a> : <span class="keyword">public</span> <a class="code" href="classsimple__tts_1_1_audio_dictionary_base.html">AudioDictionaryBase</a>  {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="classsimple__tts_1_1_audio_dictionary.html">AudioDictionary</a>(<a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *dict) { dictionary = dict; }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  AudioStream *get(<span class="keyword">const</span> <span class="keywordtype">char</span> *word) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span> (word==<span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Str str(word);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *e = dictionary;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">while</span> (e-&gt;name != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <span class="keywordflow">if</span> (str.equalsIgnoreCase(e-&gt;name)) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> e-&gt;audio;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      e++;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *dictionary;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// if you define NO_EXAMPLES we do not include any example audio</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef NO_AUDIO_EXAMPLES</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;en/all.h&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> ExampleAudioDictionaryValues[] = {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {<span class="stringliteral">&quot;AND&quot;</span>, <span class="keyword">new</span> MemoryStream(and_mp3, and_mp3_len)},</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {<span class="stringliteral">&quot;BILLION&quot;</span>, <span class="keyword">new</span> MemoryStream(billion_mp3, billion_mp3_len)},</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {<span class="stringliteral">&quot;DOT&quot;</span>, <span class="keyword">new</span> MemoryStream(dot_mp3, dot_mp3_len)},</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {<span class="stringliteral">&quot;EIGHT&quot;</span>, <span class="keyword">new</span> MemoryStream(eight_mp3, eight_mp3_len)},</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {<span class="stringliteral">&quot;EIGHTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(eighteen_mp3, eighteen_mp3_len)},</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {<span class="stringliteral">&quot;EIGHTY&quot;</span>, <span class="keyword">new</span> MemoryStream(eighty_mp3, eighty_mp3_len)},</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {<span class="stringliteral">&quot;ELEVEN&quot;</span>, <span class="keyword">new</span> MemoryStream(eleven_mp3, eleven_mp3_len)},</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {<span class="stringliteral">&quot;FIFTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(fifteen_mp3, fifteen_mp3_len)},</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {<span class="stringliteral">&quot;FIFTY&quot;</span>, <span class="keyword">new</span> MemoryStream(fifty_mp3, fifty_mp3_len)},</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {<span class="stringliteral">&quot;FIVE&quot;</span>, <span class="keyword">new</span> MemoryStream(five_mp3, five_mp3_len)},</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {<span class="stringliteral">&quot;FOUR&quot;</span>, <span class="keyword">new</span> MemoryStream(four_mp3, four_mp3_len)},</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {<span class="stringliteral">&quot;FOURTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(fourteen_mp3, fourteen_mp3_len)},</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {<span class="stringliteral">&quot;FOURTY&quot;</span>, <span class="keyword">new</span> MemoryStream(fourty_mp3, fourty_mp3_len)},</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {<span class="stringliteral">&quot;HUNDRED&quot;</span>, <span class="keyword">new</span> MemoryStream(hundred_mp3, hundred_mp3_len)},</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {<span class="stringliteral">&quot;MILLION&quot;</span>, <span class="keyword">new</span> MemoryStream(million_mp3, million_mp3_len)},</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {<span class="stringliteral">&quot;MINUS&quot;</span>, <span class="keyword">new</span> MemoryStream(minus_mp3, minus_mp3_len)},</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {<span class="stringliteral">&quot;NINE&quot;</span>, <span class="keyword">new</span> MemoryStream(nine_mp3, nine_mp3_len)},</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {<span class="stringliteral">&quot;NINETEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(nineteen_mp3, nineteen_mp3_len)},</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {<span class="stringliteral">&quot;NINETY&quot;</span>, <span class="keyword">new</span> MemoryStream(ninety_mp3, ninety_mp3_len)},</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {<span class="stringliteral">&quot;OCLOCK&quot;</span>, <span class="keyword">new</span> MemoryStream(oclock_mp3, oclock_mp3_len)},</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {<span class="stringliteral">&quot;ONE&quot;</span>, <span class="keyword">new</span> MemoryStream(one_mp3, one_mp3_len)},</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {<span class="stringliteral">&quot;SEVEN&quot;</span>, <span class="keyword">new</span> MemoryStream(seven_mp3, seven_mp3_len)},</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {<span class="stringliteral">&quot;SEVENTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(seventeen_mp3, seventeen_mp3_len)},</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {<span class="stringliteral">&quot;SEVENTY&quot;</span>, <span class="keyword">new</span> MemoryStream(seventy_mp3, seventy_mp3_len)},</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {<span class="stringliteral">&quot;SIX&quot;</span>, <span class="keyword">new</span> MemoryStream(six_mp3, six_mp3_len)},</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {<span class="stringliteral">&quot;SIXTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(sixteen_mp3, sixteen_mp3_len)},</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {<span class="stringliteral">&quot;SIXTY&quot;</span>, <span class="keyword">new</span> MemoryStream(sixty_mp3, sixty_mp3_len)},</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {<span class="stringliteral">&quot;TEN&quot;</span>, <span class="keyword">new</span> MemoryStream(ten_mp3, ten_mp3_len)},</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {<span class="stringliteral">&quot;THIRTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(thirteen_mp3, thirteen_mp3_len)},</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {<span class="stringliteral">&quot;THIRTY&quot;</span>, <span class="keyword">new</span> MemoryStream(thirty_mp3, thirty_mp3_len)},</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {<span class="stringliteral">&quot;THOUSAND&quot;</span>, <span class="keyword">new</span> MemoryStream(thousand_mp3, thousand_mp3_len)},</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {<span class="stringliteral">&quot;THREE&quot;</span>, <span class="keyword">new</span> MemoryStream(three_mp3, three_mp3_len)},</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {<span class="stringliteral">&quot;TWELVE&quot;</span>, <span class="keyword">new</span> MemoryStream(twelve_mp3, twelve_mp3_len)},</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {<span class="stringliteral">&quot;TWENTY&quot;</span>, <span class="keyword">new</span> MemoryStream(twenty_mp3, twenty_mp3_len)},</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {<span class="stringliteral">&quot;TWO&quot;</span>, <span class="keyword">new</span> MemoryStream(two_mp3, two_mp3_len)},</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {<span class="stringliteral">&quot;ZERO&quot;</span>, <span class="keyword">new</span> MemoryStream(zero_mp3, zero_mp3_len)},</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// additional entries to support time</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {<span class="stringliteral">&quot;AM&quot;</span>, <span class="keyword">new</span> MemoryStream(am_mp3, am_mp3_len)},</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {<span class="stringliteral">&quot;HALF&quot;</span>, <span class="keyword">new</span> MemoryStream(half_mp3, half_mp3_len)},</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {<span class="stringliteral">&quot;ITS&quot;</span>, <span class="keyword">new</span> MemoryStream(its_mp3, its_mp3_len)},</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {<span class="stringliteral">&quot;MIDNIGHT&quot;</span>, <span class="keyword">new</span> MemoryStream(midnight_mp3, midnight_mp3_len)},</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {<span class="stringliteral">&quot;NOON&quot;</span>, <span class="keyword">new</span> MemoryStream(noon_mp3, noon_mp3_len)},</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {<span class="stringliteral">&quot;PAST&quot;</span>, <span class="keyword">new</span> MemoryStream(past_mp3, past_mp3_len)},</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {<span class="stringliteral">&quot;PM&quot;</span>, <span class="keyword">new</span> MemoryStream(pm_mp3, pm_mp3_len)},</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {<span class="stringliteral">&quot;QUARTER&quot;</span>, <span class="keyword">new</span> MemoryStream(quarter_mp3, quarter_mp3_len)},</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {<span class="stringliteral">&quot;TO&quot;</span>, <span class="keyword">new</span> MemoryStream(to_mp3, to_mp3_len)},</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// units</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {<span class="stringliteral">&quot;pound&quot;</span>, <span class="keyword">new</span> MemoryStream(pound_mp3, pound_mp3_len)},</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {<span class="stringliteral">&quot;pounds&quot;</span>, <span class="keyword">new</span> MemoryStream(pounds_mp3, pounds_mp3_len)},</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {<span class="stringliteral">&quot;foot&quot;</span>, <span class="keyword">new</span> MemoryStream(foot_mp3, foot_mp3_len)},</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {<span class="stringliteral">&quot;feet&quot;</span>, <span class="keyword">new</span> MemoryStream(feet_mp3, feet_mp3_len)},</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {<span class="stringliteral">&quot;inch&quot;</span>, <span class="keyword">new</span> MemoryStream(inch_mp3, inch_mp3_len)},</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {<span class="stringliteral">&quot;inches&quot;</span>, <span class="keyword">new</span> MemoryStream(inches_mp3, inches_mp3_len)},</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {<span class="stringliteral">&quot;mile&quot;</span>, <span class="keyword">new</span> MemoryStream(mile_mp3, mile_mp3_len)},</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {<span class="stringliteral">&quot;miles&quot;</span>, <span class="keyword">new</span> MemoryStream(miles_mp3, miles_mp3_len)},</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {<span class="stringliteral">&quot;dollar&quot;</span>, <span class="keyword">new</span> MemoryStream(dollar_mp3, dollar_mp3_len)},</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {<span class="stringliteral">&quot;dollars&quot;</span>, <span class="keyword">new</span> MemoryStream(dollars_mp3, dollars_mp3_len)},</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {<span class="stringliteral">&quot;cent&quot;</span>, <span class="keyword">new</span> MemoryStream(cent_mp3, cent_mp3_len)},</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {<span class="stringliteral">&quot;centi&quot;</span>, <span class="keyword">new</span> MemoryStream(centi_mp3, centi_mp3_len)},</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {<span class="stringliteral">&quot;cents&quot;</span>, <span class="keyword">new</span> MemoryStream(cents_mp3, cents_mp3_len)},</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {<span class="stringliteral">&quot;miles&quot;</span>, <span class="keyword">new</span> MemoryStream(miles_mp3, miles_mp3_len)},</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {<span class="stringliteral">&quot;per&quot;</span>, <span class="keyword">new</span> MemoryStream(per_mp3, per_mp3_len)},</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {<span class="stringliteral">&quot;hour&quot;</span>, <span class="keyword">new</span> MemoryStream(hour_mp3, hour_mp3_len)},</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {<span class="stringliteral">&quot;degrees&quot;</span>, <span class="keyword">new</span> MemoryStream(degrees_mp3, degrees_mp3_len)},</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {<span class="stringliteral">&quot;celcius&quot;</span>, <span class="keyword">new</span> MemoryStream(celcius_mp3, celcius_mp3_len)},</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {<span class="stringliteral">&quot;fahrenheit&quot;</span>, <span class="keyword">new</span> MemoryStream(fahrenheit_mp3, fahrenheit_mp3_len)},</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {<span class="stringliteral">&quot;percent&quot;</span>, <span class="keyword">new</span> MemoryStream(percent_mp3, percent_mp3_len)},</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {<span class="stringliteral">&quot;liter&quot;</span>, <span class="keyword">new</span> MemoryStream(liter_mp3, liter_mp3_len)},</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {<span class="stringliteral">&quot;milli&quot;</span>, <span class="keyword">new</span> MemoryStream(milli_mp3, milli_mp3_len)},</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {<span class="stringliteral">&quot;meter&quot;</span>, <span class="keyword">new</span> MemoryStream(meter_mp3, meter_mp3_len)},</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {<span class="stringliteral">&quot;kilo&quot;</span>, <span class="keyword">new</span> MemoryStream(kilo_mp3, kilo_mp3_len)},</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {<span class="stringliteral">&quot;gram&quot;</span>, <span class="keyword">new</span> MemoryStream(gram_mp3, gram_mp3_len)},</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {<span class="stringliteral">&quot;us&quot;</span>, <span class="keyword">new</span> MemoryStream(us_mp3, us_mp3_len)},</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// must end with nullptr to mark end</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ext/silence_mp3.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>simple_tts {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classsimple__tts_1_1_audio_dictionary.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsimple__tts_1_1_audio_dictionary.html">AudioDictionary</a> : <span class="keyword">public</span> <a class="code" href="classsimple__tts_1_1_audio_dictionary_base.html">AudioDictionaryBase</a>  {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="classsimple__tts_1_1_audio_dictionary.html">AudioDictionary</a>(<a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *dict) { dictionary = dict; }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  AudioStream *get(<span class="keyword">const</span> <span class="keywordtype">char</span> *word) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (word==<span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Str str(word);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *e = dictionary;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">while</span> (e-&gt;name != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="keywordflow">if</span> (str.equalsIgnoreCase(e-&gt;name)) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> e-&gt;audio;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      e++;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> *dictionary;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// if you define NO_EXAMPLES we do not include any example audio</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifndef NO_AUDIO_EXAMPLES</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;en/all.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="structsimple__tts_1_1_audio_dictionary_entry.html">AudioDictionaryEntry</a> ExampleAudioDictionaryValues[] = {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {<span class="stringliteral">&quot;SILENCE&quot;</span>, <span class="keyword">new</span> MemoryStream(silence_mp3, silence_mp3_len)},</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {<span class="stringliteral">&quot;AND&quot;</span>, <span class="keyword">new</span> MemoryStream(and_mp3, and_mp3_len)},</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {<span class="stringliteral">&quot;BILLION&quot;</span>, <span class="keyword">new</span> MemoryStream(billion_mp3, billion_mp3_len)},</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {<span class="stringliteral">&quot;DOT&quot;</span>, <span class="keyword">new</span> MemoryStream(dot_mp3, dot_mp3_len)},</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {<span class="stringliteral">&quot;EIGHT&quot;</span>, <span class="keyword">new</span> MemoryStream(eight_mp3, eight_mp3_len)},</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {<span class="stringliteral">&quot;EIGHTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(eighteen_mp3, eighteen_mp3_len)},</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {<span class="stringliteral">&quot;EIGHTY&quot;</span>, <span class="keyword">new</span> MemoryStream(eighty_mp3, eighty_mp3_len)},</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {<span class="stringliteral">&quot;ELEVEN&quot;</span>, <span class="keyword">new</span> MemoryStream(eleven_mp3, eleven_mp3_len)},</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {<span class="stringliteral">&quot;FIFTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(fifteen_mp3, fifteen_mp3_len)},</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {<span class="stringliteral">&quot;FIFTY&quot;</span>, <span class="keyword">new</span> MemoryStream(fifty_mp3, fifty_mp3_len)},</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {<span class="stringliteral">&quot;FIVE&quot;</span>, <span class="keyword">new</span> MemoryStream(five_mp3, five_mp3_len)},</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {<span class="stringliteral">&quot;FOUR&quot;</span>, <span class="keyword">new</span> MemoryStream(four_mp3, four_mp3_len)},</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {<span class="stringliteral">&quot;FOURTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(fourteen_mp3, fourteen_mp3_len)},</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {<span class="stringliteral">&quot;FOURTY&quot;</span>, <span class="keyword">new</span> MemoryStream(fourty_mp3, fourty_mp3_len)},</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {<span class="stringliteral">&quot;HUNDRED&quot;</span>, <span class="keyword">new</span> MemoryStream(hundred_mp3, hundred_mp3_len)},</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {<span class="stringliteral">&quot;MILLION&quot;</span>, <span class="keyword">new</span> MemoryStream(million_mp3, million_mp3_len)},</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {<span class="stringliteral">&quot;MINUS&quot;</span>, <span class="keyword">new</span> MemoryStream(minus_mp3, minus_mp3_len)},</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {<span class="stringliteral">&quot;NINE&quot;</span>, <span class="keyword">new</span> MemoryStream(nine_mp3, nine_mp3_len)},</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {<span class="stringliteral">&quot;NINETEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(nineteen_mp3, nineteen_mp3_len)},</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {<span class="stringliteral">&quot;NINETY&quot;</span>, <span class="keyword">new</span> MemoryStream(ninety_mp3, ninety_mp3_len)},</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {<span class="stringliteral">&quot;OCLOCK&quot;</span>, <span class="keyword">new</span> MemoryStream(oclock_mp3, oclock_mp3_len)},</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {<span class="stringliteral">&quot;ONE&quot;</span>, <span class="keyword">new</span> MemoryStream(one_mp3, one_mp3_len)},</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {<span class="stringliteral">&quot;SEVEN&quot;</span>, <span class="keyword">new</span> MemoryStream(seven_mp3, seven_mp3_len)},</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {<span class="stringliteral">&quot;SEVENTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(seventeen_mp3, seventeen_mp3_len)},</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {<span class="stringliteral">&quot;SEVENTY&quot;</span>, <span class="keyword">new</span> MemoryStream(seventy_mp3, seventy_mp3_len)},</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {<span class="stringliteral">&quot;SIX&quot;</span>, <span class="keyword">new</span> MemoryStream(six_mp3, six_mp3_len)},</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {<span class="stringliteral">&quot;SIXTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(sixteen_mp3, sixteen_mp3_len)},</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {<span class="stringliteral">&quot;SIXTY&quot;</span>, <span class="keyword">new</span> MemoryStream(sixty_mp3, sixty_mp3_len)},</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {<span class="stringliteral">&quot;TEN&quot;</span>, <span class="keyword">new</span> MemoryStream(ten_mp3, ten_mp3_len)},</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {<span class="stringliteral">&quot;THIRTEEN&quot;</span>, <span class="keyword">new</span> MemoryStream(thirteen_mp3, thirteen_mp3_len)},</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {<span class="stringliteral">&quot;THIRTY&quot;</span>, <span class="keyword">new</span> MemoryStream(thirty_mp3, thirty_mp3_len)},</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {<span class="stringliteral">&quot;THOUSAND&quot;</span>, <span class="keyword">new</span> MemoryStream(thousand_mp3, thousand_mp3_len)},</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {<span class="stringliteral">&quot;THREE&quot;</span>, <span class="keyword">new</span> MemoryStream(three_mp3, three_mp3_len)},</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {<span class="stringliteral">&quot;TWELVE&quot;</span>, <span class="keyword">new</span> MemoryStream(twelve_mp3, twelve_mp3_len)},</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {<span class="stringliteral">&quot;TWENTY&quot;</span>, <span class="keyword">new</span> MemoryStream(twenty_mp3, twenty_mp3_len)},</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {<span class="stringliteral">&quot;TWO&quot;</span>, <span class="keyword">new</span> MemoryStream(two_mp3, two_mp3_len)},</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {<span class="stringliteral">&quot;ZERO&quot;</span>, <span class="keyword">new</span> MemoryStream(zero_mp3, zero_mp3_len)},</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// additional entries to support time</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {<span class="stringliteral">&quot;AM&quot;</span>, <span class="keyword">new</span> MemoryStream(am_mp3, am_mp3_len)},</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {<span class="stringliteral">&quot;HALF&quot;</span>, <span class="keyword">new</span> MemoryStream(half_mp3, half_mp3_len)},</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {<span class="stringliteral">&quot;ITS&quot;</span>, <span class="keyword">new</span> MemoryStream(its_mp3, its_mp3_len)},</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {<span class="stringliteral">&quot;MIDNIGHT&quot;</span>, <span class="keyword">new</span> MemoryStream(midnight_mp3, midnight_mp3_len)},</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {<span class="stringliteral">&quot;NOON&quot;</span>, <span class="keyword">new</span> MemoryStream(noon_mp3, noon_mp3_len)},</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {<span class="stringliteral">&quot;PAST&quot;</span>, <span class="keyword">new</span> MemoryStream(past_mp3, past_mp3_len)},</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {<span class="stringliteral">&quot;PM&quot;</span>, <span class="keyword">new</span> MemoryStream(pm_mp3, pm_mp3_len)},</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {<span class="stringliteral">&quot;QUARTER&quot;</span>, <span class="keyword">new</span> MemoryStream(quarter_mp3, quarter_mp3_len)},</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {<span class="stringliteral">&quot;TO&quot;</span>, <span class="keyword">new</span> MemoryStream(to_mp3, to_mp3_len)},</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// units</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {<span class="stringliteral">&quot;pound&quot;</span>, <span class="keyword">new</span> MemoryStream(pound_mp3, pound_mp3_len)},</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {<span class="stringliteral">&quot;pounds&quot;</span>, <span class="keyword">new</span> MemoryStream(pounds_mp3, pounds_mp3_len)},</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {<span class="stringliteral">&quot;foot&quot;</span>, <span class="keyword">new</span> MemoryStream(foot_mp3, foot_mp3_len)},</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {<span class="stringliteral">&quot;feet&quot;</span>, <span class="keyword">new</span> MemoryStream(feet_mp3, feet_mp3_len)},</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {<span class="stringliteral">&quot;inch&quot;</span>, <span class="keyword">new</span> MemoryStream(inch_mp3, inch_mp3_len)},</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {<span class="stringliteral">&quot;inches&quot;</span>, <span class="keyword">new</span> MemoryStream(inches_mp3, inches_mp3_len)},</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {<span class="stringliteral">&quot;mile&quot;</span>, <span class="keyword">new</span> MemoryStream(mile_mp3, mile_mp3_len)},</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {<span class="stringliteral">&quot;miles&quot;</span>, <span class="keyword">new</span> MemoryStream(miles_mp3, miles_mp3_len)},</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {<span class="stringliteral">&quot;dollar&quot;</span>, <span class="keyword">new</span> MemoryStream(dollar_mp3, dollar_mp3_len)},</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {<span class="stringliteral">&quot;dollars&quot;</span>, <span class="keyword">new</span> MemoryStream(dollars_mp3, dollars_mp3_len)},</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {<span class="stringliteral">&quot;cent&quot;</span>, <span class="keyword">new</span> MemoryStream(cent_mp3, cent_mp3_len)},</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {<span class="stringliteral">&quot;centi&quot;</span>, <span class="keyword">new</span> MemoryStream(centi_mp3, centi_mp3_len)},</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {<span class="stringliteral">&quot;cents&quot;</span>, <span class="keyword">new</span> MemoryStream(cents_mp3, cents_mp3_len)},</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {<span class="stringliteral">&quot;miles&quot;</span>, <span class="keyword">new</span> MemoryStream(miles_mp3, miles_mp3_len)},</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {<span class="stringliteral">&quot;per&quot;</span>, <span class="keyword">new</span> MemoryStream(per_mp3, per_mp3_len)},</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {<span class="stringliteral">&quot;hour&quot;</span>, <span class="keyword">new</span> MemoryStream(hour_mp3, hour_mp3_len)},</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {<span class="stringliteral">&quot;degrees&quot;</span>, <span class="keyword">new</span> MemoryStream(degrees_mp3, degrees_mp3_len)},</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {<span class="stringliteral">&quot;celcius&quot;</span>, <span class="keyword">new</span> MemoryStream(celcius_mp3, celcius_mp3_len)},</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {<span class="stringliteral">&quot;fahrenheit&quot;</span>, <span class="keyword">new</span> MemoryStream(fahrenheit_mp3, fahrenheit_mp3_len)},</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {<span class="stringliteral">&quot;percent&quot;</span>, <span class="keyword">new</span> MemoryStream(percent_mp3, percent_mp3_len)},</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {<span class="stringliteral">&quot;liter&quot;</span>, <span class="keyword">new</span> MemoryStream(liter_mp3, liter_mp3_len)},</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {<span class="stringliteral">&quot;milli&quot;</span>, <span class="keyword">new</span> MemoryStream(milli_mp3, milli_mp3_len)},</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {<span class="stringliteral">&quot;meter&quot;</span>, <span class="keyword">new</span> MemoryStream(meter_mp3, meter_mp3_len)},</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {<span class="stringliteral">&quot;kilo&quot;</span>, <span class="keyword">new</span> MemoryStream(kilo_mp3, kilo_mp3_len)},</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {<span class="stringliteral">&quot;gram&quot;</span>, <span class="keyword">new</span> MemoryStream(gram_mp3, gram_mp3_len)},</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    {<span class="stringliteral">&quot;us&quot;</span>, <span class="keyword">new</span> MemoryStream(us_mp3, us_mp3_len)},</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// must end with nullptr to mark end</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {<span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>}</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="ttc" id="aclasssimple__tts_1_1_audio_dictionary_base_html"><div class="ttname"><a href="classsimple__tts_1_1_audio_dictionary_base.html">simple_tts::AudioDictionaryBase</a></div><div class="ttdoc">Dictionary which provides a Stream of Audio for the indicated word.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:49</div></div>
-<div class="ttc" id="aclasssimple__tts_1_1_audio_dictionary_html"><div class="ttname"><a href="classsimple__tts_1_1_audio_dictionary.html">simple_tts::AudioDictionary</a></div><div class="ttdoc">A dictionary which is based on in memory audio files.</div><div class="ttdef"><b>Definition:</b> AudioDictionary.h:12</div></div>
+<div class="ttc" id="aclasssimple__tts_1_1_audio_dictionary_html"><div class="ttname"><a href="classsimple__tts_1_1_audio_dictionary.html">simple_tts::AudioDictionary</a></div><div class="ttdoc">A dictionary which is based on in memory audio files.</div><div class="ttdef"><b>Definition:</b> AudioDictionary.h:13</div></div>
 <div class="ttc" id="astructsimple__tts_1_1_audio_dictionary_entry_html"><div class="ttname"><a href="structsimple__tts_1_1_audio_dictionary_entry.html">simple_tts::AudioDictionaryEntry</a></div><div class="ttdoc">An Entry for the in Memory Audio Dictionary.</div><div class="ttdef"><b>Definition:</b> SimpleTTSBase.h:60</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
