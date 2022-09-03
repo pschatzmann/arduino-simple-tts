@@ -56,12 +56,18 @@ class TextToSpeechQueue {
 
   /// a simple API to add a single c string to the queue
   void say(const char *word) {
-    LOGI("%s", word);
-    queue.push_back(word);
+    if (word != nullptr) {
+      LOGI("%s", word);
+      queue.push_back(word);
+    }
   }
 
   /// Adds a word to the front
-  void sayNow(const char *word) { queue.push_front(word); }
+  void sayNow(const char *word) {
+    if (word != nullptr) {
+      queue.push_front(word);
+    }
+  }
 
   /// Addds an array of c strings
   void say(const char *word[], int size) {
@@ -121,8 +127,8 @@ class TextToSpeechQueue {
   }
 
   /// Sends silence to mp3 decoder for n secods
-  void silence(int n=1){
-    for (int j=0;j<n;j++){
+  void silence(int n = 1) {
+    for (int j = 0; j < n; j++) {
       processWord("SILENCE");
     }
   }
@@ -181,7 +187,6 @@ class TextToSpeechQueue {
       nullptr;                     // Dictionary to access audio data
   audio_tools::StreamCopy copier;  // copy in to out
   Print *p_sink = nullptr;
-
 
   /// callback which adds the words to the queue
   static void callback(audio_tools::Vector<const char *> words, void *ref) {
