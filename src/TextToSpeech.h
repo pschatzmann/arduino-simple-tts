@@ -1,7 +1,7 @@
 #pragma once
 #ifndef NO_SPEECH
 #include "AudioCodecs/CodecMP3Helix.h"
-#include "AudioTools/AudioOutput.h"
+#include "AudioTools/AudioPrint.h"
 #include "AudioTools/AudioStreams.h"
 #include "AudioTools/AudioTypes.h"
 #include "NumberToText.h"
