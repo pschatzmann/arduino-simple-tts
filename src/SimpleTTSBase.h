@@ -108,15 +108,20 @@ public:
   void set(double value, int digits=2) {
     char format[10];
     // e.g. %0.2f for 2 digits.
-    sprintf(format,"%%0.%df", digits);
+    sprintf(format,"%%0.%d2f", digits);
     LOGD("format: %s", format);
     memset(buffer, 0, buffer_len);
     // convert to string
     sprintf(buffer, format, value);
     LOGD("number: %s",buffer);
     dot = strchr(buffer, '.');
-    // split string
-    *dot = 0;
+    if (dot!=nullptr){
+      // split string
+      *dot = 0;
+    } else {
+      // no decimal
+      dot = buffer+strlen(buffer);
+    }
 
     LOGD("int: %s", intValue());
     LOGD("dec: %s", decValues());
