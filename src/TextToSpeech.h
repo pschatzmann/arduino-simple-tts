@@ -61,7 +61,7 @@ class TextToSpeech {
       if (!active) begin();
       mp3Stream->begin();
       copier.begin(*decodedStream, *mp3Stream);
-      copier.copyAll();
+      copier.copyAll(0, 0);
       copier.end();
       mp3Stream->end();
     } else {
