@@ -108,7 +108,7 @@ public:
   void set(double value, int digits=2) {
     char format[10];
     // e.g. %0.2f for 2 digits.
-    sprintf(format,"%%0.%d2f", digits);
+    sprintf(format,"%%0.%df", digits);
     LOGD("format: %s", format);
     memset(buffer, 0, buffer_len);
     // convert to string
