@@ -48,9 +48,11 @@ void setup() {
   ttt.say(timeInfo.time());
 }
 
+
 void loop() {
   // speach output
   if (timeInfo.update()){
     ttt.say(timeInfo.time());
+    tts.say("SILENCE");  // ESP32: prevent noise at end
   }
 }
