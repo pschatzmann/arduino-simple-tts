@@ -77,7 +77,7 @@ class NumberToText : public SimpleTTSBase {
                            "TWELVE",  "THIRTEEN",  "FOURTEEN",  "FIFTEEN",
                            "SIXTEEN", "SEVENTEEN", "EIGHTEEN",  "NINETEEN"};
 
-  const char* second[10] = {"",      "TEN",   "TWENTY",  "THIRTY", "FORTY",
+  const char* second[10] = {"",      "TEN",   "TWENTY",  "THIRTY", "FOURTY",
                             "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY"};
 
   const char* third[7] = {"AND","DOT","MINUS", "HUNDRED", "THOUSAND", "MILLION","BILLION"};
