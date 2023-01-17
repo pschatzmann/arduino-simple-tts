@@ -4,7 +4,7 @@
 #include "and.h"           
 #include "eighteen.h"      
 #include "fifty.h"         
-#include "fourty.h"        
+#include "forty.h"        
 #include "nine.h"          
 #include "one.h"           
 #include "six.h"           
