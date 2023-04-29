@@ -72,7 +72,7 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef NO_SPEECH</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;AudioCodecs/CodecMP3Helix.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;AudioTools/AudioPrint.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;AudioTools/AudioOutput.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;AudioTools/AudioStreams.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;AudioTools/AudioTypes.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;NumberToText.h&quot;</span></div>
@@ -93,7 +93,7 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    begin();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classsimple__tts_1_1_text_to_speech.html#a7ab9d174704592d9fdc5e5b7c97d4cf3">TextToSpeech</a>(<a class="code" href="classsimple__tts_1_1_simple_t_t_s_base.html">SimpleTTSBase</a> &amp;tts, AudioPrint &amp;sink, AudioDecoder &amp;decoder,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classsimple__tts_1_1_text_to_speech.html#a7ab9d174704592d9fdc5e5b7c97d4cf3">TextToSpeech</a>(<a class="code" href="classsimple__tts_1_1_simple_t_t_s_base.html">SimpleTTSBase</a> &amp;tts, AudioOutput &amp;sink, AudioDecoder &amp;decoder,</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;               <a class="code" href="classsimple__tts_1_1_audio_dictionary_base.html">AudioDictionaryBase</a> &amp;dict) {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    tts.registerCallback(<a class="code" href="classsimple__tts_1_1_text_to_speech.html#aef5be846d3540b0591952d4b50467bca">callback</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    p_tts = &amp;tts;</div>

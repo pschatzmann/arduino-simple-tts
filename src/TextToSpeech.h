@@ -1,7 +1,7 @@
 #pragma once
 #ifndef NO_SPEECH
 #include "AudioCodecs/CodecMP3Helix.h"
-#include "AudioTools/AudioPrint.h"
+#include "AudioTools/AudioOutput.h"
 #include "AudioTools/AudioStreams.h"
 #include "AudioTools/AudioTypes.h"
 #include "NumberToText.h"
@@ -29,7 +29,7 @@ class TextToSpeech {
     begin();
   }
 
-  TextToSpeech(SimpleTTSBase &tts, AudioPrint &sink, AudioDecoder &decoder,
+  TextToSpeech(SimpleTTSBase &tts, AudioOutput &sink, AudioDecoder &decoder,
                AudioDictionaryBase &dict) {
     tts.registerCallback(callback, this);
     p_tts = &tts;
