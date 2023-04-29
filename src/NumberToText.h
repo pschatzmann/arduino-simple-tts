@@ -98,9 +98,10 @@ class NumberToText : public SimpleTTSBase {
     if (dec.toInt()!=0.0){
       const char* ch=decimals;
       add(third[DOT]);
-      while (*++ch){
+      while (*ch){
         int idx = (*ch)-48; // convert to index
         add(first[idx]);
+        ch++;
       }
     }
   }
