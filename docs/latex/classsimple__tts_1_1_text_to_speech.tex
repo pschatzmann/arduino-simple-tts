@@ -13,16 +13,16 @@ Audio output from text via the indicated audio sink. The text components need to
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}\label{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}} 
-\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a7ab9d174704592d9fdc5e5b7c97d4cf3}{Text\+To\+Speech}} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+{\bfseries Text\+To\+Speech} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech}{Text\+To\+Speech}} which support a \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a60b6e2198f3796d633892b9d4f2ede68}\label{classsimple__tts_1_1_text_to_speech_a60b6e2198f3796d633892b9d4f2ede68}} 
-{\bfseries Text\+To\+Speech} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Print \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+\mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_ad074cf0e43096d0d65a4fdc4ef3bc967}\label{classsimple__tts_1_1_text_to_speech_ad074cf0e43096d0d65a4fdc4ef3bc967}} 
+{\bfseries Text\+To\+Speech} (\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{Simple\+TTSBase}} \&tts, Audio\+Output \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a316f6162063dc215f5e37b6326b109e1}\label{classsimple__tts_1_1_text_to_speech_a316f6162063dc215f5e37b6326b109e1}} 
-\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a316f6162063dc215f5e37b6326b109e1}{Text\+To\+Speech}} (Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
+{\bfseries Text\+To\+Speech} (Audio\+Stream \&sink, Audio\+Decoder \&decoder, \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{Audio\+Dictionary\+Base}} \&dict)
 \begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}\label{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}} 
-void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_ac832e8ee5f5631cc8a75d0afd2ab824d}{say}} (const char $\ast$word)
+void {\bfseries say} (const char $\ast$word)
 \begin{DoxyCompactList}\small\item\em a simple API to say one of the supported words \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_aeea5b9b106cc46e7ad59ce8138f9f82d}\label{classsimple__tts_1_1_text_to_speech_aeea5b9b106cc46e7ad59ce8138f9f82d}} 
 void {\bfseries begin} ()
@@ -31,16 +31,16 @@ void {\bfseries begin} ()
 void {\bfseries end} ()
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}\label{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}} 
-void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_a3e32159205a745f4d3a59b40ce57c57b}{say}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words)
+void {\bfseries say} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words)
 \begin{DoxyCompactList}\small\item\em a simple API to say multiple of the supported words \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_aa7ebf5afbc70655c9a0116de496ae58e}\label{classsimple__tts_1_1_text_to_speech_aa7ebf5afbc70655c9a0116de496ae58e}} 
-void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aa7ebf5afbc70655c9a0116de496ae58e}{delay}} (uint32\+\_\+t delay\+\_\+ms)
+void {\bfseries delay} (uint32\+\_\+t delay\+\_\+ms)
 \begin{DoxyCompactList}\small\item\em writes silence for the indicated ms \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}\label{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}} 
-static void \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_aef5be846d3540b0591952d4b50467bca}{callback}} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$ref)
+static void {\bfseries callback} (audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$ref)
 \begin{DoxyCompactList}\small\item\em callback which says the words \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}

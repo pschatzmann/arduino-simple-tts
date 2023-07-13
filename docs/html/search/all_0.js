@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['alltexts_0',['allTexts',['../classsimple__tts_1_1_number_to_text.html#aa14718f4f792e01ec34b4486933fbf9d',1,'simple_tts::NumberToText::allTexts()'],['../classsimple__tts_1_1_number_unit_to_text.html#a298727278987bd1e3e8209b84b0f254d',1,'simple_tts::NumberUnitToText::allTexts()'],['../classsimple__tts_1_1_time_to_text.html#a11ef824c187dbd480a5bd878d17b54b1',1,'simple_tts::TimeToText::allTexts()']]],
+  ['alltexts_0',['allTexts',['../classsimple__tts_1_1_number_to_text.html#ae7cdf641730a749293956193b785a772',1,'simple_tts::NumberToText::allTexts()'],['../classsimple__tts_1_1_number_unit_to_text.html#adfa5999c7e6b9adc5f51d8213614abc3',1,'simple_tts::NumberUnitToText::allTexts()'],['../classsimple__tts_1_1_time_to_text.html#a74b2534f6c65dc2f3a5403952ff80690',1,'simple_tts::TimeToText::allTexts()']]],
   ['arduino_20simple_20tts_1',['Arduino Simple TTS',['../index.html',1,'']]],
   ['audiodictionary_2',['AudioDictionary',['../classsimple__tts_1_1_audio_dictionary.html',1,'simple_tts']]],
   ['audiodictionarybase_3',['AudioDictionaryBase',['../classsimple__tts_1_1_audio_dictionary_base.html',1,'simple_tts']]],

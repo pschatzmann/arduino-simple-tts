@@ -1,0 +1,183 @@
+\hypertarget{_text_to_speech_queue_8h_source}{}\doxysection{Text\+To\+Speech\+Queue.\+h}
+\label{_text_to_speech_queue_8h_source}\index{src/TextToSpeechQueue.h@{src/TextToSpeechQueue.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ NO\_SPEECH}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}AudioCodecs/CodecMP3Helix.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}AudioDictionary.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}AudioTools/AudioOutput.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}AudioTools/AudioStreams.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}AudioTools/AudioTypes.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}NumberToText.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }simple\_tts\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue}{TextToSpeechQueue}}\ \{}
+\DoxyCodeLine{00021\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ab33ad51a66945e59edae75460dd023e6}{TextToSpeechQueue}}(\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}}\ \&tts,\ AudioStream\ \&sink,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AudioDecoder\ \&decoder,\ \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}}\ \&dict)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ tts.registerCallback(\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}{callback}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00026\ \ \ \ \ p\_tts\ =\ \&tts;}
+\DoxyCodeLine{00027\ \ \ \ \ p\_dictionary\ =\ \&dict;}
+\DoxyCodeLine{00028\ \ \ \ \ p\_decoder\ =\ \&decoder;}
+\DoxyCodeLine{00029\ \ \ \ \ p\_sink\ =\ \&sink;}
+\DoxyCodeLine{00030\ \ \ \ \ decodedStream\ =\ \textcolor{keyword}{new}\ audio\_tools::EncodedAudioStream(\&sink,\ \&decoder);}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}}();}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue}{TextToSpeechQueue}}(\mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}}\ \&tts,\ AudioOutput\ \&sink,\ AudioDecoder\ \&decoder,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}}\ \&dict)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ tts.registerCallback(\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}{callback}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00037\ \ \ \ \ p\_tts\ =\ \&tts;}
+\DoxyCodeLine{00038\ \ \ \ \ p\_dictionary\ =\ \&dict;}
+\DoxyCodeLine{00039\ \ \ \ \ p\_decoder\ =\ \&decoder;}
+\DoxyCodeLine{00040\ \ \ \ \ p\_sink\ =\ \&sink;}
+\DoxyCodeLine{00041\ \ \ \ \ decodedStream\ =\ \textcolor{keyword}{new}\ audio\_tools::EncodedAudioStream(\&sink,\ \&decoder);}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}}();}
+\DoxyCodeLine{00043\ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aa05c1ef531306fe70b093671ef8b814a}{TextToSpeechQueue}}(AudioStream\ \&sink,\ AudioDecoder\ \&decoder,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}}\ \&dict)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ p\_dictionary\ =\ \&dict;}
+\DoxyCodeLine{00049\ \ \ \ \ p\_decoder\ =\ \&decoder;}
+\DoxyCodeLine{00050\ \ \ \ \ p\_sink\ =\ \&sink;}
+\DoxyCodeLine{00051\ \ \ \ \ decodedStream\ =\ \textcolor{keyword}{new}\ audio\_tools::EncodedAudioStream(\&sink,\ \&decoder);}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}}();}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue}{\string~TextToSpeechQueue}}()\ \{\ \textcolor{keyword}{delete}\ decodedStream;\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *word)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (word\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}\%s"{}},\ word);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ queue.push\_back(word);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_abc85a3fedac7b291c783440d2112ca79}{sayNow}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *word)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (word\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ queue.push\_front(word);}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_af6ae6fd328a073cd9b386881e0a10890}{say}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *word[],\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}})\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}};\ j++)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}}(word[j]);}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a990fdaf4629913f1c7b542a25aac8f33}{say}}(\textcolor{keywordtype}{char}\ *(\&word)[N])\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ N;\ j++)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}}(word[j]);}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad946ed72d69896178a587ad57ff04c1a}{say}}(audio\_tools::Vector<const\ char\ *>\ words)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ word\ :\ words)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}}(word);}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{comment}{//\ Add\ this\ in\ the\ Arduino\ Loop\ -\/>\ we\ process\ the\ next\ word}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ process()\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}}\ =\ queue.size();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}}\ >\ 0)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *word\ =\ (*this)[0];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ queue.pop\_front();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ LOGI(\textcolor{stringliteral}{"{}say:\ \%s\ \ (size:\ \%d\ -\/>\ \%d)"{}},\ word,\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}},\ queue.size());}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a283909e83d0b0ee0cf2a5f8ad19a5358}{processWord}}(word);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (queue.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ end();}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a0ee45611587039062104c1ed7f6cac35}{silence}}(1);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a283909e83d0b0ee0cf2a5f8ad19a5358}{processWord}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *word)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ AudioStream\ *mp3Stream\ =\ p\_dictionary-\/>get(word);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (mp3Stream\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!active)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}}();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \textcolor{comment}{//\ decode\ to\ audio}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ mp3Stream-\/>begin();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ copier.begin(*decodedStream,\ *mp3Stream);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ copier.copyAll();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ copier.end();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ mp3Stream-\/>end();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ LOGE(\textcolor{stringliteral}{"{}Word\ not\ available\ in\ dictionary:\ \%s"{}},\ word);}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a0ee45611587039062104c1ed7f6cac35}{silence}}(\textcolor{keywordtype}{int}\ n\ =\ 1)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a283909e83d0b0ee0cf2a5f8ad19a5358}{processWord}}(\textcolor{stringliteral}{"{}SILENCE"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}}()\ \{\ \textcolor{keywordflow}{return}\ queue.size();\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a5719b478407e4229bb35e3ede6db44c1}{isEmpty}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}}()\ ==\ 0;\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ada5489f9972545ae88f4b228ac748d07}{operator[]}}(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_ad02e6edf96cf855bbd8721dd4f5f3f43}{size}}())\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \textcolor{comment}{//\ auto\ it\ =\ queue.begin();}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \textcolor{comment}{//\ std::advance(it,\ n);}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \textcolor{comment}{//\ return\ *it;}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ queue[n];}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00151\ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aae0a8c5dc38c4dfff7c0ed9551a6cbc4}{begin}}()\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ p\_decoder-\/>begin();}
+\DoxyCodeLine{00156\ \ \ \ \ active\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00157\ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a875f9926b87ea3287e6cfcab6fd9703f}{end}}()\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ p\_decoder-\/>end();}
+\DoxyCodeLine{00162\ \ \ \ \ active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_acf498d62e072675701d8d21e08ca7d28}{clear}}();}
+\DoxyCodeLine{00164\ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_acf498d62e072675701d8d21e08ca7d28}{clear}}()\ \{\ queue.clear();\ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a1543ff493a10a7f5d3222fb0135d98ce}{delay}}(uint32\_t\ delay\_ms\ =\ 1000)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ uint8\_t\ buffer[1024]\ =\ \{0\};}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ timeout\ =\ millis()\ +\ delay\_ms;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{while}\ (timeout\ >\ millis())\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ p\_sink-\/>write((\textcolor{keyword}{const}\ uint8\_t\ *)buffer,\ 1024);}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00179\ \ \ \textcolor{comment}{//\ std::list<const\ char\ *>\ queue;}}
+\DoxyCodeLine{00180\ \ \ Vector<const\ char\ *>\ queue;}
+\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{bool}\ active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00182\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_number_to_text}{NumberToText}}\ ntt;}
+\DoxyCodeLine{00183\ \ \ audio\_tools::AudioDecoder\ *p\_decoder\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00184\ \ \ audio\_tools::EncodedAudioStream\ *decodedStream\ =\ \textcolor{keyword}{nullptr};\ \ \textcolor{comment}{//\ Decoding\ stream}}
+\DoxyCodeLine{00185\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{SimpleTTSBase}}\ *p\_tts\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Text\ source}}
+\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{classsimple__tts_1_1_audio_dictionary_base}{AudioDictionaryBase}}\ *p\_dictionary\ =}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dictionary\ to\ access\ audio\ data}}
+\DoxyCodeLine{00188\ \ \ audio\_tools::StreamCopy\ copier;\ \ \textcolor{comment}{//\ copy\ in\ to\ out}}
+\DoxyCodeLine{00189\ \ \ Print\ *p\_sink\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_aab744bc896bd996f4ffcb59d7424eb79}{callback}}(audio\_tools::Vector<const\ char\ *>\ words,\ \textcolor{keywordtype}{void}\ *ref)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue}{TextToSpeechQueue}}\ *self\ =\ (\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue}{TextToSpeechQueue}}\ *)ref;}
+\DoxyCodeLine{00194\ \ \ \ \ self-\/>\mbox{\hyperlink{classsimple__tts_1_1_text_to_speech_queue_a209230ab9488a96986199e2fdb264016}{say}}(words);}
+\DoxyCodeLine{00195\ \ \ \}}
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \}\ \ \textcolor{comment}{//\ namespace\ simple\_tts}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

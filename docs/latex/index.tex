@@ -18,13 +18,13 @@ Number\+To\+Text translates the number input into a audio\+\_\+tools\+::\+Vector
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{NumberToText ntt;}
+\DoxyCodeLine{NumberToText\ ntt;}
 \DoxyCodeLine{}
-\DoxyCodeLine{auto result = ntt.say(700123.431);}
+\DoxyCodeLine{auto\ result\ =\ ntt.say(700123.431);}
 \DoxyCodeLine{}
-\DoxyCodeLine{for (auto str : result)\{}
-\DoxyCodeLine{    Serial.print(str);}
-\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{for\ (auto\ str\ :\ result)\{}
+\DoxyCodeLine{\ \ \ \ Serial.print(str);}
+\DoxyCodeLine{\ \ \ \ Serial.print("{}\ "{});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -33,26 +33,26 @@ To process the time you need to provide the hours and minuts as input.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{TimeToText ttt;}
+\DoxyCodeLine{TimeToText\ ttt;}
 \DoxyCodeLine{}
-\DoxyCodeLine{auto result = ttt.say(12, 00);}
+\DoxyCodeLine{auto\ result\ =\ ttt.say(12,\ 00);}
 \DoxyCodeLine{}
-\DoxyCodeLine{for (auto str : result)\{}
-\DoxyCodeLine{    Serial.print(str);}
-\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{for\ (auto\ str\ :\ result)\{}
+\DoxyCodeLine{\ \ \ \ Serial.print(str);}
+\DoxyCodeLine{\ \ \ \ Serial.print("{}\ "{});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
  The result is\+: NOON\hypertarget{index_autotoc_md4}{}\doxysubsection{Numbers with Units}\label{index_autotoc_md4}
 You can also process numbers with the corresponding units 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{NumberUnitToText utt;}
+\DoxyCodeLine{NumberUnitToText\ utt;}
 \DoxyCodeLine{}
-\DoxyCodeLine{auto result = utt.say(1.01,"{}usd"{});}
+\DoxyCodeLine{auto\ result\ =\ utt.say(1.01,"{}usd"{});}
 \DoxyCodeLine{}
-\DoxyCodeLine{for (auto str : result)\{}
-\DoxyCodeLine{    Serial.print(str);}
-\DoxyCodeLine{    Serial.print("{} "{});}
+\DoxyCodeLine{for\ (auto\ str\ :\ result)\{}
+\DoxyCodeLine{\ \ \ \ Serial.print(str);}
+\DoxyCodeLine{\ \ \ \ Serial.print("{}\ "{});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -61,26 +61,26 @@ If we record the words in mp3 we might even get away with the need for a separat
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\#include "{}SimpleTTS.h"{}}
-\DoxyCodeLine{\#include "{}AudioCodecs/CodecMP3Helix.h"{}}
+\DoxyCodeLine{\#include\ "{}SimpleTTS.h"{}}
+\DoxyCodeLine{\#include\ "{}AudioCodecs/CodecMP3Helix.h"{}}
 \DoxyCodeLine{}
-\DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
-\DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
-\DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
-\DoxyCodeLine{TextToSpeech tts(i2s, mp3, dictionary);}
+\DoxyCodeLine{I2SStream\ i2s;\ \ //\ audio\ output\ via\ I2S}
+\DoxyCodeLine{MP3DecoderHelix\ mp3;\ \ //\ mp3\ decoder}
+\DoxyCodeLine{AudioDictionary\ dictionary(ExampleAudioDictionaryValues);}
+\DoxyCodeLine{TextToSpeech\ tts(i2s,\ mp3,\ dictionary);}
 \DoxyCodeLine{}
-\DoxyCodeLine{void setup()\{}
-\DoxyCodeLine{    Serial.begin(115200);}
-\DoxyCodeLine{    // setup i2s}
-\DoxyCodeLine{    auto cfg = i2s.defaultConfig(); }
-\DoxyCodeLine{    cfg.sample\_rate = 24000;}
-\DoxyCodeLine{    cfg.channels = 1;}
-\DoxyCodeLine{    i2s.begin(cfg);}
+\DoxyCodeLine{void\ setup()\{}
+\DoxyCodeLine{\ \ \ \ Serial.begin(115200);}
+\DoxyCodeLine{\ \ \ \ //\ setup\ i2s}
+\DoxyCodeLine{\ \ \ \ auto\ cfg\ =\ i2s.defaultConfig();\ }
+\DoxyCodeLine{\ \ \ \ cfg.sample\_rate\ =\ 24000;}
+\DoxyCodeLine{\ \ \ \ cfg.channels\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ i2s.begin(cfg);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    tts.say("{}BILLION"{});}
+\DoxyCodeLine{\ \ \ \ tts.say("{}BILLION"{});}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{void\ loop()\ \{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -90,35 +90,35 @@ You can also use the text generation classes described above\+:
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\#include "{}SimpleTTS.h"{}}
-\DoxyCodeLine{\#include "{}AudioCodecs/CodecMP3Helix.h"{}}
+\DoxyCodeLine{\#include\ "{}SimpleTTS.h"{}}
+\DoxyCodeLine{\#include\ "{}AudioCodecs/CodecMP3Helix.h"{}}
 \DoxyCodeLine{}
-\DoxyCodeLine{TimeToText ttt; // Text source}
-\DoxyCodeLine{I2SStream i2s;  // audio output via I2S}
-\DoxyCodeLine{MP3DecoderHelix mp3;  // mp3 decoder}
-\DoxyCodeLine{AudioDictionary dictionary(ExampleAudioDictionaryValues);}
-\DoxyCodeLine{TextToSpeech tts(ttt, i2s, mp3, dictionary);}
+\DoxyCodeLine{TimeToText\ ttt;\ //\ Text\ source}
+\DoxyCodeLine{I2SStream\ i2s;\ \ //\ audio\ output\ via\ I2S}
+\DoxyCodeLine{MP3DecoderHelix\ mp3;\ \ //\ mp3\ decoder}
+\DoxyCodeLine{AudioDictionary\ dictionary(ExampleAudioDictionaryValues);}
+\DoxyCodeLine{TextToSpeech\ tts(ttt,\ i2s,\ mp3,\ dictionary);}
 \DoxyCodeLine{}
-\DoxyCodeLine{void setup()\{}
-\DoxyCodeLine{    Serial.begin(115200);}
-\DoxyCodeLine{    // setup i2s}
-\DoxyCodeLine{    auto cfg = i2s.defaultConfig(); }
-\DoxyCodeLine{    cfg.sample\_rate = 24000;}
-\DoxyCodeLine{    cfg.channels = 1;}
-\DoxyCodeLine{    i2s.begin(cfg);}
+\DoxyCodeLine{void\ setup()\{}
+\DoxyCodeLine{\ \ \ \ Serial.begin(115200);}
+\DoxyCodeLine{\ \ \ \ //\ setup\ i2s}
+\DoxyCodeLine{\ \ \ \ auto\ cfg\ =\ i2s.defaultConfig();\ }
+\DoxyCodeLine{\ \ \ \ cfg.sample\_rate\ =\ 24000;}
+\DoxyCodeLine{\ \ \ \ cfg.channels\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ i2s.begin(cfg);}
 \DoxyCodeLine{}
-\DoxyCodeLine{    ttt.say(14,40);}
+\DoxyCodeLine{\ \ \ \ ttt.say(14,40);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{void loop() \{}
+\DoxyCodeLine{void\ loop()\ \{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
  This will output the audio result via I2S.\hypertarget{index_autotoc_md6}{}\doxysection{Memory Usage}\label{index_autotoc_md6}
 Here is the info for a sketch that provides talking time and number support and stores all audio files as mp3 in PROGMEM on as ESP32\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{Sketch uses 740438 bytes (23\%) of program storage space. Maximum is 3145728 bytes.}
-\DoxyCodeLine{Global variables use 23632 bytes (7\%) of dynamic memory, leaving 304048 bytes for }
+\DoxyCodeLine{Sketch\ uses\ 740438\ bytes\ (23\%)\ of\ program\ storage\ space.\ Maximum\ is\ 3145728\ bytes.}
+\DoxyCodeLine{Global\ variables\ use\ 23632\ bytes\ (7\%)\ of\ dynamic\ memory,\ leaving\ 304048\ bytes\ for\ }
 
 \end{DoxyCode}
 
