@@ -2,7 +2,6 @@
 #ifndef NO_SPEECH
 #include <list>
 
-#include "AudioCodecs/CodecMP3Helix.h"
 #include "AudioDictionary.h"
 #include "AudioTools/AudioOutput.h"
 #include "AudioTools/AudioStreams.h"
