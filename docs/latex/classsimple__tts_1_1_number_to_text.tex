@@ -18,18 +18,28 @@ Inheritance diagram for simple\+\_\+tts\+::Number\+To\+Text\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}\label{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}} 
-audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a8f561dc2f9c4fb2f0db28ca1a9c11695}{say}} (double value, int decimals=2)
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}\label{classsimple__tts_1_1_number_to_text_aa5cb276b1a65ece56fcae76bb22b6e1d}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries say} (double value, int decimals=2)
 \begin{DoxyCompactList}\small\item\em converts a real number to it\textquotesingle{}s text representation (with the indicated number of digits) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ac9eed848510a1ee795c350c5b197abc2}\label{classsimple__tts_1_1_number_to_text_ac9eed848510a1ee795c350c5b197abc2}} 
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aa9035ebb3723a0128aa37e44ade71a03}\label{classsimple__tts_1_1_number_to_text_aa9035ebb3723a0128aa37e44ade71a03}} 
 audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries say} (int64\+\_\+t whole\+Number)
 \item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}\label{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}} 
-audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a9e88d4bba48e369dc6f6ed9e1ec5b78a}{say}} (const char $\ast$whole\+Number, const char $\ast$decimals=\char`\"{}\char`\"{})
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a6ad6f5daf5caf6fbc9665947ee3cdc5d}\label{classsimple__tts_1_1_number_to_text_a6ad6f5daf5caf6fbc9665947ee3cdc5d}} 
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& {\bfseries say} (const char $\ast$whole\+Number, const char $\ast$decimals=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em converts a number to it\textquotesingle{}s text representation \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}\label{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}} 
-audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_aa14718f4f792e01ec34b4486933fbf9d}{all\+Texts}} ()
+audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_ae7cdf641730a749293956193b785a772}{all\+Texts}} ()
 \begin{DoxyCompactList}\small\item\em provides all texts \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{simple\+\_\+tts\+::\+Simple\+TTSBase}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base_a563ec5af8d2a53a4cea48e735de343c5}{all\+Texts}} ()=0
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_a399e345694a184a7c48ce16a345def6a}\label{classsimple__tts_1_1_simple_t_t_s_base_a399e345694a184a7c48ce16a345def6a}} 
+virtual void {\bfseries register\+Callback} (void($\ast$ptr)(audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ words, void $\ast$refx), void $\ast$ref)
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_a0af042bda3842ad7ab250b6c7cdc122c}\label{classsimple__tts_1_1_simple_t_t_s_base_a0af042bda3842ad7ab250b6c7cdc122c}} 
+void {\bfseries print\+CSV} (Print \&out)
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,9 +61,9 @@ void {\bfseries convert} (int64\+\_\+t value)
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a48d1c6b50c6fc64489565e8139fba9ed}\label{classsimple__tts_1_1_number_to_text_a48d1c6b50c6fc64489565e8139fba9ed}} 
 audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ {\bfseries result}
 \item 
-const char $\ast$ {\bfseries first} \mbox{[}20\mbox{]}
+const char $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a18f66f2a010b90e872d2112b7235acef}{first}} \mbox{[}20\mbox{]}
 \item 
-const char $\ast$ {\bfseries second} \mbox{[}10\mbox{]}
+const char $\ast$ \mbox{\hyperlink{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}{second}} \mbox{[}10\mbox{]}
 \item 
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ad2a040a881fa1672bbc59d307fcb0d10}\label{classsimple__tts_1_1_number_to_text_ad2a040a881fa1672bbc59d307fcb0d10}} 
 const char $\ast$ {\bfseries third} \mbox{[}7\mbox{]} = \{\char`\"{}AND\char`\"{},\char`\"{}DOT\char`\"{},\char`\"{}MINUS\char`\"{}, \char`\"{}HUNDRED\char`\"{}, \char`\"{}THOUSAND\char`\"{}, \char`\"{}MILLION\char`\"{},\char`\"{}BILLION\char`\"{}\}
@@ -79,6 +89,15 @@ const int {\bfseries MILLION} = 5
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a1649cfafec8b4f8892d028478dfb2f54}\label{classsimple__tts_1_1_number_to_text_a1649cfafec8b4f8892d028478dfb2f54}} 
 const int {\bfseries BILLION} = 6
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{simple\+\_\+tts\+::\+Simple\+TTSBase}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_a056744a12b983215d731998d23244d14}\label{classsimple__tts_1_1_simple_t_t_s_base_a056744a12b983215d731998d23244d14}} 
+void($\ast$ {\bfseries callback} )(audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ word, void $\ast$ref) = nullptr
+\item 
+\mbox{\Hypertarget{classsimple__tts_1_1_simple_t_t_s_base_ab664b7bf4dbde2b10a2bf4da3f44fa52}\label{classsimple__tts_1_1_simple_t_t_s_base_ab664b7bf4dbde2b10a2bf4da3f44fa52}} 
+void $\ast$ {\bfseries reference} = nullptr
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -92,6 +111,23 @@ GPLv3
 \end{DoxyCopyright}
 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_ae7cdf641730a749293956193b785a772}\label{classsimple__tts_1_1_number_to_text_ae7cdf641730a749293956193b785a772}} 
+\index{simple\_tts::NumberToText@{simple\_tts::NumberToText}!allTexts@{allTexts}}
+\index{allTexts@{allTexts}!simple\_tts::NumberToText@{simple\_tts::NumberToText}}
+\doxysubsubsection{\texorpdfstring{allTexts()}{allTexts()}}
+{\footnotesize\ttfamily audio\+\_\+tools\+::\+Vector$<$ const char $\ast$ $>$ \& simple\+\_\+tts\+::\+Number\+To\+Text\+::all\+Texts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+provides all texts 
+
+
+
+Implements \mbox{\hyperlink{classsimple__tts_1_1_simple_t_t_s_base}{simple\+\_\+tts\+::\+Simple\+TTSBase}}.
+
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a18f66f2a010b90e872d2112b7235acef}\label{classsimple__tts_1_1_number_to_text_a18f66f2a010b90e872d2112b7235acef}} 
 \index{simple\_tts::NumberToText@{simple\_tts::NumberToText}!first@{first}}
@@ -101,11 +137,11 @@ GPLv3
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}ZERO"{}},    \textcolor{stringliteral}{"{}ONE"{}},       \textcolor{stringliteral}{"{}TWO"{}},       \textcolor{stringliteral}{"{}THREE"{}},}
-\DoxyCodeLine{                           \textcolor{stringliteral}{"{}FOUR"{}},    \textcolor{stringliteral}{"{}FIVE"{}},      \textcolor{stringliteral}{"{}SIX"{}},       \textcolor{stringliteral}{"{}SEVEN"{}},}
-\DoxyCodeLine{                           \textcolor{stringliteral}{"{}EIGHT"{}},   \textcolor{stringliteral}{"{}NINE"{}},      \textcolor{stringliteral}{"{}TEN"{}},       \textcolor{stringliteral}{"{}ELEVEN"{}},}
-\DoxyCodeLine{                           \textcolor{stringliteral}{"{}TWELVE"{}},  \textcolor{stringliteral}{"{}THIRTEEN"{}},  \textcolor{stringliteral}{"{}FOURTEEN"{}},  \textcolor{stringliteral}{"{}FIFTEEN"{}},}
-\DoxyCodeLine{                           \textcolor{stringliteral}{"{}SIXTEEN"{}}, \textcolor{stringliteral}{"{}SEVENTEEN"{}}, \textcolor{stringliteral}{"{}EIGHTEEN"{}},  \textcolor{stringliteral}{"{}NINETEEN"{}}\}}
+\DoxyCodeLine{=\ \{\textcolor{stringliteral}{"{}ZERO"{}},\ \ \ \ \textcolor{stringliteral}{"{}ONE"{}},\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}TWO"{}},\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}THREE"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FOUR"{}},\ \ \ \ \textcolor{stringliteral}{"{}FIVE"{}},\ \ \ \ \ \ \textcolor{stringliteral}{"{}SIX"{}},\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SEVEN"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}EIGHT"{}},\ \ \ \textcolor{stringliteral}{"{}NINE"{}},\ \ \ \ \ \ \textcolor{stringliteral}{"{}TEN"{}},\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ELEVEN"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}TWELVE"{}},\ \ \textcolor{stringliteral}{"{}THIRTEEN"{}},\ \ \textcolor{stringliteral}{"{}FOURTEEN"{}},\ \ \textcolor{stringliteral}{"{}FIFTEEN"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SIXTEEN"{}},\ \textcolor{stringliteral}{"{}SEVENTEEN"{}},\ \textcolor{stringliteral}{"{}EIGHTEEN"{}},\ \ \textcolor{stringliteral}{"{}NINETEEN"{}}\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}\label{classsimple__tts_1_1_number_to_text_a0e95c6ceb2e64bbc07565219c2ac5c91}} 
@@ -116,8 +152,8 @@ GPLv3
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}"{}},      \textcolor{stringliteral}{"{}TEN"{}},   \textcolor{stringliteral}{"{}TWENTY"{}},  \textcolor{stringliteral}{"{}THIRTY"{}}, \textcolor{stringliteral}{"{}FORTY"{}},}
-\DoxyCodeLine{                            \textcolor{stringliteral}{"{}FIFTY"{}}, \textcolor{stringliteral}{"{}SIXTY"{}}, \textcolor{stringliteral}{"{}SEVENTY"{}}, \textcolor{stringliteral}{"{}EIGHTY"{}}, \textcolor{stringliteral}{"{}NINETY"{}}\}}
+\DoxyCodeLine{=\ \{\textcolor{stringliteral}{"{}"{}},\ \ \ \ \ \ \textcolor{stringliteral}{"{}TEN"{}},\ \ \ \textcolor{stringliteral}{"{}TWENTY"{}},\ \ \textcolor{stringliteral}{"{}THIRTY"{}},\ \textcolor{stringliteral}{"{}FORTY"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FIFTY"{}},\ \textcolor{stringliteral}{"{}SIXTY"{}},\ \textcolor{stringliteral}{"{}SEVENTY"{}},\ \textcolor{stringliteral}{"{}EIGHTY"{}},\ \textcolor{stringliteral}{"{}NINETY"{}}\}}
 
 \end{DoxyCode}
 

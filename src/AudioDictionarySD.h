@@ -26,7 +26,7 @@ namespace simple_tts {
  *
  */
 template <class T>
-class AudioStreamFileWrapper : public AudioStreamX {
+class AudioStreamFileWrapper : public AudioStream {
  public:
   AudioStreamFileWrapper() = default;
   virtual bool begin(T &file) {
