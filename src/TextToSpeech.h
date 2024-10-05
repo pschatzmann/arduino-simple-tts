@@ -1,8 +1,8 @@
 #pragma once
 #ifndef NO_SPEECH
-#include "AudioTools/AudioOutput.h"
-#include "AudioTools/AudioStreams.h"
-#include "AudioTools/AudioTypes.h"
+#include "AudioTools/CoreAudio/AudioOutput.h"
+#include "AudioTools/CoreAudio/AudioStreams.h"
+#include "AudioTools/CoreAudio/AudioTypes.h"
 #include "NumberToText.h"
 #include "AudioDictionary.h"
 

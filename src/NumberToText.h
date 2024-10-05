@@ -1,6 +1,6 @@
 #pragma once
 #include "SimpleTTSBase.h"
-#include "AudioBasic/Collections/Vector.h"
+#include "AudioTools/CoreAudio/AudioBasic/Collections/Vector.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
