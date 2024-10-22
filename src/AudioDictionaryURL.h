@@ -36,7 +36,7 @@ public:
 protected:
   const char *url_cstr;
   const char *ext_cstr;
-  StrExt url_str;
+  Str url_str;
   URLStream *p_url;
 };
 

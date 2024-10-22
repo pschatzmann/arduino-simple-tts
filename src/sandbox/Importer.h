@@ -68,7 +68,7 @@ class Importer {
   }
 
  protected:
-  audio_tools::StrExt url_with_text;
+  audio_tools::Str url_with_text;
   File file;
   AudioStreamFileWrapper fileWrapper;
   const char *path;

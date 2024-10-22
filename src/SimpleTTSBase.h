@@ -27,7 +27,7 @@ class SimpleTTSBase {
   void printCSV(Print &out) {
     for (auto txt : allTexts()) {
       if (txt!=nullptr && strlen(txt)>0){
-        StrExt str = txt; 
+        StrView str = txt; 
         str.toLowerCase(); // convert txt to lowercase
         out.print(str.c_str());
         out.print(",");

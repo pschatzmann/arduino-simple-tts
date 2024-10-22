@@ -96,7 +96,7 @@ class AudioDictionarySD : public AudioDictionaryBase {
   }
 
  protected:
-  audio_tools::StrExt url_with_text;
+  audio_tools::Str url_with_text;
   AudioFile file;
   AudioStreamFileWrapper<AudioFile> fileWrapper;
 #ifndef USE_SD
@@ -104,7 +104,7 @@ class AudioDictionarySD : public AudioDictionaryBase {
 #endif
   const char *path;
   const char *ext;
-  StrExt file_path{40};  // allocate 40 bytes as a typical good initial size
+  Str file_path{40};  // allocate 40 bytes as a typical good initial size
   bool is_setup = false;
   int cs_pin = -1;
 

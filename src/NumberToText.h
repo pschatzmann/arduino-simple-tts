@@ -43,7 +43,7 @@ class NumberToText : public SimpleTTSBase {
     convert(wholeNumber);
  
     // add decimals
-    if (Str(decimals).toLong()>0l){
+    if (StrView(decimals).toLong()>0l){
       convertDecimals(decimals);
     }
 
@@ -106,7 +106,7 @@ class NumberToText : public SimpleTTSBase {
     }
   }
   void convert(const char* strValue){
-    convert(Str(strValue).toLong());
+    convert(StrView(strValue).toLong());
   }
 
   // TODO: convert to string operations
