@@ -4,7 +4,7 @@
  * @brief Demo that translates numbers into speech
  * I tested the sketch with an AudioKit. If you want to use it with a regular micrcontroller
  * - remove the include "AudioLibs/AudioKit.h"
- * - replace the  AudioKitStream with I2SStream, AnalogAudioStream, PMWAudioStream
+ * - replace the  AudioBoardStream with I2SStream, AnalogAudioStream, PMWAudioStream
  * @version 0.1
  * @date 2022-02-16
  * 
@@ -13,15 +13,15 @@
  */
 
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 #include "Desktop.h" // some special logic for desktop builds
 
 #ifndef IS_DESKTOP
-#include "AudioLibs/AudioKit.h"
+#include "AudioTools/AudioLibs/AudioBoardStream.h"
 #endif
 
 NumberToText ntt;
-AudioKitStream out; // Replace with desired class e.g. I2SStream
+AudioBoardStream out(AudioKitEs8388V1); // Replace with desired class e.g. I2SStream
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
 TextToSpeech tts(ntt, out, mp3, dictionary);

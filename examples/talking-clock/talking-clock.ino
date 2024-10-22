@@ -9,16 +9,16 @@
  * 
  */
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 #include "time/TimeInfoESP32.h" // or alternative TimeInfoRTC.h
-#include "AudioLibs/AudioKit.h"
+#include "AudioTools/AudioLibs/AudioBoardStream.h"
 
 // Output
 TimeToText ttt;
-AudioKitStream i2s; // replace with alterntive Audio Sink if needed: AnalogAudioStream, I2SStream etc.
+AudioBoardStream out(AudioKitEs8388V1); // replace with alterntive Audio Sink if needed: AnalogAudioStream, I2SStream etc.
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
-TextToSpeech tts(ttt, i2s, mp3, dictionary);
+TextToSpeech tts(ttt, out, mp3, dictionary);
 
 // Determine Time
 TimeInfo timeInfo;
@@ -30,10 +30,10 @@ void setup() {
   AudioLogger::instance().begin(Serial, AudioLogger::Info);
 
   // setup i2s
-  auto cfg = i2s.defaultConfig();
+  auto cfg = out.defaultConfig();
   cfg.sample_rate = 24000;
   cfg.channels = 1;
-  i2s.begin(cfg);
+  out.begin(cfg);
 
   // We announce the time only every 5 minutes
   timeInfo.setEveryMinutes(5);

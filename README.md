@@ -75,7 +75,7 @@ If we record the words in mp3 we might even get away with the need for a separat
 
 ```
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
 I2SStream i2s;  // audio output via I2S
 MP3DecoderHelix mp3;  // mp3 decoder
@@ -103,7 +103,7 @@ You can also use the text generation classes described above:
 
 ```
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
 TimeToText ttt; // Text source
 I2SStream i2s;  // audio output via I2S
@@ -151,5 +151,5 @@ Further information can be found in the [Wiki](https://github.com/pschatzmann/ar
 - [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) - mandatory
 - [arduino-libhelix](https://github.com/pschatzmann/arduino-libhelix) A __MP3 and AAC Decoder__ from Realnetworks - mandatory if you use the mp3 of the examles 
 - [SdFat Library](https://github.com/greiman/SdFat) - optional for SD examples (or you can use the SD library instead: see Wiki)
-- [Arduino AudioKit](https://github.com/pschatzmann/arduino-audiokit) - optional if you use the AudioKit (alternatively you can just replace the AudioKitStream in the examples with e.g. an I2SStream)
+- [Arduino AudioKit](https://github.com/pschatzmann/arduino-audiokit) - optional if you use the AudioKit (alternatively you can just replace the AudioBoardStream in the examples with e.g. an I2SStream)
   

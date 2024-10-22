@@ -10,10 +10,10 @@
  */
 
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 #include "Desktop.h"
 
-I2SStream i2s;
+I2SStream out;
 VolumeStream volume(i2s);
 SilenceRemovalConverter<int16_t> rem(8, 2);
 ConvertedStream<int16_t,SilenceRemovalConverter<int16_t>> out(volume, rem); 
@@ -29,10 +29,10 @@ void setup(){
     Serial.begin(115200);
     AudioLogger::instance().begin(Serial, AudioLogger::Info);
     // setup out
-    auto cfg = i2s.defaultConfig(); 
+    auto cfg = out.defaultConfig(); 
     cfg.sample_rate = 24000;
     cfg.channels = 1;
-    i2s.begin(cfg);
+    out.begin(cfg);
 
     // define volume
     volume.setVolume(0.6);

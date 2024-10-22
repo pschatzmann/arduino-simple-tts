@@ -80,9 +80,9 @@ class NumberToText : public SimpleTTSBase {
   const char* second[10] = {"",      "TEN",   "TWENTY",  "THIRTY", "FORTY",
                             "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY"};
 
-  const char* third[7] = {"AND","DOT","MINUS", "HUNDRED", "THOUSAND", "MILLION","BILLION"};
+  const char* third[7] = {"AND","POINT","MINUS", "HUNDRED", "THOUSAND", "MILLION","BILLION"};
   const int AND = 0;
-  const int DOT = 1;
+  const int POINT = 1;
   const int MINUS = 2;
   const int HUNDRED = 3;
   const int THOUSAND = 4;
@@ -97,7 +97,7 @@ class NumberToText : public SimpleTTSBase {
     Str dec(decimals);
     if (dec.toInt()!=0.0){
       const char* ch=decimals;
-      add(third[DOT]);
+      add(third[POINT]);
       while (*ch){
         int idx = (*ch)-48; // convert to index
         add(first[idx]);

@@ -5,7 +5,7 @@
  * @brief Test sketch which announces the indicated time. 
  * I tested the sketch with an AudioKit. If you want to use it with a regular micrcontroller
  * - remove the include "AudioLibs/AudioKit.h"
- * - replace the  AudioKitStream with I2SStream, AnalogAudioStream, PMWAudioStream
+ * - replace the  AudioBoardStream with I2SStream, AnalogAudioStream, PMWAudioStream
  * @version 0.1
  * @date 2022-02-16
  * 
@@ -15,17 +15,17 @@
 #include "AudioTools.h"
 #include "SimpleTTS.h"
 #include "AudioDictionarySD.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
 #ifndef IS_DESKTOP
-#include "AudioLibs/AudioKit.h" // for AudioKit
+#include "AudioTools/AudioLibs/AudioBoardStream.h" // for AudioKit
 #endif
 
 TimeToText ttt;
 MP3DecoderHelix mp3;
 const char* path = "/tts";
 AudioDictionarySD dictionary(path, "mp3", PIN_AUDIO_KIT_SD_CARD_CS);
-AudioKitStream out;  // Replace with desired output class e.g. I2SStream
+AudioBoardStream out(AudioKitEs8388V1);  // Replace with desired output class e.g. I2SStream
 TextToSpeech tts(ttt, out, mp3, dictionary);
 int hour=0, minute=0;
 

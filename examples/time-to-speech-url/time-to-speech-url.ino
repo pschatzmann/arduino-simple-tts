@@ -13,8 +13,8 @@
 #include "AudioTools.h"
 #include "SimpleTTS.h"
 #include "AudioDictionaryURL.h"
-#include "AudioCodecs/CodecMP3Helix.h"
-#include "AudioLibs/AudioKit.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioLibs/AudioBoardStream.h"
 
 
 const char *ssid = "ssid";
@@ -25,7 +25,7 @@ TimeToText ttt;
 URLStream in(ssid, password); 
 AudioDictionaryURL dictionary(in, url, "mp3");
 MP3DecoderHelix mp3;
-AudioKitStream out; // Replace with desired output class e.g. I2SStream
+AudioBoardStream out(AudioKitEs8388V1); // Replace with desired output class e.g. I2SStream
 TextToSpeech tts(ttt, out, mp3, dictionary);
 int hour=0, minute=0;
 
@@ -35,7 +35,7 @@ void setup(){
  
     // setup in
     auto cfg = out.defaultConfig(); 
-    cfg.sd_active = false; // for AudioKitStream to use all pins
+    cfg.sd_active = false; // for AudioBoardStream to use all pins
     cfg.sample_rate = 24000;
     cfg.channels = 1;
     out.begin(cfg);

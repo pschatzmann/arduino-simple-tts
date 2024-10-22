@@ -37,6 +37,8 @@
 #include "ten.h"           
 #include "three.h"         
 #include "zero.h"
+#include "dot.h"
+#include "point.h"
 // time
 #include "am.h"
 #include "half.h"

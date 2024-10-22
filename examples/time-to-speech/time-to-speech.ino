@@ -11,15 +11,15 @@
  */
 #include "AudioTools.h"
 #include "SimpleTTS.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 #include "Desktop.h" // some special logic for desktop builds
 #ifndef IS_DESKTOP
-#include "AudioLibs/AudioKit.h"
+#include "AudioTools/AudioLibs/AudioBoardStream.h"
 #endif
 
 
 TimeToText ttt;
-AudioKitStream out; // Replace with desired class e.g. I2SStream
+AudioBoardStream out(AudioKitEs8388V1); // Replace with desired class e.g. I2SStream
 MP3DecoderHelix mp3;
 AudioDictionary dictionary(ExampleAudioDictionaryValues);
 TextToSpeech tts(ttt, out, mp3, dictionary);

@@ -45,6 +45,7 @@ AudioDictionaryEntry ExampleAudioDictionaryValues[] = {
     {"AND", new MemoryStream(and_mp3, and_mp3_len)},
     {"BILLION", new MemoryStream(billion_mp3, billion_mp3_len)},
     {"DOT", new MemoryStream(dot_mp3, dot_mp3_len)},
+    {"POINT", new MemoryStream(point_mp3, point_mp3_len)},
     {"EIGHT", new MemoryStream(eight_mp3, eight_mp3_len)},
     {"EIGHTEEN", new MemoryStream(eighteen_mp3, eighteen_mp3_len)},
     {"EIGHTY", new MemoryStream(eighty_mp3, eighty_mp3_len)},
