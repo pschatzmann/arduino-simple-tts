@@ -22,7 +22,7 @@ This functionality can be used e.g. to build some
 
 NumberToText translates the number input into a audio_tools::Vector of words. In the following examples we just print them out:
 
-```
+```C++
 NumberToText ntt;
 
 auto result = ntt.say(700123.431);
@@ -39,7 +39,7 @@ The result is: SEVEN HUNDRED THOUSAND ONE HUNDRED AND TWENTY THREE DOT FOUR THRE
 
 To process the time you need to provide the hours and minuts as input.
 
-```
+```C++
 TimeToText ttt;
 
 auto result = ttt.say(12, 00);
@@ -55,7 +55,7 @@ The result is: NOON
 ### Numbers with Units
 
 You can also process numbers with the corresponding units
-```
+```C++
 NumberUnitToText utt;
 
 auto result = utt.say(1.01,"usd");
@@ -73,7 +73,7 @@ The result is: ONE u.s. dollar AND ONE cent
 
 If we record the words in mp3 we might even get away with the need for a separate SD drive because we can store the audio in program memory. The ExampleAudioDictionaryValues contains the prerecorded mp3 files which are stored in the PROGMEM.
 
-```
+```C++
 #include "SimpleTTS.h"
 #include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
@@ -101,7 +101,7 @@ The word "Billion" is spoken out via I2S.
 
 You can also use the text generation classes described above:
 
-```
+```C++
 #include "SimpleTTS.h"
 #include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 
@@ -149,7 +149,7 @@ Further information can be found in the [Wiki](https://github.com/pschatzmann/ar
 ## Dependencies
 
 - [Arduino Audio Tools](https://github.com/pschatzmann/arduino-audio-tools) - mandatory
-- [arduino-libhelix](https://github.com/pschatzmann/arduino-libhelix) A __MP3 and AAC Decoder__ from Realnetworks - mandatory if you use the mp3 of the examles 
+- [arduino-libhelix](https://github.com/pschatzmann/arduino-libhelix) A __MP3 and AAC Decoder__ from Realnetworks - mandatory if you use the mp3 of the examles or any other supported decoder. 
 - [SdFat Library](https://github.com/greiman/SdFat) - optional for SD examples (or you can use the SD library instead: see Wiki)
-- [Arduino AudioKit](https://github.com/pschatzmann/arduino-audiokit) - optional if you use the AudioKit (alternatively you can just replace the AudioBoardStream in the examples with e.g. an I2SStream)
+- [arduino-audio-driver](https://github.com/pschatzmann/arduino-audio-driver) - optional if you use the AudioKit (alternatively you can just replace the AudioBoardStream in the examples with e.g. an I2SStream)
   
