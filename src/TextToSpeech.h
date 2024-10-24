@@ -54,6 +54,7 @@ class TextToSpeech {
 
   /// a simple API to say one of the supported words
   void say(const char *word) {
+    if (word == nullptr) return;
     LOGI("say: %s",word);
     AudioStream *mp3Stream = p_dictionary->get(word);
     if (mp3Stream != nullptr) {
@@ -63,6 +64,8 @@ class TextToSpeech {
       copier.copyAll(0, 0);
       copier.end();
       mp3Stream->end();
+      // if we use free rtos, we give other processes the chance to 
+      delay(1);
     } else {
       LOGE("Word not available in dictionary: %s", word);
     }
