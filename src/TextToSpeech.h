@@ -49,12 +49,33 @@ class TextToSpeech {
     begin();
   }
 
+  /// Default Constructor for AudioOutput
+  TextToSpeech(AudioOutput &sink, AudioDecoder &decoder,
+               AudioDictionaryBase &dict) {
+    p_dictionary = &dict;
+    p_decoder = &decoder;
+    p_sink = &sink;
+    decodedStream = new audio_tools::EncodedAudioStream(&sink, &decoder);
+    begin();
+  }
+
+  /// Constructor w/o output: you need to call begin() and setOutput()
+  TextToSpeech(AudioDecoder &decoder,
+               AudioDictionaryBase &dict) {
+    p_dictionary = &dict;
+    p_decoder = &decoder;
+  }
+
 
   ~TextToSpeech() { delete decodedStream; }
 
   /// a simple API to say one of the supported words
-  void say(const char *word) {
-    if (word == nullptr) return;
+  bool say(const char *word) {
+    if (decodedStream == nullptr) {
+      LOGE("No output stream defined. Use setOutput() to define the output stream.");
+      return false;
+    }
+    if (word == nullptr) return false;
     LOGI("say: %s",word);
     AudioStream *mp3Stream = p_dictionary->get(word);
     if (mp3Stream != nullptr) {
@@ -66,14 +87,16 @@ class TextToSpeech {
       mp3Stream->end();
       // if we use free rtos, we give other processes the chance to 
       delay(1);
+      return true;
     } else {
       LOGE("Word not available in dictionary: %s", word);
+      return false;
     }
   }
 
-  void begin() {
-    p_decoder->begin();
-    active = true;
+  bool begin() {
+    active = p_decoder->begin();
+    return active;
   }
 
   void end() {
@@ -82,12 +105,14 @@ class TextToSpeech {
   }
 
   /// a simple API to say multiple of the supported words
-  void say(audio_tools::Vector<const char *> words) {
-    begin();
+  bool say(audio_tools::Vector<const char *> words) {
+    bool result = true;
+    if (!begin()) return false;
     for (auto word : words) {      
-      say(word);
+      if (!say(word)) result = false;
     }
     end();
+    return result;
   }
 
   /// writes silence for the indicated ms
@@ -97,6 +122,18 @@ class TextToSpeech {
       while(timeout>millis()){
          p_sink->write((const uint8_t*)buffer,1024);
       }
+  }
+
+  void setOutput(AudioStream &sink) {
+    p_sink = &sink;
+    if (decodedStream) delete decodedStream;
+    decodedStream = new audio_tools::EncodedAudioStream(&sink, p_decoder);
+  }
+
+  void setOutput(AudioOutput &sink) {
+    p_sink = &sink;
+    if (decodedStream) delete decodedStream;
+    decodedStream = new audio_tools::EncodedAudioStream(&sink, p_decoder);
   }
 
  protected:
